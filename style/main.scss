@@ -1,0 +1,14 @@
+@forward "./partials/login";
+@forward "./partials/signup";
+@forward "./partials/home";
+@forward "./partials/header";
+@forward "./partials/create";
+@forward "./partials/edit";
+@forward "./partials/details";
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}

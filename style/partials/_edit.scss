@@ -1,0 +1,81 @@
+.edit-upper-container{
+    width:100%;
+    height:30vh;
+    border-bottom:1.1px solid rgb(220, 216, 216);
+    display:flex;
+    padding-top:20px;
+}
+.edit-img-box
+{
+    width:60%;
+    height:100%;
+    display:flex;
+    margin-left:70px;
+    align-items:center;
+}
+.edit-img-upload{
+    height:150px;
+    width:150px;
+    border-radius:50%;
+    background:#C2E7FF;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+  
+}
+.edit-img-upload i{
+    font-size:30px;
+    
+}
+.edit-img-upload img{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    // display:none;
+}
+.edit-btn-box{
+    width:40%;
+    display:flex;
+    justify-content: start;
+    align-items: end;
+
+}
+ .edit-btn input{
+    display:inline-block;
+    border:none;
+    background:transparent;
+    border:none;
+    width:100px;
+    height:35px;
+    background:#0158CC;
+    color:white;
+    font-size:16px;
+    border-radius: 40px;
+    margin-bottom:30px;
+    
+}
+
+/* lower-container styling  */
+
+.edit-lower-container{
+    padding-top:20px;
+    padding-left:60px;
+    // border:2px solid black;
+}
+
+.edit-lower-container div{
+    margin-bottom:10px;
+    display:flex;
+    padding:5px;   
+}
+.edit-lower-container div label i{
+   color:rgb(17, 43, 62);
+}
+.edit-lower-container div input{
+    margin-left:23px;
+    height:38px;
+    width:450px;
+}
+.edit-lower-container div .icon-input{
+    margin-left:10px;
+}

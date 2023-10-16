@@ -1,0 +1,121 @@
+.details-upper-container{
+    display:flex;
+}
+
+
+.details-img-box{
+   display:flex;
+   align-items: center;
+   height:30vh;
+   width:50%;
+   padding:0px 100px;
+//   border:2px solid black;
+}
+.details-img-box img{
+    width:170px;
+}
+.details-btn-box{
+    // border:2px solid black;
+    display:flex;
+    width:50%;
+    justify-content: start;
+    align-items: end;
+    justify-content: center;
+    padding:0px 100px;
+    padding-bottom:20px;
+}
+.details-btn-box input{
+   height:35px;
+   width:90px;
+   border:none;
+   background:#1E64D4;
+   border-radius:40px;
+   font-size:16px;
+   color:white;
+
+}
+
+.details-middle-container{
+    height:60px;
+    // border:3px solid black;
+    padding:15px;
+}
+.details-inner-middle-container{
+     display:flex;
+    //  border:2px solid black;
+    align-items: center;
+    justify-content: center;
+
+}
+.details-inner-middle-container:before{
+    content:'';
+    height:1.5px;
+    background:#999999;
+    width:40%;
+
+}
+.details-inner-middle-container:after{
+    content:'';
+    height:1.5px;
+    background:#999999;
+    width:40%;
+}
+.details-inner-middle-container div{
+    display:flex;
+    align-items:center;
+    justify-content:center ;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#E4E4E4;
+    margin:0px 10px;
+    
+}
+.details-inner-middle-container div i{
+    color:#999999;
+}
+
+.details-lower-container{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    margin-top:20px;
+
+}
+.details-left-container{
+    // border:2px solid black;
+    width:40%;
+    height:30vh;
+    padding:20px;
+    background:#F0F4F9;
+    border-radius:15px;
+}
+.details-left-container h4{
+ padding:10px;
+}
+.details-email-container, .details-phone-container, .details-birthday-container{
+    padding:10px;
+
+}
+.details-email-container i{
+    margin-right:10px;
+}
+.details-phone-container i{
+    margin-right:10px;
+}
+.details-birthday-container i{
+    margin-right:10px;
+}
+
+.details-right-container{
+    // border:2px solid black;
+    width:40%;
+    height:30vh;
+    padding:20px;
+}
+.details-right-container h4{
+     padding:10px;
+}
+.details-last-edit, .details-add-contacts{
+    padding:10px;
+}
