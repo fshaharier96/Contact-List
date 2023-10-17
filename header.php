@@ -11,13 +11,19 @@
     <div class="header-search-box">
         <input type="text" name="search" id="header-search" placeholder="search contacts">
         <div id="header-search-btn">
-            <button id="header-btn">
+            <button id="header-btn1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <button id="header-btn2">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
+            
         </div>
 
     <div class="header-list-container">
+       <table id="tbl1">
 
+       </table>
     </div>
 
     </div>

@@ -14,6 +14,7 @@
     align-items:center;
 }
 .edit-img-upload{
+    border:2px solid black;
     height:150px;
     width:150px;
     border-radius:50%;
@@ -23,13 +24,13 @@
     align-items:center;
   
 }
-.edit-img-upload i{
+.edit-img-upload  .edit-img-icon i{
     font-size:30px;
     
 }
 .edit-img-upload img{
-    width:150px;
-    height:150px;
+    width:145px;
+    height:145px;
     border-radius: 50%;
     // display:none;
 }

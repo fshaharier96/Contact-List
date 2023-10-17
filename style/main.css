@@ -217,6 +217,7 @@ tr:hover .home-dis2 {
   border-radius: 7px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 #header-search {
@@ -244,14 +245,45 @@ tr:hover .home-dis2 {
   border-radius: 0px 7px 7px 0px;
 }
 
-#header-btn {
+#header-search-btn i {
+  font-size: 20px;
+  color: #588CFF;
+}
+
+#header-btn1 {
+  border: none;
+  background: transparent;
+  margin-right: 5px;
+  display: none;
+}
+
+#header-btn2 {
   border: none;
   background: transparent;
 }
 
-#header-search-btn i {
-  font-size: 20px;
-  color: #588CFF;
+.header-list-container {
+  width: 90%;
+  box-shadow: 0px 0px 5px gray;
+  position: absolute;
+  top: 44px;
+  left: 0px;
+  background: white;
+}
+
+#tbl1 {
+  width: 100%;
+}
+
+.header-search-item {
+  padding: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.header-search-item:hover {
+  background: #B4DCFC;
 }
 
 .header-setting-container {
@@ -386,6 +418,7 @@ tr:hover .home-dis2 {
 }
 
 .edit-img-upload {
+  border: 2px solid black;
   height: 150px;
   width: 150px;
   border-radius: 50%;
@@ -395,13 +428,13 @@ tr:hover .home-dis2 {
   align-items: center;
 }
 
-.edit-img-upload i {
+.edit-img-upload .edit-img-icon i {
   font-size: 30px;
 }
 
 .edit-img-upload img {
-  width: 150px;
-  height: 150px;
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
 }
 

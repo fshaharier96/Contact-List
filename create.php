@@ -26,7 +26,7 @@
                     <div class="create-img-icon"><i class="fa-regular fa-image"></i></div>
                     <img src="uploads/pic.jpg" width="90" id="create-image-id">
                 </label>
-                <input type='file' name='uploadfile'  id='create-file-id'>
+                <input hidden type='file' name='uploadfile'  id='create-file-id'>
 
             </div>
             <div class="create-btn-box">

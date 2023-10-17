@@ -37,8 +37,21 @@ if(mysqli_num_rows($result)>0)
         <div class="edit-upper-container">
             <div class="edit-img-box">
                 <label for="edit-file-id" class="edit-img-upload">
-                    <!--<div class="edit-img-icon"><i class="fa-regular fa-image"></i></div>-->
+                <?php 
+                      if(empty($row['contact_image']))
+                      {
+                    ?>
+                    <div class="edit-img-icon"><i class="fa-regular fa-image"></i></div>
+                    <?php 
+                        } else{
+
+                     ?>
+                   
                     <img src="<?php echo $row['contact_image'] ?>" width="90" id="edit-image-id">
+
+                     <?php 
+                        }
+                     ?>
                 </label>
                 <?php
                    $img_file=$row['contact_image'];
@@ -46,7 +59,7 @@ if(mysqli_num_rows($result)>0)
                    $str=substr($img_file,$pos);
                 
                 ?>
-            <input type='file' name='uploadfile'  id='edit-file-id' value="<?php echo $str; ?>">
+            <input  hidden type='file' name='uploadfile'  id='edit-file-id'>
 
             </div>
             <div class="edit-btn-box">
@@ -62,8 +75,8 @@ if(mysqli_num_rows($result)>0)
         <!--lower container starts-->
 
         <div class="edit-lower-container">
-             <input  type='number' name="id" value="<?php echo $row['id'] ?>">
-             <input  type='text' name="contact_image" value="<?php echo $row['contact_image'] ?>">
+             <input hidden type='number' name="id" value="<?php echo $row['id'] ?>">
+             <input hidden type='text' name="contact_image" value="<?php echo $row['contact_image'] ?>">
 
             <div>
                 <label><i class="fa-regular fa-user"></i></label>
