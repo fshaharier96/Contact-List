@@ -38,5 +38,5 @@ $('#header-btn1').click(function(){
 
  $(document).on('click',".header-search-item",function(){
     let pageId=$(this).data('trid');
-    window.location = `edit.php?page=${pageId}`;
+    window.location = `details.php?page=${pageId}`;
   });
