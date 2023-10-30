@@ -45,7 +45,7 @@
   .header-search-box {
     background: white;
     height: 43px;
-    width: 650px;
+    width: 500px;
     border: 1.8px solid gray;
     border-radius: 7px;
     display: flex;
@@ -122,7 +122,8 @@
     justify-content: center;
     align-items: center;
     font-size:20px;
-    width:100px;
+    width:170px;
+    // border:2px solid black;
     
   }
   .header-setting-btn{
@@ -138,12 +139,27 @@
     align-items: center;
     height:25px;
     width:25px;
+    margin:0px 14px;
     border:2.2px solid #588CFF;;
     border-radius: 50%;
   }
   .header-help-btn i{
     color:#588CFF;
     font-size:16px;
+  }
+  .header-logout-btn{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:25px;
+    width:25px;
+    margin-left:14px;
+    border-radius: 50%;
+  }
+  .header-logout-btn i{
+    color:#588CFF;
+    font-size:20px;
+    
   }
   
   

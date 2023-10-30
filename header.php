@@ -1,5 +1,5 @@
 <div class="header-container">
-    <div class="header-logo">
+    <div  class="header-logo">
         <i class="fa-solid fa-address-book"></i>
         <p>Contacts</p>
     </div>
@@ -33,6 +33,9 @@
         </div>
         <div class="header-help-btn">
             <i class="fa-solid fa-question"></i>
+        </div>
+        <div class="header-logout-btn">
+        <i title="Log out" class="fa-solid fa-right-from-bracket"></i>
         </div>
     </div>
 
