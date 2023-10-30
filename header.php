@@ -1,3 +1,6 @@
+<?php
+
+?>
 <div class="header-container">
     <div  class="header-logo">
         <i class="fa-solid fa-address-book"></i>
@@ -35,7 +38,7 @@
             <i class="fa-solid fa-question"></i>
         </div>
         <div class="header-logout-btn">
-        <i title="Log out" class="fa-solid fa-right-from-bracket"></i>
+        <a href="logout.php"><i title="Log out" class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
 

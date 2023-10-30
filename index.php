@@ -1,6 +1,5 @@
 <?php
-
-
+     session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +49,9 @@
             $sql="SELECT * FROM login_table WHERE username='{$username}' AND password='{$password}'";
             $result=mysqli_query($conn,$sql) or die("query unsuccessful : ".mysqli_error($conn));
             if(mysqli_num_rows($result)>0)
-            {
+            {     $row=mysqli_fetch_assoc($result);
+                  $_SESSION['id']=$row['id'];
+                  $_SESSION['user']=$row['username'];
                   header("Location:http://localhost/php_practice/PHP_PRACTICE_10/home.php");
             }
             else{
