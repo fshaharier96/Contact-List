@@ -2,10 +2,10 @@
 
 ?>
 <div class="header-container">
-    <div  class="header-logo">
+    <a href="home.php" class="header-logo">
         <i class="fa-solid fa-address-book"></i>
         <p>Contacts</p>
-    </div>
+    </a>
     <div class="header-add">
     <i class="fa-solid fa-plus"></i>
         <p>Create contact</p>

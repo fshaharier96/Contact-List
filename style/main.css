@@ -173,6 +173,7 @@ tr:hover .home-dis2 {
 
 .header-logo {
   display: flex;
+  text-decoration: none;
 }
 
 .header-logo i {
@@ -183,7 +184,7 @@ tr:hover .home-dis2 {
 
 .header-logo p {
   font-size: 30px;
-  color: rgb(64, 62, 62);
+  color: #0158CC;
 }
 
 .header-add {
