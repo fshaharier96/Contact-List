@@ -1,6 +1,7 @@
 <?php
 $conn=mysqli_connect('localhost','root','','contact-list') or die("connection failed");
-
+session_start();
+$user_id=$_SESSION['id'];
 $limit_per_page=8;
 $page='';
 if(isset($_POST['page_no'])){
@@ -12,7 +13,8 @@ $offset=($page-1)*$limit_per_page;
 
 
 
-$sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table LIMIT {$offset},{$limit_per_page}";
+$sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table
+WHERE user_id={$user_id} LIMIT {$offset},{$limit_per_page}";
 $result=mysqli_query($conn,$sql) or die('query unsuccessful');
 $output="";
 if(mysqli_num_rows($result)>0){

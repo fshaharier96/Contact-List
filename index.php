@@ -52,7 +52,8 @@
             {     $row=mysqli_fetch_assoc($result);
                   $_SESSION['id']=$row['id'];
                   $_SESSION['user']=$row['username'];
-                  header("Location:http://localhost/php_practice/PHP_PRACTICE_10/home.php");
+                  echo "data is correct";
+                  header("Location:http://localhost/Contact_List_Project/Contact-List-Local/home.php");
             }
             else{
                 echo "<p>incorrect username or password !</p>";
