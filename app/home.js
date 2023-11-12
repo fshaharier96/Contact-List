@@ -32,9 +32,7 @@ $(document).on('click','tr td i',function(){
       if(userConfirmation){
         window.location=`delete.php?page=${data_id}`;
       }
-      else{
-        window.location='home.php';
-      }
+     
      
 
     }
