@@ -37,7 +37,7 @@ if(mysqli_num_rows($result)>0){
         <td>{$row['phone']}</td>
         <td>{$row['job_title']}-{$row['company']}</td>
         <td>{$row['city']}</td>
-        <td><i id='edit' class='fa-solid fa-pen-to-square home-dis' data-role={$row['id']}></i><i id='delete' class='fa-solid fa-trash-can home-dis2' data-role2={$row['id']}></i></td>
+        <td><i id='edit' class='fa-solid fa-pen-to-square home-dis' data-role={$row['id']}></i><i id='delete' class='fa-solid fa-trash-can home-dis2' data-role={$row['id']}></i></td>
         </tr>";
     }
     $output.="</table>";

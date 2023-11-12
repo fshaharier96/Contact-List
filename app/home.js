@@ -20,6 +20,7 @@ $(document).on('click','#home-pagination a',function(e){
 $(document).on('click','tr td i',function(){
     let  id=$(this).attr('id');
     let data_id=$(this).data('role');
+  
     if(id=='edit')
     {
     
@@ -27,7 +28,8 @@ $(document).on('click','tr td i',function(){
     }
     if(id=='delete')
     {
-      window.location="delete.php";
+      window.location=`delete.php?page=${data_id}`;
+
     }
   })
 
