@@ -27,8 +27,15 @@ $(document).on('click','tr td i',function(){
       window.location=`edit.php?page=${data_id}`;
     }
     if(id=='delete')
-    {
-      window.location=`delete.php?page=${data_id}`;
+    { 
+      let userConfirmation=confirm("Are you really want to delete the item?");
+      if(userConfirmation){
+        window.location=`delete.php?page=${data_id}`;
+      }
+      else{
+        window.location='home.php';
+      }
+     
 
     }
   })
