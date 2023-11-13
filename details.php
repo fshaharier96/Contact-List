@@ -16,6 +16,10 @@ if(mysqli_num_rows($result)>0){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+     <!--boostrap css file-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
+
     <link rel="stylesheet" href="style/main.css">
     <title>Edit Contact</title>
 </head>
@@ -26,14 +30,14 @@ if(mysqli_num_rows($result)>0){
     <div class="details-container">
       <!--upper container starts-->
     
-       <div class="details-upper-container">
-             <div class="details-img-box">
-                <img src="<?php echo $row['contact_image']  ?>" alt="mahin" class="details-img">
+       <div class="details-upper-container  d-flex col-12">
+             <div class="details-img-box  col-6 ">
+                <img class="h-75 img-fluid" src="<?php echo $row['contact_image']  ?>" alt="mahin" class="details-img">
                 <p class="details-img-name"><?php echo $row['first_name']." ".$row['last_name'] ?></p>
              </div>
-             <div class="details-btn-box">
+             <div class="details-btn-box  d-flex col-6">
                  
-                    <input type="submit" name="submit" value="Edit">
+                    <input class="btn btn-primary" type="submit" name="submit" value="Edit">
                   
             </div> 
        </div>
@@ -87,7 +91,7 @@ if(mysqli_num_rows($result)>0){
 
        </div>
        <?php
-}
+          }
 
        ?>
        <!--lower container ends-->
@@ -95,6 +99,7 @@ if(mysqli_num_rows($result)>0){
     </div>
     
     <script src='app/jquery.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src='app/header.js'></script>
     <script src='app/details.js'></script>
 </body>

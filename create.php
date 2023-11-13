@@ -8,6 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+     <!--boostrap css file-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
+
     <link rel="stylesheet" href="style/main.css">
     <title>Create Contact</title>
 </head>
@@ -20,8 +24,8 @@
     <!--container section-->
     <div class="create-container">
     <form action="create_data.php" method="post" enctype="multipart/form-data">
-        <div class="create-upper-container">
-            <div class="create-img-box">
+        <div class="create-upper-container col-12 d-flex pt-4 pb-2 pb-4 border-bottom border-secondary">
+            <div class="create-img-box  col-6">
                 <label for="create-file-id" class="create-img-upload">
                     <div class="create-img-icon"><i class="fa-regular fa-image"></i></div>
                     <img src="uploads/pic.jpg" width="90" id="create-image-id">
@@ -29,9 +33,9 @@
                 <input hidden type='file' name='uploadfile'  id='create-file-id'>
 
             </div>
-            <div class="create-btn-box">
+            <div class="create-btn-box d-flex align-items-end col-6">
                   <div class="create-btn">
-                    <input type="submit" name="submit" value="save">
+                    <input class="btn btn-primary" type="submit" name="submit" value="save">
                  </div>
             </div>
           
@@ -41,50 +45,50 @@
 
             <div>
                 <label><i class="fa-regular fa-user"></i></label>
-                <input  type="text"  class="icon-input" name="fname" placeholder="First name">
+                <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="fname" placeholder="First name">
             </div>
                
             <div>
-                <input type="text" name="lname" placeholder="Last name">
+                <input class="form-control border border-secondary ms-3" type="text" name="lname" placeholder="Last name">
             </div>
             <div> 
                  <label><i class="fa-solid fa-building"></i></label>
-                 <input type="text"  class="icon-input" name="company" placeholder="Company">
+                 <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="company" placeholder="Company">
             </div>
             
             <div>
-                 <input type="text" name="job_title" placeholder="Job title">
+                 <input class="form-control border border-secondary ms-3" type="text" name="job_title" placeholder="Job title">
             </div>
             
             <div>
-                 <input type="text" name="department" placeholder="Department">
+                 <input class="form-control border border-secondary ms-3" type="text" name="department" placeholder="Department">
             </div>
 
             <div>
                 <label><i class="fa-regular fa-envelope"></i></label>
-                <input type="email"  class="icon-input" name="email" placeholder="Email">
+                <input  class="form-control border border-secondary ms-1" type="email"  class="icon-input" name="email" placeholder="Email">
             </div>
             <div>
                 <label><i class="fa-solid fa-phone"></i></label>
-                <input type="text"  class="icon-input" name="phone" placeholder="Phone">
+                <input type="text"  class="icon-input form-control border border-secondary ms-1 " name="phone" placeholder="Phone">
             </div>
             <div>
                 <label><i class="fa-solid fa-location-dot"></i></label>
-                <input type="text"  class="icon-input" name="country" placeholder="Country">
+                <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="country" placeholder="Country">
             </div>
             <div>
-                <input type="text" name="street_address" placeholder="Street address">
+                <input  class="form-control border border-secondary ms-3" type="text" name="street_address" placeholder="Street address">
             </div>
 
             <div>
-                <input type="text" name="city" placeholder="City">
+                <input class="form-control border border-secondary ms-3" type="text" name="city" placeholder="City">
             </div>
             <div>
-                <input type="text" name="postal_code" placeholder="Postal code">
+                <input class="form-control border border-secondary ms-3" type="text" name="postal_code" placeholder="Postal code">
             </div>
             <div>
                 <label><i class="fa-solid fa-cake-candles"></i></label>
-                <input type="date"  class="icon-input" name="birth_date" placeholder="Birthday">
+                <input class="form-control border border-secondary ms-1" type="date"  class="icon-input" name="birth_date" placeholder="Birthday">
             </div>
 
             </div>
@@ -100,6 +104,7 @@
 
 
     <script src='app/jquery.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src='app/header.js'></script>
     <script src='app/create.js'></script>
 </body>

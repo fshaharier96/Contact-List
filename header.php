@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<div class="header-container">
+ <div class="header-container">
     <a href="home.php" class="header-logo">
         <i class="fa-solid fa-address-book"></i>
         <p>Contacts</p>
@@ -42,5 +42,5 @@
         </div>
     </div>
 
-</div>
+</div> 
 

@@ -14,6 +14,10 @@ if(mysqli_num_rows($result)>0)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+     <!--boostrap css file-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
+
     <link rel="stylesheet" href="style/main.css">
     <title>Edit Contact</title>
 </head>
@@ -21,21 +25,27 @@ if(mysqli_num_rows($result)>0)
     <?php
     include_once 'header.php';
     ?>
-     <!--container section-->
-     <div class="edit-container">
 
-     <?php
+    <!-- bootstrap code starts-->
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+        <?php
           while($row=mysqli_fetch_assoc($result))
           {
 
              
         ?>
-     <form action="edit_data.php" method="post" enctype="multipart/form-data">
 
-    <!-- Upper container starts -->
+     <form class="form control" action="edit_data.php" method="post" enctype="multipart/form-data"> 
 
-        <div class="edit-upper-container">
-            <div class="edit-img-box">
+
+   <!-- Upper container starts -->
+
+        <div class="edit-upper-container pb-3  border-bottom border-secondary d-flex col-12">
+            <div class="edit-img-box col-6 ms-5">
                 <label for="edit-file-id" class="edit-img-upload">
                 <?php 
                       if(empty($row['contact_image']))
@@ -62,9 +72,9 @@ if(mysqli_num_rows($result)>0)
             <input  hidden type='file' name='uploadfile'  id='edit-file-id'>
 
             </div>
-            <div class="edit-btn-box">
+            <div class="edit-btn-box col-6 d-flex justify-content-center align-items-end">
                   <div class="edit-btn">
-                    <input type="submit" name="submit" value="save">
+                    <input type="submit" name="submit" class=" btn btn-primary " value="save">
                  </div>
             </div>
           
@@ -75,69 +85,80 @@ if(mysqli_num_rows($result)>0)
         <!--lower container starts-->
 
         <div class="edit-lower-container">
-             <input hidden type='number' name="id" value="<?php echo $row['id'] ?>">
+             <input class="form-control" hidden type='number' name="id" value="<?php echo $row['id'] ?>">
              <input hidden type='text' name="contact_image" value="<?php echo $row['contact_image'] ?>">
 
             <div>
                 <label><i class="fa-regular fa-user"></i></label>
-                <input  type="text"  class="icon-input" name="fname" placeholder="First name" value="<?php echo $row['first_name'] ?>">
+                <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="fname" placeholder="First name" value="<?php echo $row['first_name'] ?>">
             </div>
                
             <div>
-                <input type="text" name="lname" placeholder="Last name" value="<?php echo $row['last_name'] ?>">
+                <input class="form-control border border-secondary ms-3" type="text" name="lname" placeholder="Last name" value="<?php echo $row['last_name'] ?>">
             </div>
             <div> 
                  <label><i class="fa-solid fa-building"></i></label>
-                 <input type="text"  class="icon-input" name="company" placeholder="Company" value="<?php echo $row['company'] ?>">
+                 <input class="form-control border border-secondary ms-1"  type="text"  name="company" placeholder="Company" value="<?php echo $row['company'] ?>">
             </div>
             
             <div>
-                 <input type="text" name="job_title" placeholder="Job title" value="<?php echo $row['job_title'] ?>">
+                 <input class="form-control border border-secondary ms-3" type="text" name="job_title" placeholder="Job title" value="<?php echo $row['job_title'] ?>">
             </div>
             
             <div>
-                 <input type="text" name="department" placeholder="Department" value="<?php echo $row['department'] ?>">
+                 <input class="form-control border border-secondary ms-3"  type="text" name="department" placeholder="Department" value="<?php echo $row['department'] ?>">
             </div>
 
             <div>
                 <label><i class="fa-regular fa-envelope"></i></label>
-                <input type="email"  class="icon-input" name="email" placeholder="Email" value="<?php echo $row['email'] ?>">
+                <input  class="form-control border border-secondary ms-1"  type="email"  class="icon-input" name="email" placeholder="Email" value="<?php echo $row['email'] ?>">
             </div>
             <div>
                 <label><i class="fa-solid fa-phone"></i></label>
-                <input type="text"  class="icon-input" name="phone" placeholder="Phone" value="<?php echo $row['phone'] ?>">
+                <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="phone" placeholder="Phone" value="<?php echo $row['phone'] ?>">
             </div>
             <div>
                 <label><i class="fa-solid fa-location-dot"></i></label>
-                <input type="text"  class="icon-input" name="country" placeholder="Country" value="<?php echo $row['country'] ?>">
+                <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="country" placeholder="Country" value="<?php echo $row['country'] ?>">
             </div>
             <div>
-                <input type="text" name="street_address" placeholder="Street address" value="<?php echo $row['street_address'] ?>">
+                <input class="form-control border border-secondary ms-3"  type="text" name="street_address" placeholder="Street address" value="<?php echo $row['street_address'] ?>">
             </div>
 
             <div>
-                <input type="text" name="city" placeholder="City" value="<?php echo $row['city'] ?>">
+                <input class="form-control border border-secondary ms-3"  type="text" name="city" placeholder="City" value="<?php echo $row['city'] ?>">
             </div>
             <div>
-                <input type="text" name="postal_code" placeholder="Postal code" value="<?php echo $row['postal_code'] ?>">
+                <input class="form-control border border-secondary ms-3"  type="text" name="postal_code" placeholder="Postal code" value="<?php echo $row['postal_code'] ?>">
             </div>
             <div>
                 <label><i class="fa-solid fa-cake-candles"></i></label>
-                <input type="date"  class="icon-input" name="birth_date" placeholder="Birthday" value="<?php echo $row['birth_date'] ?>">
+                <input class="form-control border border-secondary ms-1"   type="date"  class="icon-input" name="birth_date" placeholder="Birthday" value="<?php echo $row['birth_date'] ?>">
             </div>
 
             </div>
 
          <!--Lower container ends-->
+     </form>   
 
-            </form>
      <?php
         }
       }
     ?>
-       </div>
-    
+
+
+
+    </div>
+
+
+    </div>
+
+
+    <!--bootstrap code ends-->
+
+
     <script src='app/jquery.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src='app/header.js'></script>
     <script src='app/edit.js'></script>
 </body>

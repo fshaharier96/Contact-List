@@ -47,7 +47,7 @@ if(isset($_POST['submit'])){
 
      if(mysqli_query($conn,$sql))
      {
-         header("Location:http://localhost/php_practice/PHP_PRACTICE_10/home.php");
+         header("Location:{$host}");
          
      }else{
         echo "<h4>data submission failed</h4>";

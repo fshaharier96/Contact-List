@@ -70,7 +70,7 @@
   align-items: center;
   flex-direction: column;
   background-color: #dfe4ea;
-  padding: 5px;
+  padding: 10px;
   font-size: 14px;
 }
 
@@ -85,42 +85,6 @@
 
 .login-bottom-container p a {
   text-decoration: none;
-}
-
-.home-container {
-  width: 95%;
-  height: 85vh;
-  margin: 20px;
-  padding: 10px;
-}
-
-#home-table {
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-#home-table tr:nth-child(even) {
-  background: #f1f2f6;
-}
-
-#home-table tr:nth-child(odd) {
-  background: #f1f2f6;
-}
-
-#home-table tr:nth-child(1) {
-  border-bottom: 1.2px solid gray;
-  background: #c7ecee;
-}
-
-#home-table tr th {
-  width: 300px;
-  height: 50px;
-}
-
-#home-table tr td {
-  width: 300px;
-  height: 50px;
-  text-align: center;
 }
 
 #home-pagination {
@@ -150,10 +114,6 @@
 .home-dis, .home-dis2 {
   margin-left: 10px;
   display: none;
-}
-
-#home-table tr:hover {
-  background: #ced6e0;
 }
 
 tr:hover .home-dis {
@@ -191,7 +151,6 @@ tr:hover .home-dis2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6px;
   width: 160px;
   height: 41px;
   border-radius: 30px;
@@ -334,14 +293,6 @@ tr:hover .home-dis2 {
   font-size: 20px;
 }
 
-.create-upper-container {
-  width: 100%;
-  height: 30vh;
-  border-bottom: 1.1px solid rgb(220, 216, 216);
-  display: flex;
-  padding-top: 20px;
-}
-
 .create-img-box {
   width: 60%;
   height: 100%;
@@ -371,31 +322,11 @@ tr:hover .home-dis2 {
   display: none;
 }
 
-.create-btn-box {
-  width: 40%;
-  display: flex;
-  justify-content: start;
-  align-items: end;
-}
-
-.create-btn input {
-  display: inline-block;
-  border: none;
-  background: transparent;
-  border: none;
-  width: 100px;
-  height: 35px;
-  background: #0158CC;
-  color: white;
-  font-size: 16px;
-  border-radius: 40px;
-  margin-bottom: 30px;
-}
-
 /* lower-container styling  */
 .create-lower-container {
   padding-top: 20px;
   padding-left: 60px;
+  width: 500px;
 }
 
 .create-lower-container div {
@@ -406,32 +337,6 @@ tr:hover .home-dis2 {
 
 .create-lower-container div label i {
   color: rgb(17, 43, 62);
-}
-
-.create-lower-container div input {
-  margin-left: 23px;
-  height: 38px;
-  width: 450px;
-}
-
-.create-lower-container div .icon-input {
-  margin-left: 10px;
-}
-
-.edit-upper-container {
-  width: 100%;
-  height: 30vh;
-  border-bottom: 1.1px solid rgb(220, 216, 216);
-  display: flex;
-  padding-top: 20px;
-}
-
-.edit-img-box {
-  width: 60%;
-  height: 100%;
-  display: flex;
-  margin-left: 70px;
-  align-items: center;
 }
 
 .edit-img-upload {
@@ -455,31 +360,11 @@ tr:hover .home-dis2 {
   border-radius: 50%;
 }
 
-.edit-btn-box {
-  width: 40%;
-  display: flex;
-  justify-content: start;
-  align-items: end;
-}
-
-.edit-btn input {
-  display: inline-block;
-  border: none;
-  background: transparent;
-  border: none;
-  width: 100px;
-  height: 35px;
-  background: #0158CC;
-  color: white;
-  font-size: 16px;
-  border-radius: 40px;
-  margin-bottom: 30px;
-}
-
 /* lower-container styling  */
 .edit-lower-container {
   padding-top: 20px;
   padding-left: 60px;
+  width: 530px;
 }
 
 .edit-lower-container div {
@@ -492,18 +377,9 @@ tr:hover .home-dis2 {
   color: rgb(17, 43, 62);
 }
 
-.edit-lower-container div input {
-  margin-left: 23px;
-  height: 38px;
-  width: 450px;
-}
-
-.edit-lower-container div .icon-input {
-  margin-left: 10px;
-}
-
-.details-upper-container {
-  display: flex;
+/*bootstrap original class*/
+.btn {
+  width: 100px;
 }
 
 .details-img-box {
@@ -627,11 +503,32 @@ tr:hover .home-dis2 {
   padding: 10px;
 }
 
+.custom-col-height {
+  height: 50vh;
+}
+
+.background {
+  background-color: #C7ECEE;
+}
+
+.background1 {
+  background-color: #DFE4EA;
+}
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /*# sourceMappingURL=main.css.map */

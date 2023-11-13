@@ -5,7 +5,7 @@ function  loadTable(page){
         type:'POST',
         data:{page_no:page},
         success:function(data){
-            $('.home-container').html(data);
+            $('.item-container').html(data);
         }
     })
 }
@@ -32,7 +32,6 @@ $(document).on('click','tr td i',function(){
       if(userConfirmation){
         window.location=`delete.php?page=${data_id}`;
       }
-     
      
 
     }

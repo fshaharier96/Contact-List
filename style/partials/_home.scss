@@ -1,37 +1,38 @@
-.home-container{
-    // border:2px solid black;
-    width:95%;
-    height:85vh;
-    margin:20px;
-    padding:10px;
-}
-#home-table{
-    // border:1px solid  black;
-    border-collapse:collapse;
-    font-size:.9rem;
-}
+// .home-container{
+//     // border:2px solid black;
+//     width:95%;
+//     height:85vh;
+//     margin:20px;
+//     padding:10px;
+// }
+// #home-table{
+//     // border:1px solid  black;
+//     border-collapse:collapse;
+//     font-size:.9rem;
+// }
 
-#home-table tr:nth-child(even){
-    background:#f1f2f6;
-}
-#home-table tr:nth-child(odd){
-    //background:#ced6e0;
-    background:#f1f2f6;
-}
+// #home-table tr:nth-child(even){
+//     background:#f1f2f6;
+// }
+// #home-table tr:nth-child(odd){
+//     //background:#ced6e0;
+//     background:#f1f2f6;
+// }
 
-#home-table tr:nth-child(1){
-    border-bottom:1.2px solid gray;
-    background:#c7ecee;
-}
-#home-table tr th{
-    width:300px;
-    height:50px;
-}
- #home-table tr td{
-    width:300px;
-    height:50px;
-    text-align: center;
-}
+// #home-table tr:nth-child(1){
+//     border-bottom:1.2px solid gray;
+//     background:#c7ecee;
+// }
+// #home-table tr th{
+//     width:300px;
+//     height:50px;
+// }
+//  #home-table tr td{
+//     width:300px;
+//     height:50px;
+//     text-align: center;
+// }
+
 #home-pagination{
     text-align: center;
 }
@@ -58,9 +59,9 @@
    margin-left:10px;
    display:none;
 }
-#home-table tr:hover{
-    background:#ced6e0;
-}
+//  tr:hover{
+//     background:#ced6e0;
+// }
 tr:hover .home-dis{
     display:inline-block;
 }

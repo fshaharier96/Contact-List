@@ -19,7 +19,8 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
 $output="";
 if(mysqli_num_rows($result)>0){
     $output.="
-         <table id='home-table'>
+         <table class='table table-info-subtle table-striped table-hover' id='home-table'>
+         <thead class='table-primary'>
          <tr>
          <th>id</th>
          <th>Name</th>
@@ -28,7 +29,11 @@ if(mysqli_num_rows($result)>0){
          <th>Jobtitle & Company</th>
          <th>City</th>
          <th></th>
-         </tr>";
+         </tr>
+         </thead>";
+
+    $output.="<tbody>";
+
     while($row=mysqli_fetch_assoc($result)){
         $output.="<tr>
         <td>{$row['id']}</td>
@@ -40,6 +45,7 @@ if(mysqli_num_rows($result)>0){
         <td><i id='edit' class='fa-solid fa-pen-to-square home-dis' data-role={$row['id']}></i><i id='delete' class='fa-solid fa-trash-can home-dis2' data-role={$row['id']}></i></td>
         </tr>";
     }
+    $output.="</tbody>";
     $output.="</table>";
 
     $sql1="SELECT * FROM contact_info_table";
