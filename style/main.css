@@ -378,42 +378,6 @@ tr:hover .home-dis2 {
 }
 
 /*bootstrap original class*/
-.btn {
-  width: 100px;
-}
-
-.details-img-box {
-  display: flex;
-  align-items: center;
-  height: 30vh;
-  width: 50%;
-  padding: 0px 100px;
-}
-
-.details-img-box img {
-  width: 170px;
-}
-
-.details-btn-box {
-  display: flex;
-  width: 50%;
-  justify-content: start;
-  align-items: end;
-  justify-content: center;
-  padding: 0px 100px;
-  padding-bottom: 20px;
-}
-
-.details-btn-box input {
-  height: 35px;
-  width: 90px;
-  border: none;
-  background: #1E64D4;
-  border-radius: 40px;
-  font-size: 16px;
-  color: white;
-}
-
 .details-middle-container {
   height: 60px;
   padding: 15px;
@@ -452,13 +416,6 @@ tr:hover .home-dis2 {
 
 .details-inner-middle-container div i {
   color: #999999;
-}
-
-.details-lower-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
 }
 
 .details-left-container {
@@ -513,6 +470,10 @@ tr:hover .home-dis2 {
 
 .background1 {
   background-color: #DFE4EA;
+}
+
+.custom-btn {
+  width: 100px;
 }
 
 * {

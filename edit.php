@@ -74,7 +74,7 @@ if(mysqli_num_rows($result)>0)
             </div>
             <div class="edit-btn-box col-6 d-flex justify-content-center align-items-end">
                   <div class="edit-btn">
-                    <input type="submit" name="submit" class=" btn btn-primary " value="save">
+                    <input type="submit" name="submit" class="custom-btn" value="save">
                  </div>
             </div>
           
