@@ -31,13 +31,15 @@ if(mysqli_num_rows($result)>0){
       <!--upper container starts-->
     
        <div class="details-upper-container  d-flex col-12">
-             <div class="details-img-box  col-6 ">
-                <img class="h-75 img-fluid" src="<?php echo $row['contact_image']  ?>" alt="mahin" class="details-img">
-                <p class="details-img-name"><?php echo $row['first_name']." ".$row['last_name'] ?></p>
+             <div class="details-img-box d-flex justify-content-center align-items-center col-6 ">
+                <img class="h-75 img-fluid " src="<?php echo $row['contact_image']  ?>" alt="mahin" class="details-img">
+                <p class="details-img-name ps-3 fw-light fs-5"><?php echo $row['first_name']." ".$row['last_name'] ?></p>
              </div>
-             <div class="details-btn-box  d-flex col-6">
+             <div class="details-btn-box  d-flex justify-content-center align-items-end py-4 col-6">
                  
-                    <input class="btn btn-primary" type="submit" name="submit" value="Edit">
+                    <a href="edit.php?page=<?php echo $id ?>" class="custom-btn d-inline-flex justify-content-center align-items-center text-decoration-none">
+                      Edit
+                    </a>
                   
             </div> 
        </div>
@@ -63,8 +65,8 @@ if(mysqli_num_rows($result)>0){
 
        <!--lower container starts-->
 
-       <div class="details-lower-container">
-              <div class="details-left-container">
+       <div class="details-lower-container mt-4  d-flex justify-content-center align-items-center  col-12">
+              <div class="details-left-container me-4 ps-5 bg-info-subtle col-5 rounded-4">
                <h4>Contact Details</h4>
                  <div class="details-email-container">
                  <i class="fa-regular fa-envelope"></i><a href="#">Add Email</a>
@@ -78,7 +80,7 @@ if(mysqli_num_rows($result)>0){
               </div>
 
 
-              <div class="details-right-container">
+              <div class="details-right-container col-6">
                <h4>History</h4>
                <div class="details-last-edit">
                   <span>Last edited .</span><span></span>

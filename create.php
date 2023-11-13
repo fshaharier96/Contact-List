@@ -35,7 +35,7 @@
             </div>
             <div class="create-btn-box d-flex align-items-end col-6">
                   <div class="create-btn">
-                    <input class="btn btn-primary" type="submit" name="submit" value="save">
+                    <input class="custom-btn" type="submit" name="submit" value="save">
                  </div>
             </div>
           

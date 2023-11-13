@@ -418,20 +418,12 @@ tr:hover .home-dis2 {
   color: #999999;
 }
 
-.details-left-container {
-  width: 40%;
-  height: 30vh;
-  padding: 20px;
-  background: #F0F4F9;
-  border-radius: 15px;
-}
-
 .details-left-container h4 {
   padding: 10px;
 }
 
 .details-email-container, .details-phone-container, .details-birthday-container {
-  padding: 10px;
+  padding: 8px;
 }
 
 .details-email-container i {
@@ -444,12 +436,6 @@ tr:hover .home-dis2 {
 
 .details-birthday-container i {
   margin-right: 10px;
-}
-
-.details-right-container {
-  width: 40%;
-  height: 30vh;
-  padding: 20px;
 }
 
 .details-right-container h4 {
@@ -474,6 +460,11 @@ tr:hover .home-dis2 {
 
 .custom-btn {
   width: 100px;
+  height: 30px;
+  background-color: #0158CC;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 * {
