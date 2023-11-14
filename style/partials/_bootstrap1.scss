@@ -33,7 +33,18 @@
 .custom-width{
    width:30%;
 }
+/* custom class for header create button */
 .custom-header-add{
     width:180px;
     height:8vh;
+}
+
+/* custom-button class for header right icons*/
+
+.custom-header-icon{
+ 
+}
+.custom-header-icon:hover{
+   color:rgba(124, 124, 126, 0.947);
+   cursor:pointer;
 }

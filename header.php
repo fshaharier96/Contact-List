@@ -39,14 +39,14 @@
         </div>
 
         <div class="col-2 header-setting-container d-flex justify-content-end">
-                <div class="header-setting-btn">
-                    <i class="fa-solid fa-gear fs-4"></i>
+                <div title="settings menu" class="header-setting-btn">
+                    <i class="fa-solid fa-gear fs-4 custom-header-icon"></i>
                 </div>
-                <div class="header-help-btn">
-                    <i class="fa-solid fa-question"></i>
+                <div title="help menu" class="header-help-btn">
+                    <i class="fa-solid fa-question custom-header-icon"></i>
                 </div>
-                <div class="header-logout-btn">
-                <a href="logout.php"><i title="Log out" class="fa-solid fa-right-from-bracket fs-4"></i></a>
+                <div class="header-logout-btn ">
+                <a href="logout.php"><i title="Log out" class="fa-solid fa-right-from-bracket fs-4 custom-header-icon"></i></a>
                 </div>
         </div>
     </div>
