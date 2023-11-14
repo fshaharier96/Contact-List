@@ -1,6 +1,8 @@
 <?php
-   include_once "config.php";
-     session_start();
+   include_once "classes/database.php";
+   $db_connect=new Database();
+   $conn=$db_connect->conn;
+   session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

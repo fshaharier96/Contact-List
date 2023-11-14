@@ -1,8 +1,12 @@
 <?php
-$conn=mysqli_connect('localhost','root','','contact-list') or die("connection failed");
+include_once "classes/database.php";
+$db_connect=new Database();
+$conn=$db_connect->conn;
+
+// $conn=mysqli_connect('localhost','root','','contact-list') or die("connection failed");
 session_start();
 $user_id=$_SESSION['id'];
-$limit_per_page=8;
+$limit_per_page=3;
 $page='';
 if(isset($_POST['page_no'])){
    $page=$_POST['page_no'];
@@ -48,7 +52,7 @@ if(mysqli_num_rows($result)>0){
     $output.="</tbody>";
     $output.="</table>";
 
-    $sql1="SELECT * FROM contact_info_table";
+    $sql1="SELECT * FROM contact_info_table WHERE user_id={$user_id}";
     $result1=mysqli_query($conn,$sql1) or die("query unsuccessful");
     $total_records=mysqli_num_rows($result1);
     $pages=ceil($total_records/$limit_per_page);
@@ -67,7 +71,7 @@ if(mysqli_num_rows($result)>0){
         }else{
             $change='';
         }
-       $output.=" <a class='{$change}' id='{$i}' href=''>{$i}</a>";
+       $output.="<a class='{$change}' id='{$i}' href='home.php?page={$page}'>{$i}</a>";
     }
     if($page<$pages){
         $pagenext=$page+1;

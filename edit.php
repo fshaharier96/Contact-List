@@ -1,5 +1,8 @@
 <?php
-$conn=mysqli_connect("localhost",'root','','contact-list') or die('connection failed');
+ include_once "classes/database.php";
+ $db_connect=new Database();
+ $conn=$db_connect->conn;
+// $conn=mysqli_connect("localhost",'root','','contact-list') or die('connection failed');
 $user_id=$_GET['page'];
 $sql="SELECT * FROM contact_info_table WHERE id={$user_id}";
 $result=mysqli_query($conn,$sql) or die("query unsuccessful");

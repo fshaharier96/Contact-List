@@ -1,4 +1,8 @@
 <?php
+ include_once "classes/database.php";
+ $db_connect=new Database();
+ $conn=$db_connect->conn;
+
 if(isset($_POST['submit'])){
       $id=$_POST['id'];
       $fname=$_POST['fname']; 
@@ -42,7 +46,7 @@ if(isset($_POST['submit'])){
          move_uploaded_file($fileTempName,$folder);
 
 
-     $conn=mysqli_connect('localhost',"root",'','contact-list') or die("connection failed");
+   //   $conn=mysqli_connect('localhost',"root",'','contact-list') or die("connection failed");
      $sql="UPDATE contact_info_table SET  contact_image='{$folder}', first_name='{$fname}', last_name='{$lname}', company='{$company}', job_title='{$job_title}', department='{$department}', email='{$email}', phone='{$phone}', country='{$country}', street_address='{$street_address}', city='{$city}', postal_code='{$postal_code}', birth_date='{$birthday}' WHERE id={$id}";
 
      if(mysqli_query($conn,$sql))

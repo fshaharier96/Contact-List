@@ -1,6 +1,9 @@
 <?php
+ include_once "classes/database.php";
+ $db_connect=new Database();
+ $conn=$db_connect->conn;
 $id=$_GET['page'];
-$conn=mysqli_connect("localhost","root",'',"contact-list") or die("connection failed");
+// $conn=mysqli_connect("localhost","root",'',"contact-list") or die("connection failed");
 $sql="SELECT * FROM contact_info_table WHERE id={$id}";
 $result=mysqli_query($conn,$sql) or die("query unsuccessful");
 if(mysqli_num_rows($result)>0){

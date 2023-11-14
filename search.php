@@ -1,7 +1,10 @@
 <?php
+ include_once "classes/database.php";
+ $db_connect=new Database();
+ $conn=$db_connect->conn;
 
 $search=$_POST['text'];
-$conn=mysqli_connect('localhost','root','','contact-list') or die('connection failed');
+// $conn=mysqli_connect('localhost','root','','contact-list') or die('connection failed');
 if($search !=="")
 {
  $sql="SELECT * FROM contact_info_table WHERE first_name LIKE '%{$search}%' OR last_name LIKE '%{$search}%'";

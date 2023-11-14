@@ -1,5 +1,7 @@
 <?php
-
+include_once "classes/database.php";
+$db_connect=new Database();
+$conn=$db_connect->conn;
 
 if(isset($_POST['submit'])){
     
@@ -30,12 +32,13 @@ if(isset($_POST['submit'])){
     /* INSERT INTO `contact_info_table` (`id`, `contact_image`, `first_name`, `last_name`, `company`, `job_title`, `department`, `email`, `phone`, `country`, `street_address`, `city`, `postal_code`, `birth_date`) VALUES (NULL, 'uploads/pic.jpg', 'Jamil', 'Hassan', 'Alpha tech', 'Marketing manager', 'Sales and Marketing', 'jamil@gmail.com', '01922191588', 'Bangladesh', '243/5,free school street,kalabagan', 'Dhaka', '1205', '2023-10-19'); */
 
 
-     $conn=mysqli_connect('localhost',"root",'','contact-list') or die("connection failed");
+   //   $conn=mysqli_connect('localhost',"root",'','contact-list') or die("connection failed");
+
      $sql="INSERT INTO contact_info_table(user_id,contact_image, first_name, last_name, company, job_title, department, email, phone, country, street_address, city, postal_code, birth_date) VALUES('{$user_id}','{$folder}', '{$fname}', '{$lname}', '{$company}', '{$job_title}', '{$department}', '{$email}', '{$phone}', '{$country}', '{$street_address}', '{$city}', '{$postal_code}', '{$birthday}')";
      
      if(mysqli_query($conn,$sql))
      {
-         header("Location:http://localhost/php_practice/PHP_PRACTICE_10/home.php");
+         header("Location:{$host}home.php");
          
      }else{
         echo "<h4>data submission failed</h4>";
@@ -47,4 +50,3 @@ if(isset($_POST['submit'])){
 
 }
 
-?>

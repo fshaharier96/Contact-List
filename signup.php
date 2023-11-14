@@ -1,5 +1,7 @@
 <?php
-include_once "config.php";
+ include_once "classes/database.php";
+ $db_connect=new Database();
+ $conn=$db_connect->conn;
 
 ?>
 <!DOCTYPE html>
