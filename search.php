@@ -31,5 +31,3 @@ else{
    echo "<table></table>";
 }
 
-
-?>
