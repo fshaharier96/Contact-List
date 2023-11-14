@@ -16,3 +16,24 @@
     border:none;
     border-radius:5px;
 }
+.custom-header-height{
+  height:15vh;
+}
+.header-relative-position{
+    position:relative;
+
+}
+.header-absolute-position{
+    position:absolute;
+    top:15vh;
+    left:43%;
+}
+
+/* this class is for header-list-container width*/
+.custom-width{
+   width:30%;
+}
+.custom-header-add{
+    width:180px;
+    height:8vh;
+}
