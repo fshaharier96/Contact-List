@@ -11,5 +11,3 @@
   }else{
     echo "this record can not be deleted";
   }
-
-?>

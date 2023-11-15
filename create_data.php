@@ -44,9 +44,5 @@ if(isset($_POST['submit'])){
         echo "<h4>data submission failed</h4>";
 
      }
-    
-     
-
-
 }
 

@@ -87,6 +87,11 @@
   text-decoration: none;
 }
 
+/* css for form validation plug */
+.error {
+  color: red;
+}
+
 #home-pagination {
   text-align: center;
 }
@@ -213,7 +218,7 @@ tr:hover .home-dis2 {
 }
 
 .custom-header-logo-color {
-  color: #0D6EFD;
+  color: red;
 }
 
 .custom-header-input {
@@ -225,10 +230,6 @@ tr:hover .home-dis2 {
   border: none;
   background-color: #F1F3F4;
   border-radius: 8px;
-}
-
-.custom-header-link-decoration {
-  text-decoration: none !important;
 }
 
 .create-img-box {
