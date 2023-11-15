@@ -131,49 +131,21 @@ tr:hover .home-dis2 {
   padding: 10px;
 }
 
-.header-search-box {
-  background: white;
-  height: 43px;
-  width: 500px;
-  border: 1.8px solid gray;
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-#header-search::placeholder {
-  font-size: 16px;
-}
-
-#header-search-btn {
-  width: 10%;
-  height: 100%;
-  border: none;
-  border-left: 1.8px solid gray;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #F1F3F4;
-  border-radius: 0px 7px 7px 0px;
-}
-
-#header-search-btn i {
-  font-size: 20px;
-  color: #588CFF;
-}
-
 #header-btn1 {
-  border: none;
+  display: inline-block;
   background: transparent;
-  margin-right: 5px;
-  display: none;
+  margin: 0px 8px;
+  border: none;
+  width: 60px;
 }
 
 #header-btn2 {
-  border: none;
   background: transparent;
+  margin: 0px 8px;
+  display: none;
+  border: none;
+  width: 80px;
+  text-align: center;
 }
 
 .header-list-container {
@@ -233,6 +205,30 @@ tr:hover .home-dis2 {
 .header-logout-btn i {
   color: #5F6368;
   font-size: 20px;
+}
+
+/*bootstrap custom design*/
+.custom-header-height {
+  height: 120px !important;
+}
+
+.custom-header-logo-color {
+  color: #0D6EFD;
+}
+
+.custom-header-input {
+  border: none;
+  background-color: transparent;
+}
+
+.custom-search-inner {
+  border: none;
+  background-color: #F1F3F4;
+  border-radius: 8px;
+}
+
+.custom-header-link-decoration {
+  text-decoration: none !important;
 }
 
 .create-img-box {
@@ -438,6 +434,16 @@ tr:hover .home-dis2 {
 .custom-header-icon:hover {
   color: rgba(124, 124, 126, 0.947);
   cursor: pointer;
+}
+
+/* home page  side contianer style starts*/
+.custom-create-btn {
+  width: 180px;
+  height: 50px;
+  background-color: #C2E7FF;
+  color: black;
+  border: none;
+  border-radius: 15px;
 }
 
 * {
