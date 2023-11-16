@@ -32,7 +32,7 @@
 
     <!-- ** form starts ** -->
 
-    <form action="create_data.php" method="post" enctype="multipart/form-data">
+    <form id="addForm" action="create_data.php" method="post" enctype="multipart/form-data">
 
           <!--upper container starts-->
 
@@ -64,11 +64,14 @@
                     <i class="fa-regular fa-user"></i>
                 </label>
                 <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="fname" placeholder="First name">
+                <br/>
             </div>
+            <span id="error-fname"></span>
                
             <div>
                 <input class="form-control border border-secondary ms-3" type="text" name="lname" placeholder="Last name">
             </div>
+            <span id="error-lname"></span>
             <div> 
                  <label>
                     <i class="fa-solid fa-building"></i>
@@ -90,18 +93,22 @@
                 </label>
                 <input  class="form-control border border-secondary ms-1" type="email"  class="icon-input" name="email" placeholder="Email">
             </div>
+            <span id="error-email"></span>
             <div>
                 <label>
                     <i class="fa-solid fa-phone"></i>
                 </label>
                 <input type="text"  class="icon-input form-control border border-secondary ms-1 " name="phone" placeholder="Phone">
             </div>
+            <span id="error-phone"></span>
             <div>
                 <label>
                     <i class="fa-solid fa-location-dot"></i>
                 </label>
                 <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="country" placeholder="Country">
             </div>
+            <span id="error-country"></span>
+
             <div>
                  <input  class="form-control border border-secondary ms-3" type="text" name="street_address" placeholder="Street address">
             </div>
@@ -136,6 +143,7 @@
     <!--Javascript Dependencies starts-->
 
     <script src='assets/js/jquery.js'></script>
+    <script src="assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
     <script src='assets/js/header.js'></script>
     <script src='assets/vendors/jquery-flatpickr/flatpickr.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

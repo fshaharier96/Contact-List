@@ -80,3 +80,9 @@
 .create-lower-container div .icon-input{
     // margin-left:10px;
 }
+
+/* error span tag styling */
+#error-fname,#error-lname,#error-email,#error-phone,#error-country{
+    margin-left:20px;
+    display:none;
+}

@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
 
      if(mysqli_query($conn,$sql))
      {
-         header("Location:{$host}");
+         header("Location:{$host}home.php");
          
      }else{
         echo "<h4>data submission failed</h4>";

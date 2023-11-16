@@ -46,7 +46,7 @@ if(mysqli_num_rows($result)>0)
              
         ?>
 
-     <form class="form control" action="edit_data.php" method="post" enctype="multipart/form-data"> 
+     <form id="editForm" class="form control" action="edit_data.php" method="post" enctype="multipart/form-data"> 
 
 
    <!-- Upper container starts -->
@@ -99,14 +99,17 @@ if(mysqli_num_rows($result)>0)
                 <label><i class="fa-regular fa-user"></i></label>
                 <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="fname" placeholder="First name" value="<?php echo $row['first_name'] ?>">
             </div>
+            <span id="error-fname"></span>
                
             <div>
                 <input class="form-control border border-secondary ms-3" type="text" name="lname" placeholder="Last name" value="<?php echo $row['last_name'] ?>">
             </div>
+            <span id="error-lname"></span>
             <div> 
                  <label><i class="fa-solid fa-building"></i></label>
                  <input class="form-control border border-secondary ms-1"  type="text"  name="company" placeholder="Company" value="<?php echo $row['company'] ?>">
             </div>
+            
             
             <div>
                  <input class="form-control border border-secondary ms-3" type="text" name="job_title" placeholder="Job title" value="<?php echo $row['job_title'] ?>">
@@ -120,14 +123,17 @@ if(mysqli_num_rows($result)>0)
                 <label><i class="fa-regular fa-envelope"></i></label>
                 <input  class="form-control border border-secondary ms-1"  type="email"  class="icon-input" name="email" placeholder="Email" value="<?php echo $row['email'] ?>">
             </div>
+            <span id="error-email"></span>
             <div>
                 <label><i class="fa-solid fa-phone"></i></label>
                 <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="phone" placeholder="Phone" value="<?php echo $row['phone'] ?>">
             </div>
+            <span id="error-phone"></span>
             <div>
                 <label><i class="fa-solid fa-location-dot"></i></label>
                 <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="country" placeholder="Country" value="<?php echo $row['country'] ?>">
             </div>
+            <span id="error-country"></span>
             <div>
                 <input class="form-control border border-secondary ms-3"  type="text" name="street_address" placeholder="Street address" value="<?php echo $row['street_address'] ?>">
             </div>
@@ -165,6 +171,7 @@ if(mysqli_num_rows($result)>0)
 
 
     <script src='assets/js/jquery.js'></script>
+    <script src='assets/vendors/jquery-form-validation/jquery.validate.min.js'></script>
     <script src='assets/js/header.js'></script>
     <script src='assets/vendors/jquery-flatpickr/flatpickr.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

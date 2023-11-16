@@ -278,6 +278,12 @@ tr:hover .home-dis2 {
   color: rgb(17, 43, 62);
 }
 
+/* error span tag styling */
+#error-fname, #error-lname, #error-email, #error-phone, #error-country {
+  margin-left: 20px;
+  display: none;
+}
+
 .edit-img-upload {
   border: 2px solid black;
   height: 150px;
