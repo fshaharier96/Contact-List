@@ -38,6 +38,11 @@
 
      <div class="col-md-3 custom-col-height px-4 py-3 shadow background"> 
           <form id="signupForm" action="" method="post">
+               <div class="mb-3 mt-3">
+                  <label class="form-label">Email</label>
+                  <input type="text" name="email" class="form-control border border-secondary">
+                </div>
+
                 <div class="mb-3 mt-3">
                   <label class="form-label">Username</label>
                   <input type="text" name="username" class="form-control border border-secondary">
@@ -74,15 +79,17 @@
 <?php
 
 if(isset($_POST['submit'])){
- 
+
+    $email=$_POST['email'];
     $username= $_POST['username'];
     $password= $_POST['password'];
+    
   
-  if(!empty($username) && !empty($password))
+  if(!empty($username) && !empty($password) && !empty($email))
   {
 
-   $sql="SELECT * FROM login_table WHERE username='{$username}' AND password='{$password}'";
-   $sql1="INSERT INTO login_table(username,password) VALUES('{$username}','{$password}')";
+   $sql="SELECT * FROM login_table WHERE email='{$email}' AND password='{$password}'";
+   $sql1="INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$password}')";
    $result=mysqli_query($conn,$sql) or die("query unsuccesful");
    if($result)
    {

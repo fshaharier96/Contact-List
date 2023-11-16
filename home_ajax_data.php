@@ -5,7 +5,8 @@ $conn=$db_connect->conn;
 
 // $conn=mysqli_connect('localhost','root','','contact-list') or die("connection failed");
 session_start();
-$user_id=$_SESSION['id'];
+$user_id = $_SESSION['id'];
+$user_name = $_SESSION['user'];
 $limit_per_page=3;
 $page='';
 if(isset($_POST['page_no'])){
@@ -16,9 +17,16 @@ if(isset($_POST['page_no'])){
 $offset=($page-1)*$limit_per_page;
 
 
+if($user_name=="admin")
+{
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table LIMIT {$offset},{$limit_per_page}";
 
-$sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table
+}else{
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table
 WHERE user_id={$user_id} LIMIT {$offset},{$limit_per_page}";
+}
+
+
 $result=mysqli_query($conn,$sql) or die('query unsuccessful');
 $output="";
 if(mysqli_num_rows($result)>0){
@@ -52,7 +60,17 @@ if(mysqli_num_rows($result)>0){
     $output.="</tbody>";
     $output.="</table>";
 
-    $sql1="SELECT * FROM contact_info_table WHERE user_id={$user_id}";
+    if($user_name=="admin"){
+
+     $sql1="SELECT * FROM contact_info_table";
+
+    }else{
+
+      $sql1="SELECT * FROM contact_info_table WHERE user_id={$user_id}";
+    }
+
+
+    
     $result1=mysqli_query($conn,$sql1) or die("query unsuccessful");
     $total_records=mysqli_num_rows($result1);
     $pages=ceil($total_records/$limit_per_page);

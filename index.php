@@ -1,4 +1,6 @@
 <?php
+   require('vendor/autoload.php');
+   use Rakit\Validation\Validator;
    include_once "classes/database.php";
    $db_connect=new Database();
    $conn=$db_connect->conn;
@@ -69,31 +71,88 @@
 
 <!--bootstrap code ends-->
 
+<!--php validation logic starts-->
+
        <?php
-         if(isset($_POST['submit'])){
-            $username=$_POST['username'];
-            $password=$_POST['password'];
-            $sql="SELECT * FROM login_table WHERE username='{$username}' AND password='{$password}'";
-            $result=mysqli_query($conn,$sql) or die("query unsuccessful : ".mysqli_error($conn));
-            if(mysqli_num_rows($result)>0)
-            {     $row=mysqli_fetch_assoc($result);
-                  $_SESSION['id']=$row['id'];
-                  $_SESSION['user']=$row['username'];
-                  // echo "data is correct";
-                  header("Location:{$host}home.php");
-            }
-            else{
-                echo "<p>incorrect username or password !</p>";
-            }
-         }
+        //  if(isset($_POST['submit'])){
+        //     $username=$_POST['username'];
+        //     $password=$_POST['password'];
+        //     $sql="SELECT * FROM login_table WHERE username='{$username}' AND password='{$password}'";
+        //     $result=mysqli_query($conn,$sql) or die("query unsuccessful : ".mysqli_error($conn));
+        //     if(mysqli_num_rows($result)>0)
+        //       {     $row=mysqli_fetch_assoc($result);
+        //           $_SESSION['id']=$row['id'];
+        //           $_SESSION['user']=$row['username'];
+        //           // echo "data is correct";
+        //          header("Location:{$host}home.php");
+        //        }
+        //     else{
+        //         echo "<p>incorrect username or password !</p>";
+        //     }
+        //  }
 
        ?>
 
+<!--php validation logic ends-->
+ <?php 
+ $validator = new Validator();
+ $validation = $validator->validate($_POST, [
+  'username'=> 'required',
+  'password' => 'required'
+]);
+
+$submit_msg="";
+
+if ($validation->fails()) {
+// handling errors
+// $errors = $validation->errors();
+// echo "<pre>";
+// print_r($errors->firstOfAll());
+// echo "</pre>";
+// echo "<h1>You have input invalid username or password</h1>";
+$submit_msg="Invalid username or password entered";
+echo $submit_msg;
+
+} else {
+// validation passes
+
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+    $sql="SELECT * FROM login_table WHERE username='{$username}' AND password='{$password}'";
+    $result=mysqli_query($conn,$sql) or die("query unsuccessful : ".mysqli_error($conn));
+    if(mysqli_num_rows($result)>0)
+      {     $row=mysqli_fetch_assoc($result);
+          $_SESSION['id']=$row['id'];
+          $_SESSION['user']=$row['username'];
+          // echo "data is correct";
+         header("Location:{$host}home.php");
+       }
+    else{
+        echo "<p>incorrect username or password !</p>";
+    }
+  
+
+  
+}
+
+ 
+ 
+ ?>
+
+
+<!-- php rakit/validation logic starts-->
+
+
+
+
+<!-- php rakit/validation logic ends-->
 <script>
       if(window.history.replaceState){
          window.history.replaceState(null,null,window.location.href);
          }
      </script>
+
+
 
 <!-- Javacript files-->
 <script src="assets/js/jquery.js"></script>
@@ -101,6 +160,11 @@
 <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/index.js"></script>
 
+
+
     
 </body>
 </html>
+
+
+
