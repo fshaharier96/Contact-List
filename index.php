@@ -13,11 +13,15 @@
     <!--fontawsome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+    <!--form-validation plugin-->
+
+
+
     <!--boostrap css file-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
     <!--styling file-->
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/css/main.css">
 
     <title>Document</title>
 </head>
@@ -36,7 +40,7 @@
      </div>
 
      <div class="col-md-3 custom-col-height px-4 py-3 shadow background"> 
-          <form action="" method="post">
+          <form id="loginForm" action="" method="post">
                 <div class="mb-3 mt-3">
                   <label class="form-label">Username</label>
                   <input type="text" name="username" class="form-control border border-secondary">
@@ -85,15 +89,18 @@
 
        ?>
 
-<!-- Javacript files-->
-<script src="assets/js/jquery.js"></script>
-<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/index.js"></script>
 <script>
       if(window.history.replaceState){
          window.history.replaceState(null,null,window.location.href);
          }
      </script>
+
+<!-- Javacript files-->
+<script src="assets/js/jquery.js"></script>
+ <script src="assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
+<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/index.js"></script>
+
     
 </body>
 </html>

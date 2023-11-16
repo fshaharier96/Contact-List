@@ -17,7 +17,7 @@
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
     <!--styling file-->
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/css/main.css">
 
     <title>Document</title>
 </head>
@@ -37,7 +37,7 @@
      </div>
 
      <div class="col-md-3 custom-col-height px-4 py-3 shadow background"> 
-          <form action="" method="post">
+          <form id="signupForm" action="" method="post">
                 <div class="mb-3 mt-3">
                   <label class="form-label">Username</label>
                   <input type="text" name="username" class="form-control border border-secondary">
@@ -74,8 +74,12 @@
 <?php
 
 if(isset($_POST['submit'])){
+ 
     $username= $_POST['username'];
     $password= $_POST['password'];
+  
+  if(!empty($username) && !empty($password))
+  {
 
    $sql="SELECT * FROM login_table WHERE username='{$username}' AND password='{$password}'";
    $sql1="INSERT INTO login_table(username,password) VALUES('{$username}','{$password}')";
@@ -95,11 +99,14 @@ if(isset($_POST['submit'])){
             }
      }
      else{
-        echo "This account already exist";
-     }
+            echo "This account already exist";
+         }
  
-}
-   
+      }
+   }
+    else{
+        echo "<p>input fields are empty!</p>";
+     }
      
  }
  
@@ -111,6 +118,7 @@ if(isset($_POST['submit'])){
 
 <!-- Javacript files-->
 <script src="assets/js/jquery.js"></script>
+<script src="assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/signup.js"></script>
   <script>

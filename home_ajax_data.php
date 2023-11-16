@@ -85,4 +85,3 @@ if(mysqli_num_rows($result)>0){
 else{
     echo "<h1>no records found</h1>";
 }
-?>

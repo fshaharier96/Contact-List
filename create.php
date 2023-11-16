@@ -1,5 +1,4 @@
 <?php
-//error_reporting(0);
 
 ?>
 <!DOCTYPE html>
@@ -9,21 +8,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+    <!-- flatpickr css link-->
+    <link rel="stylesheet" href="assets/vendors/jquery-flatpickr/flatpickr.min.css"/>
+
      <!--boostrap css file-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
 
-    <link rel="stylesheet" href="style/main.css">
+     <link rel="stylesheet" href="style/css/main.css">
+
     <title>Create Contact</title>
 </head>
+
 <body>
-<?php
- include_once "header.php";
-?>
+
+    <?php
+        include_once "header.php";
+    ?>
 
 
     <!--container section-->
+
     <div class="create-container">
+
+    <!-- ** form starts ** -->
+
     <form action="create_data.php" method="post" enctype="multipart/form-data">
+
+          <!--upper container starts-->
+
         <div class="create-upper-container col-12 d-flex pt-4 pb-2 pb-4 border-bottom border-secondary">
             <div class="create-img-box  col-6">
                 <label for="create-file-id" class="create-img-upload">
@@ -40,11 +52,17 @@
             </div>
           
         </div>
+
+        <!--upper container ends-->
+
+        <!--lower container starts-->
         
         <div class="create-lower-container">
 
             <div>
-                <label><i class="fa-regular fa-user"></i></label>
+                <label>
+                    <i class="fa-regular fa-user"></i>
+                </label>
                 <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="fname" placeholder="First name">
             </div>
                
@@ -52,7 +70,9 @@
                 <input class="form-control border border-secondary ms-3" type="text" name="lname" placeholder="Last name">
             </div>
             <div> 
-                 <label><i class="fa-solid fa-building"></i></label>
+                 <label>
+                    <i class="fa-solid fa-building"></i>
+                </label>
                  <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="company" placeholder="Company">
             </div>
             
@@ -65,35 +85,46 @@
             </div>
 
             <div>
-                <label><i class="fa-regular fa-envelope"></i></label>
+                <label>
+                    <i class="fa-regular fa-envelope"></i>
+                </label>
                 <input  class="form-control border border-secondary ms-1" type="email"  class="icon-input" name="email" placeholder="Email">
             </div>
             <div>
-                <label><i class="fa-solid fa-phone"></i></label>
+                <label>
+                    <i class="fa-solid fa-phone"></i>
+                </label>
                 <input type="text"  class="icon-input form-control border border-secondary ms-1 " name="phone" placeholder="Phone">
             </div>
             <div>
-                <label><i class="fa-solid fa-location-dot"></i></label>
+                <label>
+                    <i class="fa-solid fa-location-dot"></i>
+                </label>
                 <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="country" placeholder="Country">
             </div>
             <div>
-                <input  class="form-control border border-secondary ms-3" type="text" name="street_address" placeholder="Street address">
+                 <input  class="form-control border border-secondary ms-3" type="text" name="street_address" placeholder="Street address">
             </div>
 
             <div>
-                <input class="form-control border border-secondary ms-3" type="text" name="city" placeholder="City">
+                 <input class="form-control border border-secondary ms-3" type="text" name="city" placeholder="City">
             </div>
             <div>
-                <input class="form-control border border-secondary ms-3" type="text" name="postal_code" placeholder="Postal code">
+                 <input class="form-control border border-secondary ms-3" type="text" name="postal_code" placeholder="Postal code">
             </div>
             <div>
-                <label><i class="fa-solid fa-cake-candles"></i></label>
-                <input class="form-control border border-secondary ms-1" type="date"  class="icon-input" name="birth_date" placeholder="Birthday">
+                <label>
+                    <i class="fa-solid fa-cake-candles"></i>
+                </label>
+                <input id="datepicker" class="form-control border border-secondary ms-1" type="date"  class="icon-input" name="birth_date" placeholder="Birthday">
             </div>
 
-            </div>
-            </form>
-       </div>
+        </div>
+  </form>
+   
+  <!-- form ends-->
+
+</div>
 
     
    <script>
@@ -102,11 +133,17 @@
       }
      </script>
 
+    <!--Javascript Dependencies starts-->
 
     <script src='assets/js/jquery.js'></script>
     <script src='assets/js/header.js'></script>
+    <script src='assets/vendors/jquery-flatpickr/flatpickr.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src='assets/js/create.js'></script>
+
+    <!--Javascript Dependencies ends-->
+
+
 </body>
 </html>

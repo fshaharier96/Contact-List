@@ -4,3 +4,5 @@
 *.txt
 # Ignore .env file
 .env
+# Ignore vendor folder
+vendor/

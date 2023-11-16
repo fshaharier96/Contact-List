@@ -6,3 +6,13 @@ file.on("change",function(event){
     $('.create-img-icon').hide();
 
 })
+
+$("#datepicker").flatpickr({
+    dateFormat: "d-m-Y", // Date format
+    // minDate: "today", // Minimum selectable date
+    // maxDate: "2023-12-31", // Maximum selectable date
+    defaultDate: "today", // Default date
+    enableTime:true, // Enable time selection
+    time_24hr: false // Use 24-hour format for time
+    // Other options...
+});

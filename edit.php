@@ -18,10 +18,14 @@ if(mysqli_num_rows($result)>0)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+     <!-- flatpickr css link-->
+     <link rel="stylesheet" href="assets/vendors/jquery-flatpickr/flatpickr.min.css"/>
+
      <!--boostrap css file-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
 
-    <link rel="stylesheet" href="style/main.css">
+     <link rel="stylesheet" href="style/css/main.css">
+
     <title>Edit Contact</title>
 </head>
 <body>
@@ -136,7 +140,7 @@ if(mysqli_num_rows($result)>0)
             </div>
             <div>
                 <label><i class="fa-solid fa-cake-candles"></i></label>
-                <input class="form-control border border-secondary ms-1"   type="date"  class="icon-input" name="birth_date" placeholder="Birthday" value="<?php echo $row['birth_date'] ?>">
+                <input id="edit-datepicker" class="form-control border border-secondary ms-1"   type="date"  class="icon-input" name="birth_date" placeholder="Birthday" value="<?php echo $row['birth_date'] ?>">
             </div>
 
             </div>
@@ -161,8 +165,9 @@ if(mysqli_num_rows($result)>0)
 
 
     <script src='assets/js/jquery.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src='assets/js/header.js'></script>
+    <script src='assets/vendors/jquery-flatpickr/flatpickr.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src='assets/js/edit.js'></script>
 </body>
 </html>

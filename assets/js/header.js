@@ -26,13 +26,13 @@ $('#header-search').on("keyup",function(){
         }    
     })
 
-    $('#header-btn1').show();
+    $('#header-btn2').show();
 })
 
-$('#header-btn1').click(function(){
+$('#header-btn2').click(function(){
     $("#header-search").val("");
     $(".header-list-container").hide();
-    $('#header-btn1').hide();
+    $('#header-btn2').hide();
 
  })
 

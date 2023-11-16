@@ -1,0 +1,59 @@
+.custom-col-height{
+    height:50vh;
+}
+.background{
+ background-color:#C7ECEE;
+}
+.background1{
+    background-color:#DFE4EA;
+}
+
+.custom-btn{
+    width:100px;
+    height:30px;
+    background-color:#0158CC;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+.custom-header-height{
+  height:15vh;
+}
+.header-relative-position{
+    position:relative;
+
+}
+.header-absolute-position{
+    position:absolute;
+    top:15vh;
+    left:43%;
+}
+
+/* this class is for header-list-container width*/
+.custom-width{
+   width:30%;
+}
+/* custom class for header create button */
+.custom-header-add{
+    width:180px;
+    height:8vh;
+}
+
+/* custom-button class for header right icons*/
+
+.custom-header-icon{
+ 
+}
+.custom-header-icon:hover{
+   color:rgba(124, 124, 126, 0.947);
+   cursor:pointer;
+}
+/* home page  side contianer style starts*/
+.custom-create-btn{
+  width:180px;
+  height:50px;
+  background-color:#C2E7FF;
+  color:black;
+  border:none;
+  border-radius:15px;
+}
