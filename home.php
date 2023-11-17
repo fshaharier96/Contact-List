@@ -28,7 +28,7 @@
 
             <!-- body left-container starts-->
 
-            <div class="col-2">
+            <div id="home-left-container" class="col-2">
                 <div class="row  d-flex justify-content-start align-items-center  p-3 mb-2 header-add">
                     <button class="btn btn-primary custom-create-btn">
                         <span><i class="fa-solid fa-plus"></i></span>
@@ -80,7 +80,7 @@
 
             
             <div class="col-9 p-3 item-container">
-
+                
             </div>
            
 

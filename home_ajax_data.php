@@ -31,8 +31,8 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
 $output="";
 if(mysqli_num_rows($result)>0){
     $output.="
-         <table class='table table-info-subtle table-striped table-hover' id='home-table'>
-         <thead class='table-primary'>
+         <table class='table table-striped table-hover  border border-table' id='home-table'>
+         <thead class=' table-primary text-center'>
          <tr>
          <th>id</th>
          <th>Name</th>
@@ -40,21 +40,24 @@ if(mysqli_num_rows($result)>0){
          <th>Phone</th>
          <th>Jobtitle & Company</th>
          <th>City</th>
-         <th></th>
+         <th>Action</th>
          </tr>
          </thead>";
 
     $output.="<tbody>";
 
     while($row=mysqli_fetch_assoc($result)){
-        $output.="<tr>
+        $output.="<tr class='text-center'>
         <td>{$row['id']}</td>
         <td class='id_name' data-tdid={$row['id']}>{$row['first_name']} {$row['last_name']}</td>
         <td>{$row['email']}</td>
         <td>{$row['phone']}</td>
         <td>{$row['job_title']}-{$row['company']}</td>
         <td>{$row['city']}</td>
-        <td><i id='edit' class='fa-solid fa-pen-to-square home-dis' data-role={$row['id']}></i><i id='delete' class='fa-solid fa-trash-can home-dis2' data-role={$row['id']}></i></td>
+        <td><button class='custom-btn-edit' id='edit' class='home-dis' data-role={$row['id']}>
+        Edit</button>
+        <button class='custom-btn-delete' id='delete' class='home-dis2' data-role={$row['id']}>
+        Delete</button></td>
         </tr>";
     }
     $output.="</tbody>";

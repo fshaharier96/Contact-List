@@ -116,17 +116,25 @@
   width: 60px;
 }
 
-.home-dis, .home-dis2 {
-  margin-left: 10px;
-  display: none;
+/* customer styling for  table */
+.custom-btn-edit {
+  background: linear-gradient(to bottom, #1B1464, #0652DD);
+  color: white;
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
 }
 
-tr:hover .home-dis {
-  display: inline-block;
-}
-
-tr:hover .home-dis2 {
-  display: inline-block;
+.custom-btn-delete {
+  background: linear-gradient(to bottom, #85000F, #F60000);
+  color: white;
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
 }
 
 .header-container {
@@ -389,10 +397,6 @@ tr:hover .home-dis2 {
 
 .details-last-edit, .details-add-contacts {
   padding: 10px;
-}
-
-.custom-col-height {
-  height: 50vh;
 }
 
 .background {

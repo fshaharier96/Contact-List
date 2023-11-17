@@ -17,7 +17,7 @@ $(document).on('click','#home-pagination a',function(e){
     loadTable(page_id);
 })
 
-$(document).on('click','tr td i',function(){
+$(document).on('click','tr td button',function(){
     let  id=$(this).attr('id');
     let data_id=$(this).data('role');
   

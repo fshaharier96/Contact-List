@@ -40,3 +40,10 @@ $('#header-btn2').click(function(){
     let pageId=$(this).data('trid');
     window.location = `details.php?page=${pageId}`;
   });
+
+  $('#header-toggle-button').click(function(){
+     $('#home-left-container').animate({
+        width:'toggle'
+     },200);
+    
+  })

@@ -5,7 +5,7 @@
 <div class="container-fluid custom-header-height">
     <div class="row h-100 d-flex justify-content-evenly align-items-center px-4">
        <div class="col-3  d-flex justify-content-start align-items-center w-25 h-75">
-        <div class="me-4"><i class="fa-solid fa-bars fs-4"></i></div>
+        <div id="header-toggle-button" class="me-4"><i class="fa-solid fa-bars fs-4"></i></div>
         <span class="me-3">
             <a  href="home.php"><i class="fa-solid fa-address-book fs-3 text-primary"></i>
            </a>
