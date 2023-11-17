@@ -14,7 +14,7 @@
 
 $("#loginForm").validate({
     rules: {
-        username: {
+        email: {
             required: true,
             // minlength: 3
         },
@@ -25,8 +25,8 @@ $("#loginForm").validate({
         }
     },
     messages: {
-        username: {
-            required: "Please enter a username",
+       email: {
+            required: "Please use a valid email address",
             // minlength: "Username must be at least 3 characters long"
         },
     

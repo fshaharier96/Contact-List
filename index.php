@@ -44,8 +44,8 @@
      <div class="col-md-3 custom-col-height px-4 py-3 shadow background"> 
           <form id="loginForm" action="" method="post">
                 <div class="mb-3 mt-3">
-                  <label class="form-label">Username</label>
-                  <input type="text" name="username" class="form-control border border-secondary">
+                  <label class="form-label">Email</label>
+                  <input type="email" name="email" class="form-control border border-secondary">
                 </div>
                 <div class="mb-4">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -97,7 +97,7 @@
  <?php 
  $validator = new Validator();
  $validation = $validator->validate($_POST, [
-  'username'=> 'required',
+  'email'=> 'required',
   'password' => 'required'
 ]);
 
@@ -116,9 +116,9 @@ echo $submit_msg;
 } else {
 // validation passes
 
-    $username=$_POST['username'];
+    $email=$_POST['email'];
     $password=$_POST['password'];
-    $sql="SELECT * FROM login_table WHERE username='{$username}' AND password='{$password}'";
+    $sql="SELECT * FROM login_table WHERE email='{$email}' AND password='{$password}'";
     $result=mysqli_query($conn,$sql) or die("query unsuccessful : ".mysqli_error($conn));
     if(mysqli_num_rows($result)>0)
       {     $row=mysqli_fetch_assoc($result);
