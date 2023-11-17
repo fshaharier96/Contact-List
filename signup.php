@@ -1,4 +1,6 @@
 <?php
+ require('vendor/autoload.php');
+ use Rakit\Validation\Validator;
  include_once "classes/database.php";
  $db_connect=new Database();
  $conn=$db_connect->conn;
@@ -25,18 +27,18 @@
 
 <!--bootstrap code  starts-->
 
-<div class="container-fluid h-100 p-3">
-    <div class="row d-flex justify-content-center align-items-center flex-column h-100 p-3">
+<div class="container-fluid h-auto p-3">
+    <div class="row d-flex justify-content-center align-items-center flex-column  p-3">
 
-     <div class="login-logo col-md-3 my-3">
+     <div class="login-logo col-3 my-3">
         <i class="fa-solid fa-address-card"></i>
      </div>
 
-     <div class="mb-2 mt-5 col-md-3">
+     <div class="mb-2 mt-5 col-3">
         <h3 class="text-center">Registration</h3>
      </div>
 
-     <div class="col-md-3 custom-col-height px-4 py-3 shadow background"> 
+     <div class="col-3 custom-col-height px-4 py-3 mb-5 shadow background"> 
           <form id="signupForm" action="" method="post">
                <div class="mb-3 mt-3">
                   <label class="form-label">Email</label>
@@ -78,17 +80,75 @@
 
 <?php
 
-if(isset($_POST['submit'])){
+// if(isset($_POST['submit'])){
 
+//     $email=$_POST['email'];
+//     $username= $_POST['username'];
+//     $password= $_POST['password'];
+    
+  
+//   if(!empty($username) && !empty($password) && !empty($email))
+//   {
+
+//    $sql="SELECT * FROM login_table WHERE email='{$email}' AND password='{$password}'";
+//    $sql1="INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$password}')";
+//    $result=mysqli_query($conn,$sql) or die("query unsuccesful");
+//    if($result)
+//    {
+    
+//     if(mysqli_num_rows($result)==0)
+//     {
+//          if(mysqli_query($conn,$sql1))
+//         {
+//              header("Location:{$host}");
+//          }
+
+//         else{
+//                 echo "<p>Register failed! Try again</p>";
+//             }
+//      }
+//      else{
+//             echo "This account already exist";
+//          }
+ 
+//       }
+//    }
+//     else{
+//         echo "<p>input fields are empty!</p>";
+//      }
+     
+//  }
+ 
+ ?>
+
+<?php 
+ $validator = new Validator();
+ $validation = $validator->validate($_POST, [
+  'email'=> 'required',
+  'username'=>'required',
+  'password' => 'required'
+]);
+
+$submit_msg="";
+
+if ($validation->fails()) {
+// handling errors
+// $errors = $validation->errors();
+// echo "<pre>";
+// print_r($errors->firstOfAll());
+// echo "</pre>";
+// echo "<h1>You have input invalid username or password</h1>";
+$submit_msg="Invalid data is  entered";
+echo $submit_msg;
+
+} else {
+// validation passes
+   
     $email=$_POST['email'];
     $username= $_POST['username'];
     $password= $_POST['password'];
-    
-  
-  if(!empty($username) && !empty($password) && !empty($email))
-  {
 
-   $sql="SELECT * FROM login_table WHERE email='{$email}' AND password='{$password}'";
+   $sql="SELECT * FROM login_table WHERE email='{$email}'";
    $sql1="INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$password}')";
    $result=mysqli_query($conn,$sql) or die("query unsuccesful");
    if($result)
@@ -106,22 +166,17 @@ if(isset($_POST['submit'])){
             }
      }
      else{
-            echo "This account already exist";
+            echo "This email address has already been taken";
          }
  
       }
    }
-    else{
-        echo "<p>input fields are empty!</p>";
-     }
-     
- }
+
+ 
  
  ?>
- <!-- </div>
- 
 
- </div> -->
+
 
 <!-- Javacript files-->
 <script src="assets/js/jquery.js"></script>
