@@ -11,6 +11,10 @@
     <!-- flatpickr css link-->
     <link rel="stylesheet" href="assets/vendors/jquery-flatpickr/flatpickr.min.css"/>
 
+    <!--IntlTelInput plugin css link-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+
      <!--boostrap css file-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
 
@@ -59,49 +63,49 @@
         
         <div class="create-lower-container">
 
-            <div>
+            <div class="d-flex mb-3">
                 <label>
                     <i class="fa-regular fa-user"></i>
                 </label>
-                <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="fname" placeholder="First name">
+                <input class="form-control border border-secondary ms-1" type="text"  name="fname" placeholder="First name">
                 <br/>
             </div>
             <span id="error-fname"></span>
                
-            <div>
+            <div class="d-flex mb-3">
                 <input class="form-control border border-secondary ms-3" type="text" name="lname" placeholder="Last name">
             </div>
             <span id="error-lname"></span>
-            <div> 
+            <div class="d-flex mb-3"> 
                  <label>
                     <i class="fa-solid fa-building"></i>
                 </label>
                  <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="company" placeholder="Company">
             </div>
             
-            <div>
+            <div class="d-flex mb-3">
                  <input class="form-control border border-secondary ms-3" type="text" name="job_title" placeholder="Job title">
             </div>
             
-            <div>
+            <div class="d-flex mb-3">
                  <input class="form-control border border-secondary ms-3" type="text" name="department" placeholder="Department">
             </div>
 
-            <div>
+            <div class="d-flex mb-3">
                 <label>
                     <i class="fa-regular fa-envelope"></i>
                 </label>
                 <input  class="form-control border border-secondary ms-1" type="email"  class="icon-input" name="email" placeholder="Email">
             </div>
             <span id="error-email"></span>
-            <div>
+            <div class="d-flex mb-3 create-tel">
                 <label>
                     <i class="fa-solid fa-phone"></i>
                 </label>
-                <input type="text"  class="icon-input form-control border border-secondary ms-1 " name="phone" placeholder="Phone">
+                <input id="phone" type="tel" class="form-control border border-secondary pe-0 ms-1" name="phone"/>
             </div>
             <span id="error-phone"></span>
-            <div>
+            <div class=" d-flex mb-3">
                 <label>
                     <i class="fa-solid fa-location-dot"></i>
                 </label>
@@ -109,17 +113,17 @@
             </div>
             <span id="error-country"></span>
 
-            <div>
+            <div class="d-flex mb-3">
                  <input  class="form-control border border-secondary ms-3" type="text" name="street_address" placeholder="Street address">
             </div>
 
-            <div>
+            <div class="d-flex mb-3">
                  <input class="form-control border border-secondary ms-3" type="text" name="city" placeholder="City">
             </div>
-            <div>
+            <div class="d-flex mb-3">
                  <input class="form-control border border-secondary ms-3" type="text" name="postal_code" placeholder="Postal code">
             </div>
-            <div>
+            <div class="d-flex mb-3">
                 <label>
                     <i class="fa-solid fa-cake-candles"></i>
                 </label>
@@ -147,6 +151,8 @@
     <script src='assets/js/header.js'></script>
     <script src='assets/vendors/jquery-flatpickr/flatpickr.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
 
     <script src='assets/js/create.js'></script>
 

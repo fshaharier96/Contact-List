@@ -276,14 +276,12 @@
   width: 500px;
 }
 
-.create-lower-container div {
-  margin-bottom: 10px;
-  display: flex;
-  padding: 5px;
-}
-
 .create-lower-container div label i {
   color: rgb(17, 43, 62);
+}
+
+.create-tel input {
+  width: 420px !important;
 }
 
 /* error span tag styling */

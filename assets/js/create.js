@@ -17,6 +17,9 @@ $("#datepicker").flatpickr({
     // Other options...
 });
 
+
+/* jquery FormValidation Plugin*/
+
 $("#addForm").validate({
     rules: {
         fname: {
@@ -88,4 +91,15 @@ $("#addForm").validate({
         }
     },
 
+});
+
+
+/*IntlTelInput plugin js code */
+
+const input = document.querySelector("#phone");
+window.intlTelInput(input, {
+  utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+  autoInsertDialCode:false,
+  autoPlaceholder:"aggressive",
+  separateDialCode:true
 });

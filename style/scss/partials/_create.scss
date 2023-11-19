@@ -65,10 +65,12 @@
 }
 
 .create-lower-container div{
-    margin-bottom:10px;
-    display:flex;
-    padding:5px;   
+    // margin-bottom:10px;
+    // display:flex;
+    // padding:5px;   
 }
+
+
 .create-lower-container div label i{
    color:rgb(17, 43, 62);
 }
@@ -80,7 +82,9 @@
 .create-lower-container div .icon-input{
     // margin-left:10px;
 }
-
+.create-tel input{
+    width:420px!important;
+}
 /* error span tag styling */
 #error-fname,#error-lname,#error-email,#error-phone,#error-country{
     margin-left:20px;
