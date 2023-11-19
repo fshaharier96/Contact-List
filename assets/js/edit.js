@@ -88,7 +88,7 @@ $("#editForm").validate({
         }
     },
 
-});
+}); 
 
 
 /*IntlTelInput plugin js code */

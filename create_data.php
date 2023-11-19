@@ -26,8 +26,9 @@ if(isset($_POST['submit'])){
         $file=$_FILES["uploadfile"];
         $fileName=$_FILES["uploadfile"]["name"];
         $fileTempName=$_FILES["uploadfile"]["tmp_name"];
-        $folder="uploads/".$fileName;
-        move_uploaded_file($fileTempName,$folder);  
+      //   $fileNameWithId=$user_id."-".$fileName;
+      //   $folder="uploads/".$fileNameWithId;
+      //   move_uploaded_file($fileTempName,$folder);  
      }
     /* INSERT INTO `contact_info_table` (`id`, `contact_image`, `first_name`, `last_name`, `company`, `job_title`, `department`, `email`, `phone`, `country`, `street_address`, `city`, `postal_code`, `birth_date`) VALUES (NULL, 'uploads/pic.jpg', 'Jamil', 'Hassan', 'Alpha tech', 'Marketing manager', 'Sales and Marketing', 'jamil@gmail.com', '01922191588', 'Bangladesh', '243/5,free school street,kalabagan', 'Dhaka', '1205', '2023-10-19'); */
 
@@ -37,7 +38,13 @@ if(isset($_POST['submit'])){
      $sql="INSERT INTO contact_info_table(user_id,contact_image, first_name, last_name, company, job_title, department, email, phone, country, street_address, city, postal_code, birth_date) VALUES('{$user_id}','{$folder}', '{$fname}', '{$lname}', '{$company}', '{$job_title}', '{$department}', '{$email}', '{$phone}', '{$country}', '{$street_address}', '{$city}', '{$postal_code}', '{$birthday}')";
      
      if(mysqli_query($conn,$sql))
-     {
+     {    $last_id=mysqli_insert_id($conn);
+          $fileNameWithId=$last_id."-".$fileName;
+          $folder="uploads/".$fileNameWithId;
+          move_uploaded_file($fileTempName,$folder); 
+          $sql2="UPDATE contact_info_table SET contact_image='{$folder}' WHERE id={$last_id}";
+          $result=mysqli_query($conn,$sql2) or die("query unsuccessful");
+   
          header("Location:{$host}home.php");
          
      }else{
