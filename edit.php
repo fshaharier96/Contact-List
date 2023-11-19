@@ -21,6 +21,10 @@ if(mysqli_num_rows($result)>0)
      <!-- flatpickr css link-->
      <link rel="stylesheet" href="assets/vendors/jquery-flatpickr/flatpickr.min.css"/>
 
+     <!--IntlTelInput plugin css link-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+
      <!--boostrap css file-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
 
@@ -95,56 +99,56 @@ if(mysqli_num_rows($result)>0)
              <input class="form-control" hidden type='number' name="id" value="<?php echo $row['id'] ?>">
              <input hidden type='text' name="contact_image" value="<?php echo $row['contact_image'] ?>">
 
-            <div>
+            <div class="d-flex mb-3">
                 <label><i class="fa-regular fa-user"></i></label>
                 <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="fname" placeholder="First name" value="<?php echo $row['first_name'] ?>">
             </div>
             <span id="error-fname"></span>
                
-            <div>
+            <div class="d-flex mb-3">
                 <input class="form-control border border-secondary ms-3" type="text" name="lname" placeholder="Last name" value="<?php echo $row['last_name'] ?>">
             </div>
             <span id="error-lname"></span>
-            <div> 
+            <div class="d-flex mb-3"> 
                  <label><i class="fa-solid fa-building"></i></label>
                  <input class="form-control border border-secondary ms-1"  type="text"  name="company" placeholder="Company" value="<?php echo $row['company'] ?>">
             </div>
             
             
-            <div>
+            <div class="d-flex mb-3">
                  <input class="form-control border border-secondary ms-3" type="text" name="job_title" placeholder="Job title" value="<?php echo $row['job_title'] ?>">
             </div>
             
-            <div>
+            <div class="d-flex mb-3">
                  <input class="form-control border border-secondary ms-3"  type="text" name="department" placeholder="Department" value="<?php echo $row['department'] ?>">
             </div>
 
-            <div>
+            <div class="d-flex mb-3">
                 <label><i class="fa-regular fa-envelope"></i></label>
                 <input  class="form-control border border-secondary ms-1"  type="email"  class="icon-input" name="email" placeholder="Email" value="<?php echo $row['email'] ?>">
             </div>
             <span id="error-email"></span>
-            <div>
+            <div class="d-flex mb-3 edit-tel">
                 <label><i class="fa-solid fa-phone"></i></label>
-                <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="phone" placeholder="Phone" value="<?php echo $row['phone'] ?>">
+                <input id="phone"  class="form-control border border-secondary ms-1"  type="tel" name="phone" value="<?php echo $row['phone'] ?>">
             </div>
             <span id="error-phone"></span>
-            <div>
+            <div class="d-flex mb-3">
                 <label><i class="fa-solid fa-location-dot"></i></label>
                 <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="country" placeholder="Country" value="<?php echo $row['country'] ?>">
             </div>
             <span id="error-country"></span>
-            <div>
+            <div class="d-flex mb-3">
                 <input class="form-control border border-secondary ms-3"  type="text" name="street_address" placeholder="Street address" value="<?php echo $row['street_address'] ?>">
             </div>
 
-            <div>
+            <div class="d-flex mb-3">
                 <input class="form-control border border-secondary ms-3"  type="text" name="city" placeholder="City" value="<?php echo $row['city'] ?>">
             </div>
-            <div>
+            <div class="d-flex mb-3">
                 <input class="form-control border border-secondary ms-3"  type="text" name="postal_code" placeholder="Postal code" value="<?php echo $row['postal_code'] ?>">
             </div>
-            <div>
+            <div class="d-flex mb-3">
                 <label><i class="fa-solid fa-cake-candles"></i></label>
                 <input id="edit-datepicker" class="form-control border border-secondary ms-1"   type="date"  class="icon-input" name="birth_date" placeholder="Birthday" value="<?php echo $row['birth_date'] ?>">
             </div>
@@ -175,6 +179,7 @@ if(mysqli_num_rows($result)>0)
     <script src='assets/js/header.js'></script>
     <script src='assets/vendors/jquery-flatpickr/flatpickr.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
     <script src='assets/js/edit.js'></script>
 </body>
 </html>

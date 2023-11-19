@@ -318,14 +318,12 @@
   width: 530px;
 }
 
-.edit-lower-container div {
-  margin-bottom: 10px;
-  display: flex;
-  padding: 5px;
-}
-
 .edit-lower-container div label i {
   color: rgb(17, 43, 62);
+}
+
+.edit-tel input {
+  width: 450px !important;
 }
 
 /*bootstrap original class*/

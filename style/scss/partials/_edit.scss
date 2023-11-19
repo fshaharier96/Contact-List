@@ -67,10 +67,12 @@
 }
 
 .edit-lower-container div{
-    margin-bottom:10px;
-    display:flex;
-    padding:5px;   
+    // margin-bottom:10px;
+    // display:flex;
+    // padding:5px;   
 }
+
+
 .edit-lower-container div label i{
    color:rgb(17, 43, 62);
 }
@@ -78,6 +80,10 @@
     // margin-left:23px;
     // height:38px;
     // width:450px;
+}
+
+.edit-tel input{
+    width:450px!important;
 }
 .edit-lower-container div .icon-input{
     // margin-left:10px;
