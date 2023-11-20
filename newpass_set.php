@@ -24,6 +24,8 @@ if(isset($_POST['submit'])){
         }else{
             echo "password does not matched";
         }
+
+    }
   
 }
 
