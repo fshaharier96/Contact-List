@@ -50,6 +50,9 @@
                 <div class="mb-4">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <input type="password" name="password" class="form-control border border-secondary">
+                  <div class="mt-2">
+                    <a  class="text-decoration-none fw-semibold" href="forget_pass.php">Forget Password ?</a>
+                  </div>
                 </div>
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input border border-black" id="exampleCheck1">
