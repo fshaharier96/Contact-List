@@ -121,7 +121,8 @@ echo $submit_msg;
 
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $sql="SELECT * FROM login_table WHERE email='{$email}' AND password='{$password}'";
+    $hashedPassword=hash('sha256',$password);
+    $sql="SELECT * FROM login_table WHERE email='{$email}' AND password='{$hashedPassword}'";
     $result=mysqli_query($conn,$sql) or die("query unsuccessful : ".mysqli_error($conn));
     if(mysqli_num_rows($result)>0)
       {     $row=mysqli_fetch_assoc($result);

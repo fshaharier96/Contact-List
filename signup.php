@@ -147,9 +147,10 @@ echo $submit_msg;
     $email=$_POST['email'];
     $username= $_POST['username'];
     $password= $_POST['password'];
+    $hashedPassword=hash('sha256',$password);
 
    $sql="SELECT * FROM login_table WHERE email='{$email}'";
-   $sql1="INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$password}')";
+   $sql1="INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$hashedPassword}')";
    $result=mysqli_query($conn,$sql) or die("query unsuccesful");
    if($result)
    {
