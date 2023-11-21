@@ -13,6 +13,10 @@
      <!--boostrap css file-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
+     <!--awsome notification files-->
+     <link rel="stylesheet" href="assets/vendors/awsome-notification/style.css"></link>
+     <script src="assets/vendors/awsome-notification/index.var.js"></script>
+
 
     <link rel="stylesheet" href="style/css/main.css">
     <title>Document</title>

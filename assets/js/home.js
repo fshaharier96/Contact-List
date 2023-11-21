@@ -28,10 +28,31 @@ $(document).on('click','tr td button',function(){
     }
     if(id=='delete')
     { 
-      let userConfirmation=confirm("Are you really want to delete the item?");
-      if(userConfirmation){
+      // let userConfirmation=confirm("Are you really want to delete the item?");
+      // document.getElementById("delete").addEventListener('click',function(){
+      //   let notifier = new AWN();
+      //    notifier.confirm("Do you wan to delete this item");
+    
+      let notifier=new AWN();
+      let onOk=()=>{
         window.location=`delete.php?page=${data_id}`;
       }
+      let onCancel=()=>{
+        notifier.info('You pressed Cancel');
+       }
+    
+         notifier.confirm('your notification message',onOk,onCancel,{
+        labels:{
+            confirm:'Simple notification'
+        }
+    
+      }) 
+
+       
+    
+      // if(userConfirmation){
+      //   window.location=`delete.php?page=${data_id}`;
+      // }
      
 
     }
