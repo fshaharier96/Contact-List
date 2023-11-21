@@ -54,9 +54,9 @@ if(mysqli_num_rows($result)>0){
         <td>{$row['phone']}</td>
         <td>{$row['job_title']}-{$row['company']}</td>
         <td>{$row['city']}</td>
-        <td><button class='custom-btn-edit' id='edit' class='home-dis' data-role={$row['id']}>
+        <td><button class='btn btn-sm btn-primary me-2' id='edit' class='home-dis' data-role={$row['id']}>
         Edit</button>
-        <button class='custom-btn-delete' id='delete' class='home-dis2' data-role={$row['id']}>
+        <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
         Delete</button></td>
         </tr>";
     }
