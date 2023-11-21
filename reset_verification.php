@@ -26,9 +26,14 @@
       $mail->addAddress($email);     
    
       $mail->isHTML(true);                                
-      $mail->Subject ="Reset Code";
-      $mail->Body    = $reset_code;
-      $mail->AltBody = 'Use this six digit code to verify your account';
+      $mail->Subject ="Account Verification";
+      $templateFile='./email/email_template.html';
+      $htmlContent=file_get_contents($templateFile);
+      $htmlContent=str_replace("{{CODE}}",$reset_code,$htmlContent);
+      $mail->Body =$htmlContent;
+
+    //   $mail->Body    = $reset_code;
+    //   $mail->AltBody = 'Use this six digit code to verify your account';
   
       $mail->send();
       echo 'Message has been sent';
