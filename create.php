@@ -32,7 +32,7 @@
 
     <!--container section-->
 
-    <div class="create-container">
+    <div class="container pb-2 shadow">
 
     <!-- ** form starts ** -->
 
@@ -40,7 +40,7 @@
 
           <!--upper container starts-->
 
-        <div class="create-upper-container col-12 d-flex pt-4 pb-2 pb-4 border-bottom border-secondary">
+        <div class="create-upper-container  col-12 d-flex pt-4 pb-2 pb-4 border-bottom border-secondary">
             <div class="create-img-box  col-6">
                 <label for="create-file-id" class="create-img-upload">
                     <div class="create-img-icon"><i class="fa-regular fa-image"></i></div>

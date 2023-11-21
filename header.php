@@ -2,7 +2,7 @@
 
 ?>
 
-<div class="container-fluid custom-header-height">
+<div class="container custom-header-height">
     <div class="row h-100 d-flex justify-content-evenly align-items-center px-4">
        <div class="col-3  d-flex justify-content-start align-items-center w-25 h-75">
         <div id="header-toggle-button" class="me-4"><i class="fa-solid fa-bars fs-4"></i></div>

@@ -39,7 +39,7 @@ if(mysqli_num_rows($result)>0)
 
     <!-- bootstrap code starts-->
 
-    <div class="container-fluid">
+    <div class="container shadow">
 
         <div class="row">
 
@@ -55,7 +55,7 @@ if(mysqli_num_rows($result)>0)
 
    <!-- Upper container starts -->
 
-        <div class="edit-upper-container pb-3  border-bottom border-secondary d-flex col-12">
+        <div class="edit-upper-container py-3  border-bottom border-dark-subtle d-flex col-12 ">
             <div class="edit-img-box col-6 ms-5">
                 <label for="edit-file-id" class="edit-img-upload">
                 <?php 
