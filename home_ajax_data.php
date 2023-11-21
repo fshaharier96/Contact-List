@@ -38,7 +38,8 @@ if(mysqli_num_rows($result)>0){
          <th>Name</th>
          <th>Email</th>
          <th>Phone</th>
-         <th>Jobtitle & Company</th>
+         <th>Jobtitle</th>
+         <th>Company</th>
          <th>City</th>
          <th>Action</th>
          </tr>
@@ -52,7 +53,8 @@ if(mysqli_num_rows($result)>0){
         <td class='id_name' data-tdid={$row['id']}>{$row['first_name']} {$row['last_name']}</td>
         <td>{$row['email']}</td>
         <td>{$row['phone']}</td>
-        <td>{$row['job_title']}-{$row['company']}</td>
+        <td>{$row['job_title']}</td>
+        <td>{$row['company']}</td>
         <td>{$row['city']}</td>
         <td><button class='btn btn-sm btn-primary me-2' id='edit' class='home-dis' data-role={$row['id']}>
         Edit</button>
