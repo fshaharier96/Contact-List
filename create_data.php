@@ -12,6 +12,7 @@ if(isset($_POST['submit'])){
      $department=$_POST['department']; 
     $email=$_POST['email']; 
     $phone=$_POST['phone']; 
+    $country_code=$_POST['countryCode'];
      $country=$_POST['country']; 
      $street_address=$_POST['street_address']; 
      $city=$_POST['city']; 
@@ -19,6 +20,8 @@ if(isset($_POST['submit'])){
      $birthday=$_POST['birth_date']; 
      session_start();
      $user_id=$_SESSION['id'];
+     $phoneWithCode=$country_code."".$phone;
+
 
     
      
@@ -35,7 +38,7 @@ if(isset($_POST['submit'])){
 
    //   $conn=mysqli_connect('localhost',"root",'','contact-list') or die("connection failed");
 
-     $sql="INSERT INTO contact_info_table(user_id,contact_image, first_name, last_name, company, job_title, department, email, phone, country, street_address, city, postal_code, birth_date) VALUES('{$user_id}','{$folder}', '{$fname}', '{$lname}', '{$company}', '{$job_title}', '{$department}', '{$email}', '{$phone}', '{$country}', '{$street_address}', '{$city}', '{$postal_code}', '{$birthday}')";
+     $sql="INSERT INTO contact_info_table(user_id,contact_image, first_name, last_name, company, job_title, department, email, phone, country, street_address, city, postal_code, birth_date) VALUES('{$user_id}','{$folder}', '{$fname}', '{$lname}', '{$company}', '{$job_title}', '{$department}', '{$email}', '{$phoneWithCode}', '{$country}', '{$street_address}', '{$city}', '{$postal_code}', '{$birthday}')";
      
      if(mysqli_query($conn,$sql))
      {    $last_id=mysqli_insert_id($conn);

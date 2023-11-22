@@ -98,8 +98,16 @@ $("#addForm").validate({
 
 const input = document.querySelector("#phone");
 window.intlTelInput(input, {
+  initialCountry:'bd',
   utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
   autoInsertDialCode:false,
   autoPlaceholder:"aggressive",
   separateDialCode:true
+});
+
+$('#phone').on('blur', function() {
+    let code_class=$(".iti__selected-dial-code")
+    let code_val=code_class.text();
+    $('#countryCode').val(code_val);
+    console.log()
 });

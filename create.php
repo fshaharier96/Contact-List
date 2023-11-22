@@ -103,6 +103,7 @@
                     <i class="fa-solid fa-phone"></i>
                 </label>
                 <input id="phone" type="tel" class="form-control border border-secondary pe-0 ms-1" name="phone"/>
+                <input hidden id="countryCode" name="countryCode"/>
             </div>
             <span id="error-phone"></span>
             <div class=" d-flex mb-3">
