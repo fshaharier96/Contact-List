@@ -12,7 +12,7 @@ $dotenv->safeLoad();
 
 
 
-$host=$_ENV['SERVER_URL'];
+  $host=$_ENV['SERVER_URL'];
 
 
 
@@ -20,6 +20,9 @@ $host=$_ENV['SERVER_URL'];
   define("USER", $_ENV['DB_USERNAME']);
   define("PASSWORD",$_ENV['DB_PASSWORD']);
   define("DATABASE",$_ENV['DB_DATABASE']);
+
+  define("MAIL_HOST",$_ENV['MAIL_HOST']);
+  define("MAIL_PORT",$_ENV['MAIL_PORT']);
 
 
 // echo "this is server variable".SERVER;

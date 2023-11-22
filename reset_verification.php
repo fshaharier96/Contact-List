@@ -17,9 +17,11 @@
   $mail = new PHPMailer(true);
   
   try {
-      $mail->isSMTP();                                            
-      $mail->Host       = 'localhost';                   
-      $mail->Port       = 1025;                                   
+      $mail->isSMTP();  
+      $m_host=MAIL_HOST;
+      $m_port=MAIL_PORT;                                          
+      $mail->Host       = $m_host;                   
+      $mail->Port       = $m_port;                                   
   
      
       $mail->setFrom('sender@example.com', 'Contact-list Mailer');
