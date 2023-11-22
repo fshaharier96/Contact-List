@@ -110,7 +110,10 @@
                 <label>
                     <i class="fa-solid fa-location-dot"></i>
                 </label>
-                <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="country" placeholder="Country">
+                <select id="countryList" class="form-select border border-secondary ms-1" name="country">
+  
+                </select>
+                <!-- <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="country" placeholder="Country"> -->
             </div>
             <span id="error-country"></span>
 

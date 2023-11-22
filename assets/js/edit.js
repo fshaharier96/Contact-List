@@ -95,8 +95,31 @@ $("#editForm").validate({
 
 const input = document.querySelector("#phone");
 window.intlTelInput(input, {
-  utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+  initialCountry:'bd',
+  utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
   autoInsertDialCode:false,
   autoPlaceholder:"aggressive",
   separateDialCode:true
 });
+
+$('#phone').on('blur', function() {
+    let code_class=$(".iti__selected-dial-code")
+    let code_val=code_class.text();
+    $('#countryCode').val(code_val);
+    console.log()
+});
+
+
+// let countryList= $('#countryList');
+// const allCountries = window.intlTelInputGlobals.getCountryData();
+
+// allCountries.forEach(function(country) {
+//     let select="";
+//     if(country.iso2=="bd"){
+//         select="selected";
+//     }else{
+//         select="";
+//     }
+//     countryList.append(`<option value="${country.name}">${country.name}</option>`);
+    
+// });

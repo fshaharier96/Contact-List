@@ -111,3 +111,17 @@ $('#phone').on('blur', function() {
     $('#countryCode').val(code_val);
     console.log()
 });
+
+let countryList= $('#countryList');
+const allCountries = window.intlTelInputGlobals.getCountryData();
+
+allCountries.forEach(function(country) {
+    let select="";
+    if(country.iso2=="bd"){
+        select="selected";
+    }else{
+        select="";
+    }
+    countryList.append(`<option ${select} value="${country.name}">${country.name}</option>`);
+    
+});

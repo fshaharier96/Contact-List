@@ -131,11 +131,14 @@ if(mysqli_num_rows($result)>0)
             <div class="d-flex mb-3 edit-tel">
                 <label><i class="fa-solid fa-phone"></i></label>
                 <input id="phone"  class="form-control border border-secondary ms-1"  type="tel" name="phone" value="<?php echo $row['phone'] ?>">
+                <input hidden id="countryCode" name="countryCode"/>
             </div>
             <span id="error-phone"></span>
             <div class="d-flex mb-3">
                 <label><i class="fa-solid fa-location-dot"></i></label>
-                <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="country" placeholder="Country" value="<?php echo $row['country'] ?>">
+                <!-- <select id="countryList" class="form-select border border-secondary ms-1" name="country">
+                </select> -->
+                <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="country" placeholder="Country" value="<?php echo $row['country']?>">
             </div>
             <span id="error-country"></span>
             <div class="d-flex mb-3">
