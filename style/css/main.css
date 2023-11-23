@@ -141,6 +141,15 @@
   display: none;
 }
 
+.left-side-item-bg {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.left-side-item-bg:hover {
+  background: #E8F0FE;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;

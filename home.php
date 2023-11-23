@@ -26,13 +26,13 @@
  include_once "header.php";
 ?>
   
-    <div class="container shadow p-4 pe-0">
+    <div class="container shadow p-4">
 
         <div class="row">
 
             <!-- body left-container starts-->
 
-            <div id="home-left-container" class="col-2">
+            <div id="home-left-container" class="col-3">
                 <div class="row  d-flex justify-content-start align-items-center  p-3 mb-2 header-add">
                     <button class="btn btn-primary custom-create-btn">
                         <span><i class="fa-solid fa-plus"></i></span>
@@ -41,16 +41,16 @@
                 </div>
 
                 <div class="row p-3 mb-2">
-                    <div class="py-2">
+                    <div class="py-2 px-2 left-side-item-bg">
                         <span class="me-3"><i class="fa-regular fa-user"></i></span>
                         <span class="me-5">contacts</span>
                         <span class="ms-1">19</span>
                     </div>
-                    <div class="py-2">
+                    <div class="py-2 px-2 left-side-item-bg">
                      <span class="me-3"><i class="fa-solid fa-clock-rotate-left"></i></span>
                      <span>frequent</span>
                     </div>
-                    <div class="py-2">
+                    <div class="py-2 px-2 left-side-item-bg">
                      <span class="me-3"><i class="fa-regular fa-address-card"></i></span>
                      <span class="me-5">others</span>
                      <span class="ms-1"><i class="fa-solid fa-circle-exclamation"></i></span>
@@ -59,16 +59,16 @@
                 </div>
                 <h6 class="ps-3">Fix & Manage</h6>
                 <div class="p-3 pt-2">
-                <div class="py-2">
+                <div class="py-2 px-2 left-side-item-bg">
                     <span class="me-3"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
                      <span>Merge & Fix</span>
                 </div>
-                <div class="py-2">
+                <div class="py-2 px-2 left-side-item-bg">
                     <span class="me-3"><i class="fa-solid fa-download"></i></span>
                      <span>Import</span>
                 </div>
 
-                <div class="py-2">
+                <div id="trash_items" class="py-2 px-2 left-side-item-bg">
                     <span class="me-3"><i class="fa-solid fa-trash-can"></i></span>
                      <span>Trash</span>
                </div>
@@ -84,6 +84,7 @@
 
             
             <div class="col-9 p-3 item-container">
+                <div class="favourite-container border border-black"></div>
                 
             </div>
            

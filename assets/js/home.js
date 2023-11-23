@@ -6,6 +6,12 @@ function  loadTable(page){
         data:{page_no:page},
         success:function(data){
             $('.item-container').html(data);
+            // let element=data;
+            // let favourite = element.find('button').data('favour');
+            // if(favourite==1){
+            //   $(".favourite-container")
+            // }
+    
         }
     })
 }
@@ -35,17 +41,28 @@ $(document).on('click','tr td button',function(){
     
       let notifier=new AWN();
       let onOk=()=>{
-        window.location=`delete.php?page=${data_id}`;
+        // window.location=`trash.php?id=${data_id}`;
+        $.ajax({
+          url:"trash.php",
+          type:'post',
+          data:{contact_id:data_id},
+          success:function(data){
+            notifier.info(data)
+          }
+        })
       }
       let onCancel=()=>{
         notifier.info('You pressed Cancel');
        }
-    
-         notifier.confirm('your notification message',onOk,onCancel,{
-        labels:{
-            confirm:'Simple notification'
-        }
-    
+     notifier.confirm('your notification message',onOk,onCancel,{
+      labels:{
+            confirm:'Simple notification',
+            confirmOk:'Move to trash',
+            confirmCancel:'Cancel'
+            
+        },
+       
+      
       }) 
 
        
@@ -87,9 +104,7 @@ $(document).on('click','tr td button',function(){
       url:"favourite.php",
       type:'post',
       data:{row_id:favourite_id,favourite:1},
-      success:function(response){
-        
-          
+      success:function(response){ 
       }
     })
     // console.log("this is checkvalue"+clickCheck);
@@ -110,3 +125,9 @@ $(document).on('click','tr td button',function(){
    }
 
 })
+
+
+$('#trash_items').click(function(){
+  window.location="trash_data.php";
+})
+

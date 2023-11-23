@@ -19,17 +19,18 @@ $offset=($page-1)*$limit_per_page;
 
 if($user_name=="admin")
 {
-    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite FROM contact_info_table LIMIT {$offset},{$limit_per_page}";
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE trash_id=0 LIMIT {$offset},{$limit_per_page}";
 
 }else{
-    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite FROM contact_info_table
-WHERE user_id={$user_id} LIMIT {$offset},{$limit_per_page}";
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table
+WHERE user_id={$user_id} AND trash_id=0 LIMIT {$offset},{$limit_per_page}";
 }
 
 
 $result=mysqli_query($conn,$sql) or die('query unsuccessful');
 $output="";
 if(mysqli_num_rows($result)>0){
+
     $output.="
          <table class='table table-striped table-hover  border border-table' id='home-table'>
          <thead class=' table-primary text-center'>
@@ -66,7 +67,7 @@ if(mysqli_num_rows($result)>0){
         Edit</button>
         <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
         Delete</button>
-        <button class='button-star' data-star={$row['id']}><i class='{$class} fa-star'></i></button></td>
+        <button class='button-star' data-favour={$favourite} data-star={$row['id']}><i class='{$class} fa-star'></i></button></td>
         </tr>";
     }
     $output.="</tbody>";
