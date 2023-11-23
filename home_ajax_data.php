@@ -19,10 +19,10 @@ $offset=($page-1)*$limit_per_page;
 
 if($user_name=="admin")
 {
-    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table LIMIT {$offset},{$limit_per_page}";
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite FROM contact_info_table LIMIT {$offset},{$limit_per_page}";
 
 }else{
-    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite FROM contact_info_table
 WHERE user_id={$user_id} LIMIT {$offset},{$limit_per_page}";
 }
 
@@ -48,6 +48,12 @@ if(mysqli_num_rows($result)>0){
     $output.="<tbody>";
 
     while($row=mysqli_fetch_assoc($result)){
+        $favourite=$row['favourite'];
+        if($favourite==1){
+            $class="fa-solid";
+        }else{
+            $class="fa-regular";
+        }
         $output.="<tr class='text-center'>
         <td>{$row['id']}</td>
         <td class='id_name' data-tdid={$row['id']}>{$row['first_name']} {$row['last_name']}</td>
@@ -59,7 +65,8 @@ if(mysqli_num_rows($result)>0){
         <td><button class='btn btn-sm btn-primary me-2' id='edit' class='home-dis' data-role={$row['id']}>
         Edit</button>
         <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
-        Delete</button></td>
+        Delete</button>
+        <button class='button-star' data-star={$row['id']}><i class='{$class} fa-star'></i></button></td>
         </tr>";
     }
     $output.="</tbody>";

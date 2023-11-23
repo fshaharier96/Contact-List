@@ -26,7 +26,7 @@
  include_once "header.php";
 ?>
   
-    <div class="container shadow p-4">
+    <div class="container shadow p-4 pe-0">
 
         <div class="row">
 

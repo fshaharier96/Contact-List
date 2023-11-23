@@ -66,3 +66,47 @@ $(document).on('click','tr td button',function(){
   
 
   });
+  
+  $(document).on('mouseenter','tr',function(e){
+      $(this).find('.button-star').show()
+  })
+
+  $(document).on('mouseleave','tr',function(){
+    $(this).find('.button-star').hide()
+})
+
+var clickCheck = 0;
+$(document).on('click','tr td button',function(){
+  
+   if(clickCheck==0){
+    var favourite_id=$(this).data('star');
+    $(this).find('i').removeClass('fa-regular');
+    $(this).find('i').addClass('fa-solid');
+    clickCheck=1;
+    $.ajax({
+      url:"favourite.php",
+      type:'post',
+      data:{row_id:favourite_id,favourite:1},
+      success:function(response){
+        
+          
+      }
+    })
+    // console.log("this is checkvalue"+clickCheck);
+   }else{
+    var favourite_id=$(this).data('star');
+    $(this).find('i').removeClass('fa-solid');
+    $(this).find('i').addClass('fa-regular');
+    clickCheck=0
+    $.ajax({
+      url:"favourite.php",
+      type:'post',
+      data:{row_id:favourite_id,favourite:0},
+      success:function(response){
+            
+      }
+    })
+    // console.log("this is checkvalue"+clickCheck);
+   }
+
+})

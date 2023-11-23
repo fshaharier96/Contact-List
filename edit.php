@@ -130,15 +130,16 @@ if(mysqli_num_rows($result)>0)
             <span id="error-email"></span>
             <div class="d-flex mb-3 edit-tel">
                 <label><i class="fa-solid fa-phone"></i></label>
-                <input id="phone"  class="form-control border border-secondary ms-1"  type="tel" name="phone" value="<?php echo $row['phone'] ?>">
-                <input hidden id="countryCode" name="countryCode"/>
+                <input id="phone"   class="form-control border border-secondary ms-1"  type="tel" name="phone[full]" value="<?php echo $row['phone'] ?>">
+                <!-- <input hidden id="countryCode" name="countryCode"/> -->
             </div>
             <span id="error-phone"></span>
             <div class="d-flex mb-3">
                 <label><i class="fa-solid fa-location-dot"></i></label>
-                <!-- <select id="countryList" class="form-select border border-secondary ms-1" name="country">
+                <!-- <select id="countryList" class="form-select border border-secondary ms-1" name="country2">
                 </select> -->
                 <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="country" placeholder="Country" value="<?php echo $row['country']?>">
+                
             </div>
             <span id="error-country"></span>
             <div class="d-flex mb-3">
@@ -184,5 +185,25 @@ if(mysqli_num_rows($result)>0)
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
     <script src='assets/js/edit.js'></script>
+
+
+<!-- <script>
+   const phoneInputField = document.querySelector("#phone");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+   });
+ </script>
+
+<script type="text/javascript">
+    jQuery( document ).ready( function ($) {
+        $("#editForm").submit(function(event){
+            const phoneNumber = phoneInput.getNumber();
+            $("#phone").val(phoneNumber);
+            console.log(phoneNumber);
+        });
+
+    });
+</script> -->
 </body>
 </html>
