@@ -136,10 +136,10 @@ if(mysqli_num_rows($result)>0)
             <span id="error-phone"></span>
             <div class="d-flex mb-3">
                 <label><i class="fa-solid fa-location-dot"></i></label>
-                <!-- <select id="countryList" class="form-select border border-secondary ms-1" name="country2">
-                </select> -->
-                <input class="form-control border border-secondary ms-1"  type="text"  class="icon-input" name="country" placeholder="Country" value="<?php echo $row['country']?>">
-                
+                <select id="countryList" class="form-select border border-secondary ms-1" name="country">
+                    <option value="<?php echo $row['country']?>"><?php echo $row['country']?>
+                     </option>
+                    </select> 
             </div>
             <span id="error-country"></span>
             <div class="d-flex mb-3">

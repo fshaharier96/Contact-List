@@ -99,17 +99,33 @@ $("#editForm").validate({
     utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
   });
 
-    var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
-    $("input[name='phone_number[full]'").val(full_number);
+    // var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
+    // $("input[name='phone_number[full]'").val(full_number);
 
     
 
+    /* country field*/
+
+    
+//    let arr=['bangladesh',"india",'pakistan'];
+//    let countryList=$('#countryList');
+//    console.log(arr)
 
 
 
+let countryList= $('#countryList');
+const allCountries = window.intlTelInputGlobals.getCountryData();
 
+allCountries.forEach(function(country) {
+// let select="";
+// if(country.iso2=="bd"){
+// select="selected";
+// }else{
+// select="";
+// }
+countryList.append(`<option value="${country.name}">${country.name}</option>`);
 
-
+     });
 
 
 // const phoneInputField = document.querySelector("#phone");
