@@ -81,11 +81,15 @@
             <!-- body left-container starts-->
 
             <!-- body table containter starts-->
+            <div class="col-9 d-flex flex-column">
 
-            
-            <div class="col-9 p-3 item-container">
-                <div class="favourite-container border border-black"></div>
+            <div class="col-12 p-3 favourite-container">
+                    
+            </div>
+            <div class="col-12 p-3 item-container">
+              
                 
+            </div>
             </div>
            
 

@@ -1,3 +1,25 @@
+// $(document).ready(function(){
+//   $.ajax({
+//     url:'home_ajax_star_data.php',
+//     type:'POST',
+//     success:function(data){
+//       $('.favourite-container').html(data)
+//     }
+//   });
+
+// })
+function loadStarTable(){
+$.ajax({
+  url:'home_ajax_star_data.php',
+  type:'POST',
+  success:function(data){
+    $('.favourite-container').html(data);
+
+  }
+});
+}
+loadStarTable()
+ 
 
 function  loadTable(page){
     $.ajax({
@@ -16,6 +38,7 @@ function  loadTable(page){
     })
 }
 loadTable();
+
 
 $(document).on('click','#home-pagination a',function(e){
     e.preventDefault();
@@ -92,26 +115,26 @@ $(document).on('click','tr td button',function(){
     $(this).find('.button-star').hide()
 })
 
-var clickCheck = 0;
-$(document).on('click','tr td button',function(){
+let clickCheck = 0;
+$(document).on('click','tr td #star-id',function(){
   
    if(clickCheck==0){
-    var favourite_id=$(this).data('star');
-    $(this).find('i').removeClass('fa-regular');
-    $(this).find('i').addClass('fa-solid');
+    let favourite_id=$(this).data('star');
     clickCheck=1;
     $.ajax({
       url:"favourite.php",
       type:'post',
       data:{row_id:favourite_id,favourite:1},
       success:function(response){ 
+       
       }
     })
+
+
+   
     // console.log("this is checkvalue"+clickCheck);
    }else{
-    var favourite_id=$(this).data('star');
-    $(this).find('i').removeClass('fa-solid');
-    $(this).find('i').addClass('fa-regular');
+    let favourite_id=$(this).data('star');
     clickCheck=0
     $.ajax({
       url:"favourite.php",
@@ -121,11 +144,14 @@ $(document).on('click','tr td button',function(){
             
       }
     })
+
     // console.log("this is checkvalue"+clickCheck);
    }
 
 })
 
+
+/* home page  trash button*/
 
 $('#trash_items').click(function(){
   window.location="trash_data.php";

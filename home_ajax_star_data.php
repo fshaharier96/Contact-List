@@ -1,4 +1,4 @@
-<h5>Contacts</h5>
+<h5>Favourite</h5>
 <?php
 include_once "classes/database.php";
 $db_connect=new Database();
@@ -8,23 +8,15 @@ $conn=$db_connect->conn;
 session_start();
 $user_id = $_SESSION['id'];
 $user_name = $_SESSION['user'];
-$limit_per_page=3;
-$page='';
-if(isset($_POST['page_no'])){
-   $page=$_POST['page_no'];
-}else{
-   $page=1;
-} 
-$offset=($page-1)*$limit_per_page;
 
 
 if($user_name=="admin")
 {
-    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE trash_id=0 LIMIT {$offset},{$limit_per_page}";
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE trash_id=0 AND favourite=1";
 
 }else{
     $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table
-WHERE user_id={$user_id} AND trash_id=0 LIMIT {$offset},{$limit_per_page}";
+     WHERE user_id={$user_id} AND trash_id=0  AND favourite=1";
 }
 
 
@@ -69,51 +61,14 @@ if(mysqli_num_rows($result)>0){
         <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
         Delete</button>
         <button id='star-id' class='btn {$class}' data-favour={$favourite} data-star={$row['id']}>
-        star</button>
+         star
+        </button>
         </td>
         </tr>";
     }
     $output.="</tbody>";
     $output.="</table>";
 
-    if($user_name=="admin"){
-
-     $sql1="SELECT * FROM contact_info_table";
-
-    }else{
-
-      $sql1="SELECT * FROM contact_info_table WHERE user_id={$user_id}";
-    }
-
-
-    
-    $result1=mysqli_query($conn,$sql1) or die("query unsuccessful");
-    $total_records=mysqli_num_rows($result1);
-    $pages=ceil($total_records/$limit_per_page);
-
-    $output.="<div id='home-pagination'>";
-    if($page>1){
-        $pageprev=$page-1;
-        $output.="<a class='prev-next' id='{$pageprev}' href=''>Prev</a>";
-    }
-    
-    for($i=1;$i<=$pages;$i++)
-    {  
-        if($i==$page)
-        {
-            $change='active';
-        }else{
-            $change='';
-        }
-       $output.="<a class='{$change}' id='{$i}' href='home.php?page={$page}'>{$i}</a>";
-    }
-    if($page<$pages){
-        $pagenext=$page+1;
-        $output.="<a class='prev-next' id='{$pagenext}' href=''>Next</a>";
-    }
-
-    $output.="</div>";
- 
     echo $output;
 }
 else{
