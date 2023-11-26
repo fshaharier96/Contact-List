@@ -1,4 +1,4 @@
-<h5>Contacts</h5>
+
 <?php
 include_once "classes/database.php";
 $db_connect=new Database();
@@ -16,22 +16,33 @@ if(isset($_POST['page_no'])){
    $page=1;
 } 
 $offset=($page-1)*$limit_per_page;
+$output="";
+
 
 
 if($user_name=="admin")
 {
     $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE trash_id=0 LIMIT {$offset},{$limit_per_page}";
 
+    $sql2="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE trash_id=0";
+
 }else{
     $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table
 WHERE user_id={$user_id} AND trash_id=0 LIMIT {$offset},{$limit_per_page}";
+
+$sql2="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE user_id={$user_id} AND trash_id=0";
+}
+
+$result2=mysqli_query($conn,$sql2) or die('query unsuccessful');
+if(mysqli_num_rows($result2)>0){
+    $favourite_count=mysqli_num_rows($result2);
+    $output="<h5>Contacts($favourite_count)</h5>";
 }
 
 
-$result=mysqli_query($conn,$sql) or die('query unsuccessful');
-$output="";
-if(mysqli_num_rows($result)>0){
 
+$result=mysqli_query($conn,$sql) or die('query unsuccessful');
+if(mysqli_num_rows($result)>0){
     $output.="
          <table class='table table-striped table-hover  border border-table' id='home-table'>
          <thead class=' table-primary text-center'>
@@ -52,7 +63,7 @@ if(mysqli_num_rows($result)>0){
     while($row=mysqli_fetch_assoc($result)){
         $favourite=$row['favourite'];
         if($favourite==1){
-            $class="btn-primary";
+            $class="btn-info";
         }else{
             $class="btn-warning";
         }
@@ -69,7 +80,7 @@ if(mysqli_num_rows($result)>0){
         <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
         Delete</button>
         <button id='star-id' class='btn btn-sm {$class}' data-favour={$favourite} data-star={$row['id']}>
-        Star</button>
+        Favourite</button>
         </td>
         </tr>";
     }

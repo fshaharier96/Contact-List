@@ -13,8 +13,13 @@ $.ajax({
   url:'home_ajax_star_data.php',
   type:'POST',
   success:function(data){
-    $('.favourite-container').html(data);
-
+    if(data)
+    {
+      $('.favourite-container').html(data);
+    }else{
+      $('.favourite-container').html('<div></div>');
+    }
+       
   }
 });
 }
@@ -116,10 +121,14 @@ $(document).on('click','tr td button',function(){
 })
 
 let clickCheck = 0;
+
 $(document).on('click','tr td #star-id',function(){
-  
-   if(clickCheck==0){
+   let favourite_check=$(this).data('favour');
+   let btn_text=$(this).text();
+   if(favourite_check==0){
     let favourite_id=$(this).data('star');
+    $(this).removeClass("btn-warning");
+    $(this).addClass("btn-info");
     clickCheck=1;
     $.ajax({
       url:"favourite.php",
@@ -129,12 +138,12 @@ $(document).on('click','tr td #star-id',function(){
        
       }
     })
-
-
-   
+    
     // console.log("this is checkvalue"+clickCheck);
    }else{
     let favourite_id=$(this).data('star');
+    $(this).removeClass("btn-info");
+    $(this).addClass("btn-warning");
     clickCheck=0
     $.ajax({
       url:"favourite.php",
@@ -144,6 +153,7 @@ $(document).on('click','tr td #star-id',function(){
             
       }
     })
+    // console.log("this is click value:"+clickCheck);
 
     // console.log("this is checkvalue"+clickCheck);
    }

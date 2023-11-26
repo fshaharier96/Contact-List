@@ -1,4 +1,4 @@
-<h5>Favourite</h5>
+
 <?php
 include_once "classes/database.php";
 $db_connect=new Database();
@@ -21,9 +21,12 @@ if($user_name=="admin")
 
 
 $result=mysqli_query($conn,$sql) or die('query unsuccessful');
-$output="";
-if(mysqli_num_rows($result)>0){
 
+$output="";
+
+if(mysqli_num_rows($result)>0){
+    $favourite_count=mysqli_num_rows($result);
+    $output="<h5>Favourite($favourite_count)</h5>";
     $output.="
          <table class='table table-striped table-hover  border border-table' id='home-table'>
          <thead class=' table-primary text-center'>
@@ -44,7 +47,7 @@ if(mysqli_num_rows($result)>0){
     while($row=mysqli_fetch_assoc($result)){
         $favourite=$row['favourite'];
         if($favourite==1){
-            $class="btn-primary";
+            $class="btn-info";
         }else{
             $class="btn-warning";
         }
@@ -61,7 +64,7 @@ if(mysqli_num_rows($result)>0){
         <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
         Delete</button>
         <button id='star-id' class='btn btn-sm {$class}' data-favour={$favourite} data-star={$row['id']}>
-         Star
+         Favourite
         </button>
         </td>
         </tr>";
@@ -72,5 +75,5 @@ if(mysqli_num_rows($result)>0){
     echo $output;
 }
 else{
-    echo "<h1>no records found</h1>";
+    echo null;
 }
