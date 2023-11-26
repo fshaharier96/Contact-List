@@ -51,8 +51,8 @@
                    <td><?php echo $row['email']?></td>
                    <td><?php echo $row['phone']?></td>
                    <td>
-                    <button class="btn btn-sm btn-secondary me-1">Recover</button>
-                    <button class="btn btn-sm btn-secondary ms-1">Remove</button>
+                    <button class="btn btn-sm btn-secondary me-1"><a class="text-decoration-none text-white" href="recover.php?id=<?php echo $row['id'] ?>">Recover</a></button>
+                    <button class="btn btn-sm btn-secondary ms-1"><a class="text-decoration-none text-white"  href="delete.php?id=<?php echo $row['id'] ?>">Remove</a></button>
                   </td>
 
                    </tr>
