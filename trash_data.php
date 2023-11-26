@@ -36,6 +36,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,6 +50,10 @@
                    <td><?php echo $row['first_name']." ".$row['last_name'];?></td>
                    <td><?php echo $row['email']?></td>
                    <td><?php echo $row['phone']?></td>
+                   <td>
+                    <button class="btn btn-sm btn-secondary me-1">Recover</button>
+                    <button class="btn btn-sm btn-secondary ms-1">Remove</button>
+                  </td>
 
                    </tr>
                    <?php

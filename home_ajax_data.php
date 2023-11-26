@@ -64,12 +64,12 @@ if(mysqli_num_rows($result)>0){
         <td>{$row['job_title']}</td>
         <td>{$row['company']}</td>
         <td>{$row['city']}</td>
-        <td><button class='btn btn-sm btn-primary me-2' id='edit' class='home-dis' data-role={$row['id']}>
+        <td class='col-3'><button class='btn btn-sm btn-primary me-2' id='edit' class='home-dis' data-role={$row['id']}>
         Edit</button>
         <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
         Delete</button>
-        <button id='star-id' class='btn {$class}' data-favour={$favourite} data-star={$row['id']}>
-        star</button>
+        <button id='star-id' class='btn btn-sm {$class}' data-favour={$favourite} data-star={$row['id']}>
+        Star</button>
         </td>
         </tr>";
     }
