@@ -303,6 +303,39 @@
   display: none;
 }
 
+/* add button styling */
+.add-email {
+  width: 96%;
+  background: #F0F4F9;
+  padding: 0px;
+  height: 35px;
+  border: none;
+}
+
+.add-phone {
+  width: 96%;
+  background: #F0F4F9;
+  padding: 0px;
+  height: 35px;
+  border: none;
+}
+
+.add-country {
+  width: 96%;
+  background: #F0F4F9;
+  padding: 0px;
+  height: 35px;
+  border: none;
+}
+
+.add-website {
+  width: 96%;
+  background: #F0F4F9;
+  padding: 0px;
+  height: 35px;
+  border: none;
+}
+
 .edit-img-upload {
   border: 2px solid black;
   height: 150px;

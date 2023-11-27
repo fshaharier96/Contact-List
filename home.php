@@ -1,5 +1,7 @@
 <?php
-
+   include_once "classes/database.php";
+   $db_connect=new Database();
+   $conn=$db_connect->conn;
 
 ?>
 
@@ -42,9 +44,18 @@
 
                 <div class="row p-3 mb-2">
                     <div class="py-2 px-2 left-side-item-bg">
-                        <span class="me-3"><i class="fa-regular fa-user"></i></span>
+                        <span class="me-3">
+                            <i class="fa-regular fa-user"></i>
+                        </span>
                         <span class="me-5">contacts</span>
                         <span class="ms-1">19</span>
+                    </div>
+                    <div id="favourite_items" class="py-2 px-1 left-side-item-bg">
+                        <span class="me-3">
+                        <i class="fa-regular fa-star"></i>
+                        </span>
+                        <span class="me-5">favourites</span>
+                        <span class="ms-1">3</span>
                     </div>
                     <div class="py-2 px-2 left-side-item-bg">
                      <span class="me-3"><i class="fa-solid fa-clock-rotate-left"></i></span>
@@ -64,7 +75,7 @@
                      <span>Merge & Fix</span>
                 </div>
                 <div class="py-2 px-2 left-side-item-bg">
-                    <span class="me-3"><i class="fa-solid fa-download"></i></span>
+                    <span class="me-3"><i class="fa-solid fa-file-import"></i></span>
                      <span>Import</span>
                 </div>
 
@@ -83,9 +94,9 @@
             <!-- body table containter starts-->
             <div class="col-9 d-flex flex-column">
 
-            <div class="col-12 p-3 favourite-container">
+            <!-- <div class="col-12 p-3 favourite-container">
                     
-            </div>
+            </div> -->
             <div class="col-12 p-3 item-container">
               
                 

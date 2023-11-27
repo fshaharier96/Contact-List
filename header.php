@@ -37,6 +37,11 @@
         </div>
 
         <div class="col-3 w-25 header-setting-container d-flex justify-content-end">
+        <i class=""></i>
+               <div title="settings menu" class="header-setting-btn">
+                    <i class="fa-solid fa-download fs-4 custom-header-icon"></i>
+                </div>
+
                 <div title="settings menu" class="header-setting-btn">
                     <i class="fa-solid fa-gear fs-4 custom-header-icon"></i>
                 </div>

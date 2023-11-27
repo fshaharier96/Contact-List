@@ -7,11 +7,7 @@ $favourite=$_POST['favourite'];
 $sql="UPDATE contact_info_table SET favourite={$favourite} WHERE id={$row_id}";
 $result=mysqli_query($conn,$sql) or die("query unsuccessful");
 if($result){
-    echo $result;
+    echo true;
 }else{
     echo false;
 }
-
-
-
-?>

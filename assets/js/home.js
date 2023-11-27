@@ -8,23 +8,7 @@
 //   });
 
 // })
-function loadStarTable(){
-$.ajax({
-  url:'home_ajax_star_data.php',
-  type:'POST',
-  success:function(data){
-    if(data)
-    {
-      $('.favourite-container').html(data);
-    }else{
-      $('.favourite-container').html('<div></div>');
-    }
-       
-  }
-});
-}
-loadStarTable()
- 
+
 
 function  loadTable(page){
     $.ajax({
@@ -78,6 +62,8 @@ $(document).on('click','tr td button',function(){
             notifier.info(data)
           }
         })
+
+
       }
       let onCancel=()=>{
         notifier.info('You pressed Cancel');
@@ -120,44 +106,45 @@ $(document).on('click','tr td button',function(){
     $(this).find('.button-star').hide()
 })
 
-let clickCheck = 0;
 
 $(document).on('click','tr td #star-id',function(){
    let favourite_check=$(this).data('favour');
-   let btn_text=$(this).text();
    if(favourite_check==0){
     let favourite_id=$(this).data('star');
     $(this).removeClass("btn-warning");
     $(this).addClass("btn-info");
-    clickCheck=1;
     $.ajax({
       url:"favourite.php",
       type:'post',
       data:{row_id:favourite_id,favourite:1},
       success:function(response){ 
-       
       }
     })
-    
-    // console.log("this is checkvalue"+clickCheck);
+ 
+
    }else{
     let favourite_id=$(this).data('star');
     $(this).removeClass("btn-info");
     $(this).addClass("btn-warning");
-    clickCheck=0
     $.ajax({
       url:"favourite.php",
       type:'post',
       data:{row_id:favourite_id,favourite:0},
       success:function(response){
-            
+      
       }
     })
-    // console.log("this is click value:"+clickCheck);
 
-    // console.log("this is checkvalue"+clickCheck);
    }
 
+})
+
+
+
+
+/* home page left menu favourite button */
+$('#favourite_items').click(function(){
+  window.location="favourite_data.php";
 })
 
 

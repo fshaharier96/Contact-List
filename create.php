@@ -97,6 +97,13 @@
                 </label>
                 <input  class="form-control border border-secondary ms-1" type="email"  class="icon-input" name="email" placeholder="Email">
             </div>
+            <div class="mb-3">
+                 <button class="form-control ms-3 rounded-pill text-primary fw-medium d-flex justify-content-center align-items-center add-email">
+                 <span class="fs-3 me-1">+</span>
+                 <span class="ms-1">Add email</span>
+                </button>
+            </div>
+
             <span id="error-email"></span>
             <div class="d-flex mb-3 create-tel">
                 <label>
@@ -105,8 +112,20 @@
                 <input id="phone" type="tel" class="form-control border border-secondary pe-0 ms-1" name="phone"/>
                 <input hidden id="countryCode" name="countryCode"/>
             </div>
+            <div class="mb-3">
+                 <button class="form-control ms-3 rounded-pill text-primary fw-medium d-flex justify-content-center align-items-center add-phone">
+                 <span class="fs-3 me-1">+</span>
+                 <span class="ms-1">Add phone</span>
+                </button>
+            </div>
             <span id="error-phone"></span>
-            <div class=" d-flex mb-3">
+            <div class="mb-3">
+                 <button class="form-control ms-3 rounded-pill text-primary fw-medium d-flex justify-content-center align-items-center add-country">
+                 <span class="fs-3 me-1">+</span>
+                 <span class="ms-1">Add address</span>
+                </button>
+            </div>
+            <div class="d-flex mb-3">
                 <label>
                     <i class="fa-solid fa-location-dot"></i>
                 </label>
@@ -132,6 +151,15 @@
                     <i class="fa-solid fa-cake-candles"></i>
                 </label>
                 <input id="datepicker" class="form-control border border-secondary ms-1" type="date"  class="icon-input" name="birth_date" placeholder="Birthday">
+            </div>
+            <div class="mb-3">
+                 <button class="form-control ms-3 rounded-pill text-primary fw-medium d-flex justify-content-center align-items-center add-website">
+                 <span class="fs-3 me-1">+</span>
+                 <span class="ms-1">Add website</span>
+                </button>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-sm btn-primary rounded-pill px-3 ms-3">Show more</button>
             </div>
 
         </div>
