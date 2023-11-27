@@ -1,10 +1,8 @@
+<?php 
 
-<?php
 include_once "classes/database.php";
 $db_connect=new Database();
 $conn=$db_connect->conn;
-
-// $conn=mysqli_connect('localhost','root','','contact-list') or die("connection failed");
 session_start();
 $user_id = $_SESSION['id'];
 $user_name = $_SESSION['user'];
@@ -18,9 +16,9 @@ if($user_name=="admin")
     $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table
      WHERE user_id={$user_id} AND trash_id=0  AND favourite=1";
 }
-$remove_favourite=0;
 
 $result=mysqli_query($conn,$sql) or die('query unsuccessful');
+
 
 ?>
 <!DOCTYPE html>
@@ -28,14 +26,14 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <!-- fontawsome link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!--boostrap css file-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
 
     <link rel="stylesheet" href="style/css/main.css">
+
     <title>Favourite</title>
 </head>
 <body>
@@ -55,7 +53,7 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
                     <th>Phone</th>
                     <th>Jobtitle</th>
                     <th>Company</th>
-                    <th>City</th>
+                     <th>City</th>
                     <th>Action</th>
                     </tr>
                 </thead>
@@ -70,47 +68,41 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
                    <td><?php echo $row['first_name']." ".$row['last_name'];?></td>
                    <td><?php echo $row['email']?></td>
                    <td><?php echo $row['phone']?></td>
-                   <td><?php echo $row['job_title'] ?></td>
-                   <td><?php echo $row['company'] ?></td>
-                   <td><?php echo $row['city']?></td>
+                   <td> <?php echo $row['job_title']?></td>
+                   <td> <?php echo $row['company']?></td>
+                   <td> <?php echo $row['city']?></td>
+                   
                    <td>
-                    <button id="remove-favourite" class="btn btn-sm btn-secondary me-1" data-id="<?php echo $row['id']  ?>">
-                        Remove favourite
-                    </button>
-                  </td>
+                    <button class="btn btn-sm btn-primary"
+                     data-favour=<?php echo $row['id']?>>Remove Favourite </a></button>
+                   
+                   </td>
 
                    </tr>
                    <?php
                         }
                     }
                     else{
-                        $default_msg="No favourite contacts available";
+                        echo "<h3>No Deleted items found</h3>";
                     }
                    ?>
 
                 </tbody>
 
             </table>
-
-            <div>
-                <?php
-                if(isset($default_msg)){
-                     echo "<h2>{$default_msg}</h2>";
-                }
-               
-                ?>
-            </div>
           
           
         </div>
     </div>
 </div>
-    
+
+
+
 
 <script src="assets/js/jquery.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="assets/js/favourite.js"></script>
-   <script src="assets/js/header.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/favourite.js"></script>
 </body>
 </html>
 
