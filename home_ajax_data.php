@@ -79,7 +79,7 @@ if(mysqli_num_rows($result)>0){
         Edit</button>
         <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
         Delete</button>
-        <button id='star-id' class='btn btn-sm {$class}' data-favour={$favourite} data-star={$row['id']}>
+        <button class='btn btn-sm {$class} mstar' data-favour={$favourite} data-star={$row['id']}>
         Favourite</button>
         </td>
         </tr>";

@@ -1,8 +1,9 @@
+
+
+$(document).ready(function(){
 $('tr td button').click(function(){
   // alert("button is clicked")
     let favourite_id=$(this).data("favour");
-    console.log(favourite_id);
-  
     $.ajax({
       url:"favourite.php",
       type:'post',
@@ -10,8 +11,13 @@ $('tr td button').click(function(){
       success:function(response){ 
         if(response==1){
           window.location="favourite_data.php";
+          
         }
+        
+       
       }
     })
+
+})
 
 })

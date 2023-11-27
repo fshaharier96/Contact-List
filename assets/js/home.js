@@ -107,8 +107,9 @@ $(document).on('click','tr td button',function(){
 })
 
 
-$(document).on('click','tr td #star-id',function(){
+$(document).on('click','tr td .mstar',function(){
    let favourite_check=$(this).data('favour');
+   console.log("this is if block"+favourite_check)
    if(favourite_check==0){
     let favourite_id=$(this).data('star');
     $(this).removeClass("btn-warning");
@@ -118,11 +119,14 @@ $(document).on('click','tr td #star-id',function(){
       type:'post',
       data:{row_id:favourite_id,favourite:1},
       success:function(response){ 
+        loadTable();
+        new AWN().success("contact added to favourites")
       }
     })
  
 
    }else{
+    console.log("this is else block"+favourite_check)
     let favourite_id=$(this).data('star');
     $(this).removeClass("btn-info");
     $(this).addClass("btn-warning");
@@ -131,7 +135,8 @@ $(document).on('click','tr td #star-id',function(){
       type:'post',
       data:{row_id:favourite_id,favourite:0},
       success:function(response){
-      
+        loadTable();
+        new AWN().warning("contact removed from favourites")
       }
     })
 
