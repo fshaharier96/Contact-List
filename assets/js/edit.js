@@ -90,13 +90,59 @@ $("#editForm").validate({
 
 }); 
 
+/*js code for showing phone number with countrycode*/
+  
+  var phone_number = window.intlTelInput(document.querySelector("#phone"), {
+    separateDialCode: true,
+    showFlags:true,
+    hiddenInput: "full",
+    utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+  });
 
-/*IntlTelInput plugin js code */
+    // var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
+    // $("input[name='phone_number[full]'").val(full_number);
 
-const input = document.querySelector("#phone");
-window.intlTelInput(input, {
-  utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-  autoInsertDialCode:false,
-  autoPlaceholder:"aggressive",
-  separateDialCode:true
-});
+    
+
+    /* country field*/
+
+    
+//    let arr=['bangladesh',"india",'pakistan'];
+//    let countryList=$('#countryList');
+//    console.log(arr)
+
+
+
+let countryList= $('#countryList');
+const allCountries = window.intlTelInputGlobals.getCountryData();
+
+allCountries.forEach(function(country) {
+// let select="";
+// if(country.iso2=="bd"){
+// select="selected";
+// }else{
+// select="";
+// }
+countryList.append(`<option value="${country.name}">${country.name}</option>`);
+
+     });
+
+
+// const phoneInputField = document.querySelector("#phone");
+//    const phoneInput = window.intlTelInput(phoneInputField, {
+//      utilsScript:
+//        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+//    });
+
+//    $("#editForm").submit(function(event){
+//     const phoneNumber = phoneInput.getNumber();
+//     $("#phone").val(phoneNumber);
+//     console.log(phoneNumber);
+// });
+
+// $('#phone').on('blur', function() {
+//     let code_class=$(".iti__selected-dial-code")
+//     let code_val=code_class.text();
+//     $('#countryCode').val(code_val);
+//     console.log()
+// });

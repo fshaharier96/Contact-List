@@ -6,11 +6,13 @@ if(isset($_POST['submit'])){
     if(isset($_POST['password']) && isset($_POST['confirm_password'])){
         $password=$_POST['password'];
         $confirm_password=$_POST['confirm_password'];
-        if($password==$confirm_password)
+        $hashedPass=hash('sha256',$password);
+        $hashedConfirmPass=hash('sha256',$confirm_password);
+        if($hashedPass==$hashedConfirmPass)
         {
                 $db_connect=new Database();
                 $conn=$db_connect->conn;
-                $sql="UPDATE login_table SET password='{$password}' WHERE id={$user_id}";
+                $sql="UPDATE login_table SET password='{$hashedPass}' WHERE id={$user_id}";
                                 
                 $result=mysqli_query($conn,$sql) or die("query unsuccessful");
 

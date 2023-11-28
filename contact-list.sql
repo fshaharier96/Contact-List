@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 02:09 PM
+-- Generation Time: Nov 27, 2023 at 02:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -37,12 +37,14 @@ CREATE TABLE `contact_info_table` (
   `job_title` varchar(100) NOT NULL,
   `department` varchar(50) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `phone` varchar(11) NOT NULL,
+  `phone` varchar(16) NOT NULL,
   `country` varchar(50) NOT NULL,
   `street_address` varchar(100) NOT NULL,
   `city` varchar(50) NOT NULL,
   `postal_code` varchar(20) NOT NULL,
-  `birth_date` date NOT NULL
+  `birth_date` date NOT NULL,
+  `favourite` int(50) NOT NULL,
+  `trash_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -53,8 +55,10 @@ CREATE TABLE `contact_info_table` (
 
 CREATE TABLE `login_table` (
   `id` int(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `reset_code` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -81,13 +85,13 @@ ALTER TABLE `login_table`
 -- AUTO_INCREMENT for table `contact_info_table`
 --
 ALTER TABLE `contact_info_table`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `login_table`
 --
 ALTER TABLE `login_table`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

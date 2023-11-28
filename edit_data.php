@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
       $job_title=$_POST['job_title']; 
       $department=$_POST['department']; 
       $email=$_POST['email']; 
-      $phone=$_POST['phone']; 
+      $phone=$_POST['phone']['full']; 
        $country=$_POST['country']; 
        $street_address=$_POST['street_address']; 
        $city=$_POST['city']; 

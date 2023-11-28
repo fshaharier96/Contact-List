@@ -1,3 +1,4 @@
+
 <?php
 include_once "classes/database.php";
 $db_connect=new Database();
@@ -15,20 +16,32 @@ if(isset($_POST['page_no'])){
    $page=1;
 } 
 $offset=($page-1)*$limit_per_page;
+$output="";
+
 
 
 if($user_name=="admin")
 {
-    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table LIMIT {$offset},{$limit_per_page}";
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE trash_id=0 LIMIT {$offset},{$limit_per_page}";
+
+    $sql2="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE trash_id=0";
 
 }else{
-    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city FROM contact_info_table
-WHERE user_id={$user_id} LIMIT {$offset},{$limit_per_page}";
+    $sql="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table
+WHERE user_id={$user_id} AND trash_id=0 LIMIT {$offset},{$limit_per_page}";
+
+$sql2="SELECT id,first_name,last_name,email,phone,job_title,company,city,favourite,trash_id FROM contact_info_table WHERE user_id={$user_id} AND trash_id=0";
+}
+
+$result2=mysqli_query($conn,$sql2) or die('query unsuccessful');
+if(mysqli_num_rows($result2)>0){
+    $favourite_count=mysqli_num_rows($result2);
+    $output="<h5>Contacts($favourite_count)</h5>";
 }
 
 
+
 $result=mysqli_query($conn,$sql) or die('query unsuccessful');
-$output="";
 if(mysqli_num_rows($result)>0){
     $output.="
          <table class='table table-striped table-hover  border border-table' id='home-table'>
@@ -38,7 +51,8 @@ if(mysqli_num_rows($result)>0){
          <th>Name</th>
          <th>Email</th>
          <th>Phone</th>
-         <th>Jobtitle & Company</th>
+         <th>Jobtitle</th>
+         <th>Company</th>
          <th>City</th>
          <th>Action</th>
          </tr>
@@ -47,17 +61,27 @@ if(mysqli_num_rows($result)>0){
     $output.="<tbody>";
 
     while($row=mysqli_fetch_assoc($result)){
+        $favourite=$row['favourite'];
+        if($favourite==1){
+            $class="btn-info";
+        }else{
+            $class="btn-warning";
+        }
         $output.="<tr class='text-center'>
         <td>{$row['id']}</td>
         <td class='id_name' data-tdid={$row['id']}>{$row['first_name']} {$row['last_name']}</td>
         <td>{$row['email']}</td>
         <td>{$row['phone']}</td>
-        <td>{$row['job_title']}-{$row['company']}</td>
+        <td>{$row['job_title']}</td>
+        <td>{$row['company']}</td>
         <td>{$row['city']}</td>
-        <td><button class='btn btn-sm btn-primary me-2' id='edit' class='home-dis' data-role={$row['id']}>
+        <td class='col-3'><button class='btn btn-sm btn-primary me-2' id='edit' class='home-dis' data-role={$row['id']}>
         Edit</button>
         <button class=' btn btn-sm btn-danger' id='delete' class='home-dis2' data-role={$row['id']}>
-        Delete</button></td>
+        Delete</button>
+        <button class='btn btn-sm {$class} mstar' data-favour={$favourite} data-star={$row['id']}>
+        Favourite</button>
+        </td>
         </tr>";
     }
     $output.="</tbody>";
@@ -100,7 +124,7 @@ if(mysqli_num_rows($result)>0){
     }
 
     $output.="</div>";
-
+ 
     echo $output;
 }
 else{
