@@ -44,7 +44,7 @@ $conn       = $db_connect->conn;
             <form id="signupForm" action="" method="post">
                 <div class="mb-3 mt-3">
                     <label for="email_field" class="form-label">Email</label>
-                    <input id="email_field" placeholder="your email here" type="text" name="email" class="form-control border border-secondary" />
+                    <input id="email_field" placeholder="your email here" type="text" name="email" class="form-control border border-secondary"/>
                 </div>
 
                 <div class="mb-3 mt-3">
@@ -53,7 +53,7 @@ $conn       = $db_connect->conn;
                 </div>
                 <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control border border-secondary" />
+                    <input type="password" name="password" class="form-control border border-secondary"/>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input border border-black" id="exampleCheck1">

@@ -1,8 +1,8 @@
-<?php 
-$root=dirname(dirname(__FILE__));
-require_once $root.'/vendor/autoload.php';
+<?php
+$root = dirname( dirname( __FILE__ ) );
+require_once $root . '/vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable($root);
+$dotenv = Dotenv\Dotenv::createImmutable( $root );
 $dotenv->safeLoad();
 
 // $dbHost = $_ENV['DB_HOST'];
@@ -11,22 +11,19 @@ $dotenv->safeLoad();
 // $dbPass = $_ENV['DB_PASSWORD'];
 
 
-
-  $host=$_ENV['SERVER_URL'];
-
+$host = $_ENV['SERVER_URL'];
 
 
-  define("SERVER",$_ENV['DB_HOST']);
-  define("USER", $_ENV['DB_USERNAME']);
-  define("PASSWORD",$_ENV['DB_PASSWORD']);
-  define("DATABASE",$_ENV['DB_DATABASE']);
+define( "SERVER", $_ENV['DB_HOST'] );
+define( "USER", $_ENV['DB_USERNAME'] );
+define( "PASSWORD", $_ENV['DB_PASSWORD'] );
+define( "DATABASE", $_ENV['DB_DATABASE'] );
 
-  define("MAIL_HOST",$_ENV['MAIL_HOST']);
-  define("MAIL_PORT",$_ENV['MAIL_PORT']);
+define( "MAIL_HOST", $_ENV['MAIL_HOST'] );
+define( "MAIL_PORT", $_ENV['MAIL_PORT'] );
 
 
 // echo "this is server variable".SERVER;
-
 
 
 //  $host="http://localhost/Contact_List_Project/Contact-List-Local/";
