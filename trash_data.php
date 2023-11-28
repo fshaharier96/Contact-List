@@ -51,8 +51,8 @@
                    <td><?php echo $row['email']?></td>
                    <td><?php echo $row['phone']?></td>
                    <td>
-                    <button class="btn btn-sm btn-secondary me-1"><a class="text-decoration-none text-white" href="recover.php?id=<?php echo $row['id'] ?>">Recover</a></button>
-                    <button class="btn btn-sm btn-secondary ms-1"><a class="text-decoration-none text-white"  href="delete.php?id=<?php echo $row['id'] ?>">Remove</a></button>
+                    <button class="btn btn-sm btn-success me-1"><a class="text-decoration-none text-white" href="recover.php?id=<?php echo $row['id'] ?>">Recover</a></button>
+                    <button class="btn btn-sm btn-danger ms-1"><a class="text-decoration-none text-white"  href="delete.php?id=<?php echo $row['id'] ?>">Remove</a></button>
                    </td>
 
                    </tr>
@@ -60,13 +60,19 @@
                         }
                     }
                     else{
-                        echo "<h3>No Deleted items found</h3>";
+                        $default_msg="No deleted item found";
                     }
                    ?>
 
                 </tbody>
 
             </table>
+            <?php
+                 if(isset($default_msg)){
+                    echo $default_msg;
+                 } 
+
+            ?>
           
           
         </div>

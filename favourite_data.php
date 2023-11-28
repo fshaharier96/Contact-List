@@ -73,7 +73,7 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
                    <td> <?php echo $row['city']?></td>
                    
                    <td>
-                    <button class="btn btn-sm btn-primary"
+                    <button class="btn btn-sm btn-danger"
                      data-favour=<?php echo $row['id']?>>Remove Favourite </a></button>
                    
                    </td>
@@ -83,13 +83,19 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
                         }
                     }
                     else{
-                        echo "<h3>No Deleted items found</h3>";
+                       $default_msg="No favourite contact available";
                     }
                    ?>
 
                 </tbody>
 
             </table>
+
+            <?php
+            if(isset($default_msg)){
+               echo $default_msg;
+            }
+            ?>
           
           
         </div>

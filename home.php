@@ -74,10 +74,31 @@
                     <span class="me-3"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
                      <span>Merge & Fix</span>
                 </div>
-                <div class="py-2 px-2 left-side-item-bg">
+                <div id="import-id" class="py-2 px-2 left-side-item-bg">
                     <span class="me-3"><i class="fa-solid fa-file-import"></i></span>
                      <span>Import</span>
                 </div>
+
+                <!--modal starts -->
+                <div class="container-fluid w-100 h-100 shadow position-absolute  p-4 bg-dark bg-opacity-25 top-0 start-0  d-flex justify-content-center align-items-center d-none home-modal">
+
+                    <form action="import.php" method="post" class=" bg-white bg-opacity-100 p-4 col-2" enctype="multipart/form-data">
+
+                    <h5 class="mb-3">Import contacts</h5>
+                    <label id="modalLabelId" for="fileInput" class="btn btn-sm btn-primary">select file</label>
+                    <span id="fileNameId"></span>
+                    <br/>
+                    <input hidden  id="fileInput" type="file" name="file"/>
+                    <p class="text-primary  mt-3">Only CSV file is accepted !</p>
+                    <button id="closeId" type="button" class="btn btn-sm btn-secondary" >Cancel</button>
+                    <button type="submit" name="submit" class="btn btn-sm btn-primary">Upload</button>
+
+                    </form>
+                </div>
+                 
+
+                <!-- modal ends -->
+                
 
                 <div id="trash_items" class="py-2 px-2 left-side-item-bg">
                     <span class="me-3"><i class="fa-solid fa-trash-can"></i></span>
