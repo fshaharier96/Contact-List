@@ -20,7 +20,7 @@
      <script src="assets/vendors/awsome-notification/index.var.js"></script>
 
 
-    <link rel="stylesheet" href="style/css/main.css">
+    <link rel="stylesheet" href="assets/style/css/main.css">
     <title>Document</title>
 </head>
 <body>

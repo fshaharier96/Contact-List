@@ -1,11 +1,11 @@
-@forward "./partials/login";
-@forward "./partials/signup";
-@forward "./partials/home";
-@forward "./partials/header";
-@forward "./partials/create";
-@forward "./partials/edit";
-@forward "./partials/details";
-@forward "./partials/bootstrap1";
+@forward "partials/login";
+@forward "partials/signup";
+@forward "partials/home";
+@forward "partials/header";
+@forward "partials/create";
+@forward "partials/edit";
+@forward "partials/details";
+@forward "partials/bootstrap1";
 
 *{
     margin:0px;

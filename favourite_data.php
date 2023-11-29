@@ -32,7 +32,7 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
     <!--boostrap css file-->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> 
 
-    <link rel="stylesheet" href="style/css/main.css">
+    <link rel="stylesheet" href="assets/style/css/main.css">
 
     <title>Favourite</title>
 </head>
