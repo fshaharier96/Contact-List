@@ -3,57 +3,51 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 require('vendor/autoload.php');
+
 use Rakit\Validation\Validator;
+
 include_once "classes/database.php";
 //include_once "classes/SessionManager.php";
-$db_connect=new Database();
-$conn=$db_connect->conn;
+$db_connect = new Database();
+$conn = $db_connect->conn;
 //$session = new SessionManager();
 session_start();
 
-if(isset($_POST['submit']))
-{
+if (isset($_POST['submit'])) {
 
 
     $validator = new Validator();
     $validation = $validator->validate($_POST, [
-        'email'=> 'required',
-        'username'=>'required',
-        'password' => 'required'
+        'email' => 'required|email',
+        'username' => 'required',
+        'password' => 'required|min:6'
     ]);
 
     if ($validation->fails()) {
-        $_SESSION['error']="invalid username or password";
+        $_SESSION['error'] = "invalid username or password";
 
     } else {
 
-        $email=$_POST['email'];
-        $username= $_POST['username'];
-        $password= $_POST['password'];
-        $hashedPassword=hash('sha256',$password);
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $hashedPassword = hash('sha256', $password);
 
-        $sql="SELECT * FROM login_table WHERE email='{$email}'";
-        $sql1="INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$hashedPassword}')";
-        $result=mysqli_query($conn,$sql) or die("query unsuccesful");
-        if($result)
-        {
+        $sql = "SELECT * FROM login_table WHERE email='{$email}'";
+        $sql1 = "INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$hashedPassword}')";
+        $result = mysqli_query($conn, $sql) or die("query unsuccesful");
+        if ($result) {
 
-            if(mysqli_num_rows($result)==0)
-            {
-                if(mysqli_query($conn,$sql1))
-                {
-//                    header("Location:{$host}");
-                    $_SESSION['success']="Registration successful !";
-                }
-
-                else{
-                    $_SESSION['error']="Registration failed";
+            if (mysqli_num_rows($result) == 0) {
+                if (mysqli_query($conn, $sql1)) {
+                    $_SESSION['success'] = "Registration successful !";
+                } else {
+                    $_SESSION['error'] = "Registration failed";
 
 
                 }
-            }
-            else{
-                $_SESSION['error']="This email has already been taken";
+            } else {
+                $_SESSION['error'] = "This email has already been taken";
 
             }
 
@@ -61,8 +55,6 @@ if(isset($_POST['submit']))
     }
 
 }
-
-
 
 
 ?>
@@ -99,16 +91,14 @@ if(isset($_POST['submit']))
         </div>
         <div class="col-3 custom-col-height px-4 py-3 mb-5 shadow background">
             <?php
-            if(isset($_SESSION['error']))
-            {
-                echo "<div class='alert alert-danger text-center'>".$_SESSION['error']."</div>";
+            if (isset($_SESSION['error'])) {
+                echo "<div class='alert alert-danger text-center'>" . $_SESSION['error'] . "</div>";
                 unset($_SESSION['error']);
             }
-            if(isset($_SESSION['success'])){
-                echo "<div class='alert alert-success text-center'>".$_SESSION['success']."<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
+            if (isset($_SESSION['success'])) {
+                echo "<div class='alert alert-success text-center'>" . $_SESSION['success'] . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
                 unset($_SESSION['success']);
             }
-
 
 
             ?>
@@ -116,7 +106,9 @@ if(isset($_POST['submit']))
             <form id="signupForm" action="" method="post">
                 <div class="mb-3 mt-3">
                     <label for="email_field" class="form-label">Email</label>
-                    <input id="email_field" type="text" name="email" class="form-control border border-secondary" placeholder="Enter valid email"/>
+                    <input id="email_field" type="text" name="email" class="form-control border border-secondary"
+                           placeholder="Enter valid email"/>
+
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="username_field" class="form-label">Username</label>
@@ -131,7 +123,7 @@ if(isset($_POST['submit']))
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input border border-black" name="agree_terms"
                            id="agree_terms"/>
-                    <label class="form-check-label" for="agree_terms">Check me out</label>
+                    <label id="check-label-id" class="form-check-label" for="agree_terms">Check me out</label>
                 </div>
                 <button type="submit" name="submit" value="register" class="btn btn-primary form-control">Register
                 </button>
