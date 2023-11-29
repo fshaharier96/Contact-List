@@ -10,7 +10,7 @@
         // console.log("I am ready");
 
         $("#signupForm").validate({
-            debug: true,
+
             rules: {
 
                 email:{

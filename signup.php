@@ -1,4 +1,7 @@
 <?php
+
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 require('vendor/autoload.php');
 use Rakit\Validation\Validator;
 include_once "classes/database.php";
@@ -20,17 +23,9 @@ if(isset($_POST['submit']))
     ]);
 
     if ($validation->fails()) {
-// handling errors
-// $errors = $validation->errors();
-// echo "<pre>";
-// print_r($errors->firstOfAll());
-// echo "</pre>";
-// echo "<h1>You have input invalid username or password</h1>";
-
         $_SESSION['error']="invalid username or password";
 
     } else {
-// validation passes
 
         $email=$_POST['email'];
         $username= $_POST['username'];
@@ -47,15 +42,19 @@ if(isset($_POST['submit']))
             {
                 if(mysqli_query($conn,$sql1))
                 {
-                    header("Location:{$host}");
+//                    header("Location:{$host}");
+                    $_SESSION['success']="Registration successful !";
                 }
 
                 else{
                     $_SESSION['error']="Registration failed";
+
+
                 }
             }
             else{
-                $_SESSION['error']="this gmail has already been taken";
+                $_SESSION['error']="This email has already been taken";
+
             }
 
         }
@@ -105,6 +104,11 @@ if(isset($_POST['submit']))
                 echo "<div class='alert alert-danger text-center'>".$_SESSION['error']."</div>";
                 unset($_SESSION['error']);
             }
+            if(isset($_SESSION['success'])){
+                echo "<div class='alert alert-success text-center'>".$_SESSION['success']."<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
+                unset($_SESSION['success']);
+            }
+
 
 
             ?>
@@ -112,17 +116,17 @@ if(isset($_POST['submit']))
             <form id="signupForm" action="" method="post">
                 <div class="mb-3 mt-3">
                     <label for="email_field" class="form-label">Email</label>
-                    <input id="email_field" type="text" name="email" class="form-control border border-secondary"/>
+                    <input id="email_field" type="text" name="email" class="form-control border border-secondary" placeholder="Enter valid email"/>
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="username_field" class="form-label">Username</label>
                     <input id="username_field" type="text" name="username"
-                           class="form-control border border-secondary"/>
+                           class="form-control border border-secondary" placeholder="Enter username"/>
                 </div>
                 <div class="mb-4">
                     <label for="password_field" class="form-label">Password</label>
                     <input id="password_field" type="password" name="password"
-                           class="form-control border border-secondary"/>
+                           class="form-control border border-secondary" placeholder="Enter password"/>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input border border-black" name="agree_terms"
