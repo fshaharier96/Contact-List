@@ -21,7 +21,7 @@
     <!--styling file-->
     <link rel="stylesheet" href="assets/style/css/main.css">
 
-    <title>Document</title>
+    <title>Welcome to contact-list</title>
 </head>
 <body>
 
@@ -39,21 +39,21 @@
         <div class="col-md-3 custom-col-height px-4 py-3 shadow background">
 
             <form id="loginForm"  method="post">
-                <div id="error" style="color: red;"></div>
+                <div id="error"></div>
                 <div class="mb-3 mt-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control border border-secondary">
+                    <label for="email_id" class="form-label">Email</label>
+                    <input id="email_id" type="email" name="email" class="form-control border border-secondary"/>
                 </div>
-                <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control border border-secondary">
+                <div class="mb-3">
+                    <label for="password_id" class="form-label">Password</label>
+                    <input id="password_id" type="password" name="password" class="form-control border border-secondary"/>
                     <div class="mt-2">
                         <a class="text-decoration-none fw-semibold" href="forget_pass.php">Forget Password ?</a>
                     </div>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input border border-black" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <input id="checkbox_id" type="checkbox" class="form-check-input border border-black"/>
+                    <label for="checkbox_id" class="form-check-label">Remember me</label>
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary form-control">Login</button>
             </form>

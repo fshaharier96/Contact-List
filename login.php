@@ -35,14 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $validator = new Validator();
     $validation = $validator->validate($_POST, [
-        'email' => 'required',
-        'password' => 'required'
+        'email' => 'required|email',
+        'password' => 'required|min:6'
     ]);
 
 
     if ($validation->fails()) {
         echo "Invalid username or password entered";
-        exit;
 
     } else {
 
@@ -56,12 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $_SESSION['id'] = $row['id'];
             $_SESSION['user'] = $row['username'];
             echo true;
-            exit;
+
             // echo "data is correct";
 //            header("Location:{$host}home.php");
         } else {
             echo "Incorrect username or  password";
-            exit;
+
         }
 
 
