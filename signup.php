@@ -1,11 +1,11 @@
 <?php
-require( 'vendor/autoload.php' );
+require('vendor/autoload.php');
 
 use Rakit\Validation\Validator;
 
 include_once "classes/database.php";
 $db_connect = new Database();
-$conn       = $db_connect->conn;
+$conn = $db_connect->conn;
 
 
 //do the validation check and error check or any kind of database operation before any html is rendered
@@ -50,52 +50,49 @@ $conn       = $db_connect->conn;
 
 //  }
 
-?>
-
-<?php
-$validator  = new Validator();
-$validation = $validator->validate( $_POST, [
-	'email'    => 'required',
-	'username' => 'required',
-	'password' => 'required'
-] );
+$validator = new Validator();
+$validation = $validator->validate($_POST, [
+    'email' => 'required',
+    'username' => 'required',
+    'password' => 'required'
+]);
 
 $submit_msg = "";
 
-if ( $validation->fails() ) {
+if ($validation->fails()) {
 // handling errors
 // $errors = $validation->errors();
 // echo "<pre>";
 // print_r($errors->firstOfAll());
 // echo "</pre>";
 // echo "<h1>You have input invalid username or password</h1>";
-	$submit_msg = "Invalid data is  entered";
-	echo $submit_msg;
+    $submit_msg = "Invalid data is  entered";
+    echo $submit_msg;
 
 } else {
 // validation passes
 
-	$email          = $_POST['email'];
-	$username       = $_POST['username'];
-	$password       = $_POST['password'];
-	$hashedPassword = hash( 'sha256', $password );
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $hashedPassword = hash('sha256', $password);
 
-	$sql  = "SELECT * FROM login_table WHERE email='{$email}'";
-	$sql1 = "INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$hashedPassword}')";
-	$result = mysqli_query( $conn, $sql ) or die( "query unsuccesful" );
-	if ( $result ) {
+    $sql = "SELECT * FROM login_table WHERE email='{$email}'";
+    $sql1 = "INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$hashedPassword}')";
+    $result = mysqli_query($conn, $sql) or die("query unsuccesful");
+    if ($result) {
 
-		if ( mysqli_num_rows( $result ) == 0 ) {
-			if ( mysqli_query( $conn, $sql1 ) ) {
-				header( "Location:{$host}" );
-			} else {
-				echo "<p>Register failed! Try again</p>";
-			}
-		} else {
-			echo "This email address has already been taken";
-		}
+        if (mysqli_num_rows($result) == 0) {
+            if (mysqli_query($conn, $sql1)) {
+                header("Location:{$host}");
+            } else {
+                echo "<p>Register failed! Try again</p>";
+            }
+        } else {
+            echo "This email address has already been taken";
+        }
 
-	}
+    }
 }
 
 
@@ -112,6 +109,7 @@ if ( $validation->fails() ) {
 
     <!--boostrap css file-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
 
     <!--styling file-->
     <link rel="stylesheet" href="assets/style/css/main.css">
@@ -135,21 +133,25 @@ if ( $validation->fails() ) {
             <form id="signupForm" action="" method="post">
                 <div class="mb-3 mt-3">
                     <label for="email_field" class="form-label">Email</label>
-                    <input id="email_field" type="text" name="email" class="form-control border border-secondary" />
+                    <input id="email_field" type="text" name="email" class="form-control border border-secondary"/>
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="username_field" class="form-label">Username</label>
-                    <input id="username_field" type="text" name="username" class="form-control border border-secondary" />
+                    <input id="username_field" type="text" name="username"
+                           class="form-control border border-secondary"/>
                 </div>
                 <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control border border-secondary" />
+                    <label for="password_field" class="form-label">Password</label>
+                    <input id="password_field" type="password" name="password"
+                           class="form-control border border-secondary"/>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input border border-black" name="agree_terms" id="agree_terms" />
+                    <input type="checkbox" class="form-check-input border border-black" name="agree_terms"
+                           id="agree_terms"/>
                     <label class="form-check-label" for="agree_terms">Check me out</label>
                 </div>
-                <button type="submit" name="submit" value="Login" class="btn btn-primary form-control">Register</button>
+                <button type="submit" name="submit" value="register" class="btn btn-primary form-control">Register
+                </button>
             </form>
         </div>
         <div class="col-3 mt-3 border border-secondary rounded-2  p-2 background1">
@@ -163,9 +165,6 @@ if ( $validation->fails() ) {
 
 
 <!--bootstrap code ends-->
-
-
-
 
 
 <!-- Javacript files-->
