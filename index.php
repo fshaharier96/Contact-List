@@ -1,12 +1,6 @@
 <?php
-require( 'vendor/autoload.php' );
 
-use Rakit\Validation\Validator;
 
-include_once "classes/database.php";
-$db_connect = new Database();
-$conn       = $db_connect->conn;
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +11,8 @@ session_start();
     <!--fontawsome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <!--form-validation plugin-->
+    <!-- Jquery toastr CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
     <!--boostrap css file-->
@@ -37,13 +32,14 @@ session_start();
         <div class="login-logo col-md-3 my-3">
             <i class="fa-solid fa-address-card"></i>
         </div>
-
         <div class="mb-2 mt-5 col-md-3">
             <h3 class="text-center">Sign in Contact Hub</h3>
         </div>
 
         <div class="col-md-3 custom-col-height px-4 py-3 shadow background">
-            <form id="loginForm" action="" method="post">
+
+            <form id="loginForm"  method="post">
+                <div id="error" style="color: red;"></div>
                 <div class="mb-3 mt-3">
                     <label class="form-label">Email</label>
                     <input type="email" name="email" class="form-control border border-secondary">
@@ -77,75 +73,8 @@ session_start();
 
 <!--php validation logic starts-->
 
-<?php
-//  if(isset($_POST['submit'])){
-//     $username=$_POST['username'];
-//     $password=$_POST['password'];
-//     $sql="SELECT * FROM login_table WHERE username='{$username}' AND password='{$password}'";
-//     $result=mysqli_query($conn,$sql) or die("query unsuccessful : ".mysqli_error($conn));
-//     if(mysqli_num_rows($result)>0)
-//       {     $row=mysqli_fetch_assoc($result);
-//           $_SESSION['id']=$row['id'];
-//           $_SESSION['user']=$row['username'];
-//           // echo "data is correct";
-//          header("Location:{$host}home.php");
-//        }
-//     else{
-//         echo "<p>incorrect username or password !</p>";
-//     }
-//  }
-
-?>
-
-<!--php validation logic ends-->
-<?php
-$validator  = new Validator();
-$validation = $validator->validate( $_POST, [
-	'email'    => 'required',
-	'password' => 'required'
-] );
-
-$submit_msg = "";
-
-if ( $validation->fails() ) {
-// handling errors
-// $errors = $validation->errors();
-// echo "<pre>";
-// print_r($errors->firstOfAll());
-// echo "</pre>";
-// echo "<h1>You have input invalid username or password</h1>";
-	$submit_msg = "Invalid username or password entered";
-	echo $submit_msg;
-
-} else {
-// validation passes
-
-	$email          = $_POST['email'];
-	$password       = $_POST['password'];
-	$hashedPassword = hash( 'sha256', $password );
-	$sql            = "SELECT * FROM login_table WHERE email='{$email}' AND password='{$hashedPassword}'";
-	$result = mysqli_query( $conn, $sql ) or die( "query unsuccessful : " . mysqli_error( $conn ) );
-	if ( mysqli_num_rows( $result ) > 0 ) {
-		$row              = mysqli_fetch_assoc( $result );
-		$_SESSION['id']   = $row['id'];
-		$_SESSION['user'] = $row['username'];
-		// echo "data is correct";
-		header( "Location:{$host}home.php" );
-	} else {
-		echo "<p>incorrect username or password !</p>";
-	}
 
 
-}
-
-
-?>
-
-
-<!-- php rakit/validation logic starts-->
-
-
-<!-- php rakit/validation logic ends-->
 <script>
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
@@ -155,8 +84,9 @@ if ( $validation->fails() ) {
 
 <!-- Javacript files-->
 <script src="assets/js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
-<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/index.js"></script>
 
 

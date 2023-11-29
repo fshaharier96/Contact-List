@@ -12,6 +12,34 @@
 //     }
 // });
 
+
+
+
+(function ($) {
+    // 'use strict';
+
+    $(document).ready(function () {
+
+        $('#loginForm').submit(function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            var formData = $(this).serialize(); // Serialize form data
+
+            $.ajax({
+                url: 'login.php', // Your PHP login script
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response == 1) {
+                        window.location = 'home.php'; // Redirect to dashboard on successful login
+                    } else {
+                        $('#error').text(response); // Display error message
+                    }
+                }
+            });
+        });
+
+
 $("#loginForm").validate({
     rules: {
         email: {
@@ -36,5 +64,10 @@ $("#loginForm").validate({
         }
     }
 });
+
+
+});
+
+}(jQuery));
 
 
