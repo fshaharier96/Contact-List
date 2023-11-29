@@ -1,17 +1,14 @@
 <?php
-
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
 require('vendor/autoload.php');
 
 use Rakit\Validation\Validator;
 
 include_once "classes/database.php";
-//include_once "classes/SessionManager.php";
+include_once "classes/SessionManager.php";
 $db_connect = new Database();
 $conn = $db_connect->conn;
-//$session = new SessionManager();
-session_start();
+$session = new SessionManager();
+//session_start();
 
 if (isset($_POST['submit'])) {
 
@@ -24,7 +21,9 @@ if (isset($_POST['submit'])) {
     ]);
 
     if ($validation->fails()) {
-        $_SESSION['error'] = "invalid username or password";
+
+        $session->set("error","invalid username or password");
+//        $_SESSION['error'] = "invalid username or password";
 
     } else {
 
@@ -40,14 +39,20 @@ if (isset($_POST['submit'])) {
 
             if (mysqli_num_rows($result) == 0) {
                 if (mysqli_query($conn, $sql1)) {
-                    $_SESSION['success'] = "Registration successful !";
+//                    $_SESSION['success'] = "Registration successful !";
+
+                    $session->set("success","registration successful! ");
+
                 } else {
-                    $_SESSION['error'] = "Registration failed";
+//                    $_SESSION['error'] = "Registration failed";
+
+                    $session->set("error","registration failed");
 
 
                 }
             } else {
-                $_SESSION['error'] = "This email has already been taken";
+//                $_SESSION['error'] = "This email has already been taken";
+                  $session->set("error","This email has been taken already");
 
             }
 
@@ -91,15 +96,24 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="col-3 custom-col-height px-4 py-3 mb-5 shadow background">
             <?php
-            if (isset($_SESSION['error'])) {
-                echo "<div class='alert alert-danger text-center'>" . $_SESSION['error'] . "</div>";
+//            if (isset($_SESSION['error'])) {
+//                echo "<div class='alert alert-danger text-center'>" . $_SESSION['error'] . "</div>";
+//                unset($_SESSION['error']);
+//            }
+//            if (isset($_SESSION['success'])) {
+//                echo "<div class='alert alert-success text-center'>" . $_SESSION['success'] . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
+//                unset($_SESSION['success']);
+//            }
+
+            if(!empty($session->get('error')))
+            {
+                echo "<div class='alert alert-danger text-center'>".$session->get('error')."</div>";
                 unset($_SESSION['error']);
             }
             if (isset($_SESSION['success'])) {
-                echo "<div class='alert alert-success text-center'>" . $_SESSION['success'] . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
+                echo "<div class='alert alert-success text-center'>" . $session->get('success') . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
                 unset($_SESSION['success']);
             }
-
 
             ?>
 

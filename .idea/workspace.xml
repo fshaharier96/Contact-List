@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01cd6ee2-4eea-4817-9818-2a3713e20ad6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/classes/SessionInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/SessionManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/signup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/xampp/htdocs/PURE_PHP_PRACTICE",
+    "last_opened_file_path": "C:/xampp/htdocs/Contact_List_Project/Contact-List_For_phpstorm/Contact-List/classes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,6 +68,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Contact_List_Project\Contact-List_For_phpstorm\Contact-List\classes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Contact_List_Project\Contact-List_For_phpstorm\Contact-List\assets" />
     </key>
@@ -79,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701229415771</updated>
-      <workItem from="1701229416828" duration="16114000" />
+      <workItem from="1701229416828" duration="18314000" />
     </task>
     <servers />
   </component>
