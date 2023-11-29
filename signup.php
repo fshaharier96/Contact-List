@@ -1,99 +1,69 @@
 <?php
 require('vendor/autoload.php');
-
 use Rakit\Validation\Validator;
-
 include_once "classes/database.php";
-$db_connect = new Database();
-$conn = $db_connect->conn;
+//include_once "classes/SessionManager.php";
+$db_connect=new Database();
+$conn=$db_connect->conn;
+//$session = new SessionManager();
+session_start();
+
+if(isset($_POST['submit']))
+{
 
 
-//do the validation check and error check or any kind of database operation before any html is rendered
+    $validator = new Validator();
+    $validation = $validator->validate($_POST, [
+        'email'=> 'required',
+        'username'=>'required',
+        'password' => 'required'
+    ]);
 
-
-// if(isset($_POST['submit'])){
-
-//     $email=$_POST['email'];
-//     $username= $_POST['username'];
-//     $password= $_POST['password'];
-
-
-//   if(!empty($username) && !empty($password) && !empty($email))
-//   {
-
-//    $sql="SELECT * FROM login_table WHERE email='{$email}' AND password='{$password}'";
-//    $sql1="INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$password}')";
-//    $result=mysqli_query($conn,$sql) or die("query unsuccesful");
-//    if($result)
-//    {
-
-//     if(mysqli_num_rows($result)==0)
-//     {
-//          if(mysqli_query($conn,$sql1))
-//         {
-//              header("Location:{$host}");
-//          }
-
-//         else{
-//                 echo "<p>Register failed! Try again</p>";
-//             }
-//      }
-//      else{
-//             echo "This account already exist";
-//          }
-
-//       }
-//    }
-//     else{
-//         echo "<p>input fields are empty!</p>";
-//      }
-
-//  }
-
-$validator = new Validator();
-$validation = $validator->validate($_POST, [
-    'email' => 'required',
-    'username' => 'required',
-    'password' => 'required'
-]);
-
-$submit_msg = "";
-
-if ($validation->fails()) {
+    if ($validation->fails()) {
 // handling errors
 // $errors = $validation->errors();
 // echo "<pre>";
 // print_r($errors->firstOfAll());
 // echo "</pre>";
 // echo "<h1>You have input invalid username or password</h1>";
-    $submit_msg = "Invalid data is  entered";
-    echo $submit_msg;
 
-} else {
+        $_SESSION['error']="invalid username or password";
+
+    } else {
 // validation passes
 
-    $email = $_POST['email'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $hashedPassword = hash('sha256', $password);
+        $email=$_POST['email'];
+        $username= $_POST['username'];
+        $password= $_POST['password'];
+        $hashedPassword=hash('sha256',$password);
 
-    $sql = "SELECT * FROM login_table WHERE email='{$email}'";
-    $sql1 = "INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$hashedPassword}')";
-    $result = mysqli_query($conn, $sql) or die("query unsuccesful");
-    if ($result) {
+        $sql="SELECT * FROM login_table WHERE email='{$email}'";
+        $sql1="INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$hashedPassword}')";
+        $result=mysqli_query($conn,$sql) or die("query unsuccesful");
+        if($result)
+        {
 
-        if (mysqli_num_rows($result) == 0) {
-            if (mysqli_query($conn, $sql1)) {
-                header("Location:{$host}");
-            } else {
-                echo "<p>Register failed! Try again</p>";
+            if(mysqli_num_rows($result)==0)
+            {
+                if(mysqli_query($conn,$sql1))
+                {
+                    header("Location:{$host}");
+                }
+
+                else{
+                    $_SESSION['error']="Registration failed";
+                }
             }
-        } else {
-            echo "This email address has already been taken";
-        }
+            else{
+                $_SESSION['error']="this gmail has already been taken";
+            }
 
+        }
     }
+
 }
+
+
 
 
 ?>
@@ -129,6 +99,15 @@ if ($validation->fails()) {
             <h3 class="text-center">Registration</h3>
         </div>
         <div class="col-3 custom-col-height px-4 py-3 mb-5 shadow background">
+            <?php
+            if(isset($_SESSION['error']))
+            {
+                echo "<div class='alert alert-danger text-center'>".$_SESSION['error']."</div>";
+                unset($_SESSION['error']);
+            }
+
+
+            ?>
 
             <form id="signupForm" action="" method="post">
                 <div class="mb-3 mt-3">
@@ -171,11 +150,11 @@ if ($validation->fails()) {
 <script src="assets/js/jquery.js"></script>
 <script src="assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/signup.js?v=1"></script>
-<!--<script>
+<script src="assets/js/signup.js"></script>
+<script>
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
-</script>-->
+</script>
 </body>
 </html>

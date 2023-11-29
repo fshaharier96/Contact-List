@@ -3,11 +3,11 @@
 
 
 
-    console.log("I am ready: before");
+    // console.log("I am ready: before");
 
     $(document).ready(function () {
 
-        console.log("I am ready");
+        // console.log("I am ready");
 
         $("#signupForm").validate({
             debug: true,
@@ -42,7 +42,7 @@
                 }
             },
             //errorClass: "invalid-feedback",
-            errorElement: "p"
+            // errorElement: "p"
         });
     });
 
