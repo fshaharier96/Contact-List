@@ -26,6 +26,9 @@ $result=mysqli_query($conn,$sql) or die('query unsuccessful');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--fav icon -->
+    <link rel="icon" href="assets/images/fav_icon.png" type="image/x-icon">
+
     <!-- fontawsome link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 

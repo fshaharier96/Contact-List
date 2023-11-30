@@ -69,6 +69,8 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--fav icon -->
+    <link rel="icon" href="assets/images/fav_icon.png" type="image/x-icon">
 
     <!--fontawsome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -137,7 +139,7 @@ if (isset($_POST['submit'])) {
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input border border-black" name="agree_terms"
                            id="agree_terms"/>
-                    <label id="check-label-id" class="form-check-label" for="agree_terms">Check me out</label>
+                    <label id="check-label-id" class="form-check-label" for="agree_terms">Agree to our terms & conditions</label>
                 </div>
                 <button type="submit" name="submit" value="register" class="btn btn-primary form-control">Register
                 </button>
