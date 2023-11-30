@@ -19,7 +19,9 @@ if ( isset( $_POST['submit'] ) ) {
     $validation = $validator->validate( $_POST, [
         'email'    => 'required|email',
         'username' => 'required',
-        'password' => 'required|min:6'
+        'password' => 'required|min:6',
+        'confirm_password'=>'required|same:password'
+
     ] );
 
     if ( $validation->fails() ) {
@@ -36,6 +38,7 @@ if ( isset( $_POST['submit'] ) ) {
         $email          = $_POST['email'];
         $username       = $_POST['username'];
         $password       = $_POST['password'];
+//        $c_password     = $_POST['confirm_password'];
         $hashedPassword = hash( 'sha256', $password );
 
         $sql  = "SELECT * FROM login_table WHERE email='{$email}'";
@@ -46,36 +49,31 @@ if ( isset( $_POST['submit'] ) ) {
 
             if ( mysqli_num_rows( $result ) == 0 ) {
                 if ( mysqli_query( $conn, $sql1 ) ) {
-//                    $_SESSION['success'] = "Registration successful !";
 
                     $session->set( "success", "Registration successful! " );
 
                 } else {
-//                    $_SESSION['error'] = "Registration failed";
 
                     $session->set( "error", "Registration failed" );
-
-
                 }
             } else {
-//                $_SESSION['error'] = "This email has already been taken";
+
                 $session->set( "error", "This email has been taken already" );
             }
 
         }
     }
 
+    if ( ! empty( $session->get( 'error' ) ) ) {
+        $msg="<div class='alert alert-danger text-center'>" . $session->get( 'error' ) . "</div>";
+        unset( $_SESSION['error'] );
+    }
+
+    if ( isset( $_SESSION['success'] ) ) {
+        $msg= "<div class='alert alert-success text-center'>" . $session->get( 'success' ) . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
+        unset( $_SESSION['success'] );
+    }
 }
-
-
-//            if (isset($_SESSION['error'])) {
-//                echo "<div class='alert alert-danger text-center'>" . $_SESSION['error'] . "</div>";
-//                unset($_SESSION['error']);
-//            }
-//            if (isset($_SESSION['success'])) {
-//                echo "<div class='alert alert-success text-center'>" . $_SESSION['success'] . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
-//                unset($_SESSION['success']);
-//            }
 
 
 
@@ -115,57 +113,70 @@ if ( isset( $_POST['submit'] ) ) {
             <h3 class="text-center">Registration</h3>
         </div>
         <div class="col-3 custom-col-height px-4 py-3 mb-5 shadow background">
+          <div>
+              <?php
+              if(isset($msg)){
+                  echo $msg;
+              }?>
+          </div>
 
             <?php
-            if ( ! empty( $session->get( 'error' ) ) ) {
-                echo "<div class='alert alert-danger text-center'>" . $session->get( 'error' ) . "</div>";
-                unset( $_SESSION['error'] );
-            }
 
-            if ( isset( $_SESSION['success'] ) ) {
-                echo "<div class='alert alert-success text-center'>" . $session->get( 'success' ) . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
-                unset( $_SESSION['success'] );
-            }
 
             if ( isset( $_SESSION['field_errors'] ) ) {
                 $field_errors = $_SESSION['field_errors'];
                 unset( $_SESSION['field_errors'] );
 
-                /*echo '<pre>';
+                echo '<pre>';
                 print_r( $field_errors );
-                echo '</pre>';*/
+                echo '</pre>';
             }
             ?>
             <form id="signupForm" action="" method="post">
                 <div class="form-group mb-3">
                     <label for="email_field" class="form-label">Email</label>
-                    <input required id="email_field" type="email" name="email" class="form-control border border-secondary"
+                    <input  id="email_field" type="email" name="email" class="form-control border border-secondary"
                            placeholder="Enter valid email"/>
 
                     <?php
                     if(isset($field_errors['email'])){
-                        echo '<div class="field-error field-error-email">'.$field_errors['email'].'</div>';
+                        echo '<div class="signup-field-error signup-field-error-email">'.$field_errors['email'].'</div>';
                     }
                     ?>
 
                 </div>
                 <div class="form-group mb-3">
                     <label for="username_field" class="form-label">Username</label>
-                    <input required  id="username_field" type="text" name="username"
+                    <input  id="username_field" type="text" name="username"
                             class="form-control border border-secondary" placeholder="Enter username" />
+                    <?php
+                    if(isset($field_errors['username'])){
+                        echo '<div class="signup-field-error signup-field-error-username">'.$field_errors['username'].'</div>';
+                    }
+                    ?>
                 </div>
                 <div class="form-group mb-3">
                     <label for="password_field" class="form-label">Password</label>
-                    <input required id="password_field" type="password" name="password"
+                    <input  id="password_field" type="password" name="password"
                            class="form-control border border-secondary" placeholder="Enter password"/>
+                    <?php
+                    if(isset($field_errors['password'])){
+                        echo '<div class="signup-field-error signup-field-error-password">'.$field_errors['password'].'</div>';
+                    }
+                    ?>
                 </div>
                 <div class="form-group mb-3">
                     <label for="c_password_field" class="form-label">Password</label>
-                    <input required id="c_password_field" type="password" name="confirm_password"
+                    <input  id="c_password_field" type="password" name="confirm_password"
                            class="form-control border border-secondary" placeholder="Retype password"/>
+                    <?php
+                    if(isset($field_errors['confirm_password'])){
+                        echo '<div class="signup-field-error signup-field-error-cpassword">'.$field_errors['confirm_password'].'</div>';
+                    }
+                    ?>
                 </div>
                 <div class="form-group mb-3">
-                    <input required type="checkbox" class="form-check-input border border-black" name="agree_terms"
+                    <input  type="checkbox" class="form-check-input border border-black" name="agree_terms"
                            id="agree_terms"/>
                     <label id="check-label-id" class="form-check-label" for="agree_terms">Agree to our terms & conditions</label>
                 </div>
