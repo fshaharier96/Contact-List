@@ -92,6 +92,15 @@
   color: red;
 }
 
+.signup-field-error {
+  color: #DC3545;
+  font-size: 13px;
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
 #home-pagination {
   text-align: center;
 }

@@ -127,9 +127,9 @@ if ( isset( $_POST['submit'] ) ) {
                 $field_errors = $_SESSION['field_errors'];
                 unset( $_SESSION['field_errors'] );
 
-                echo '<pre>';
-                print_r( $field_errors );
-                echo '</pre>';
+//                echo '<pre>';
+//                print_r( $field_errors );
+//                echo '</pre>';
             }
             ?>
             <form id="signupForm" action="" method="post">
