@@ -88,8 +88,8 @@ if (isset($_POST['submit'])) {
 
 <!--bootstrap code  starts-->
 
-<div class="container-fluid h-auto p-3">
-    <div class="row d-flex justify-content-center align-items-center flex-column  p-3">
+<div class="container-fluid h-auto p-5">
+    <div class="row d-flex justify-content-center align-items-center flex-column  p-5">
         <div class="login-logo col-3 my-3">
             <i class="fa-solid fa-address-card"></i>
         </div>
