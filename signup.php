@@ -137,7 +137,7 @@ if ( isset( $_POST['submit'] ) ) {
             }
             ?>
             <form id="signupForm" action="" method="post">
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="email_field" class="form-label">Email</label>
                     <input required id="email_field" type="email" name="email" class="form-control border border-secondary"
                            placeholder="Enter valid email"/>
@@ -149,23 +149,23 @@ if ( isset( $_POST['submit'] ) ) {
                     ?>
 
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="username_field" class="form-label">Username</label>
                     <input required  id="username_field" type="text" name="username"
                             class="form-control border border-secondary" placeholder="Enter username" />
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="password_field" class="form-label">Password</label>
                     <input required id="password_field" type="password" name="password"
                            class="form-control border border-secondary" placeholder="Enter password"/>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="c_password_field" class="form-label">Password</label>
                     <input required id="c_password_field" type="password" name="confirm_password"
                            class="form-control border border-secondary" placeholder="Retype password"/>
                 </div>
-                <div class="form-group">
-                    <input type="checkbox" class="form-check-input border border-black" name="agree_terms"
+                <div class="form-group mb-3">
+                    <input required type="checkbox" class="form-check-input border border-black" name="agree_terms"
                            id="agree_terms"/>
                     <label id="check-label-id" class="form-check-label" for="agree_terms">Agree to our terms & conditions</label>
                 </div>
@@ -177,7 +177,7 @@ if ( isset( $_POST['submit'] ) ) {
             <h6 class="text-center fw-semibold text-primary">
                 Sign in with key pass
             </h6>
-            <p class="text-center"><span>Have already registered?</span><a href="index.php">Log into account</a></p>
+            <p class="text-center"><span>Have already registered?</span><a href="login.php">Log into account</a></p>
         </div>
     </div>
 </div>

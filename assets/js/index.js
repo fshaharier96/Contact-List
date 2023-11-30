@@ -42,7 +42,7 @@
             },
             submitHandler:function(form){
                 $.ajax({
-                    url: 'login.php', // Your PHP login script
+                    url: 'login_data.php', // Your PHP login script
                     type: 'POST',
                     data:$(form).serialize(),
                     success: function (response) {
