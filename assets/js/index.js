@@ -49,7 +49,7 @@
                         if (response == 1) {
                             window.location = 'home.php'; // Redirect to dashboard on successful login
                         } else {
-                            $('#error').text(response).addClass("alert alert-danger"); // Display error message
+                            $('#error').text(response).addClass("alert alert-danger").css("text-align","center"); // Display error message
                         }
                     },
                     error:function(xhr,status,error){

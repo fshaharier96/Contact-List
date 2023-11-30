@@ -42,11 +42,11 @@
                 <div id="error"></div>
                 <div class="mb-3 mt-3">
                     <label for="email_id" class="form-label">Email</label>
-                    <input id="email_id" type="email" name="email" class="form-control border border-secondary"/>
+                    <input id="email_id" type="email" name="email" class="form-control border border-secondary" placeholder="Enter email"/>
                 </div>
                 <div class="mb-3">
                     <label for="password_id" class="form-label">Password</label>
-                    <input id="password_id" type="password" name="password" class="form-control border border-secondary"/>
+                    <input id="password_id" type="password" name="password" class="form-control border border-secondary" placeholder="Enter password"/>
                     <div class="mt-2">
                         <a class="text-decoration-none fw-semibold" href="forget_pass.php">Forget Password ?</a>
                     </div>
