@@ -9,7 +9,7 @@
 
         // console.log("I am ready");
 
-       /* $("#signupForm").validate({
+        $("#signupForm").validate({
 
             rules: {
 
@@ -65,7 +65,7 @@
 
             //errorClass: "invalid-feedback",
             // errorElement: "p"
-        });*/
+        });
     });
 
 }(jQuery));
