@@ -20,7 +20,8 @@ if ( isset( $_POST['submit'] ) ) {
         'email'    => 'required|email',
         'username' => 'required',
         'password' => 'required|min:6',
-        'confirm_password'=>'required|same:password'
+        'confirm_password'=>'required|same:password',
+        'agree_terms'=>'required'
 
     ] );
 
@@ -140,7 +141,7 @@ if ( isset( $_POST['submit'] ) ) {
 
                     <?php
                     if(isset($field_errors['email'])){
-                        echo '<div class="signup-field-error signup-field-error-email">'.$field_errors['email'].'</div>';
+                        echo '<div class="invalid-feedback">'.$field_errors['email'].'</div>';
                     }
                     ?>
 
@@ -151,7 +152,7 @@ if ( isset( $_POST['submit'] ) ) {
                             class="form-control border border-secondary" placeholder="Enter username" />
                     <?php
                     if(isset($field_errors['username'])){
-                        echo '<div class="signup-field-error signup-field-error-username">'.$field_errors['username'].'</div>';
+                        echo '<div class="invalid-feedback">'.$field_errors['username'].'</div>';
                     }
                     ?>
                 </div>
@@ -161,7 +162,7 @@ if ( isset( $_POST['submit'] ) ) {
                            class="form-control border border-secondary" placeholder="Enter password"/>
                     <?php
                     if(isset($field_errors['password'])){
-                        echo '<div class="signup-field-error signup-field-error-password">'.$field_errors['password'].'</div>';
+                        echo '<div class="invalid-feedback">'.$field_errors['password'].'</div>';
                     }
                     ?>
                 </div>
@@ -171,7 +172,7 @@ if ( isset( $_POST['submit'] ) ) {
                            class="form-control border border-secondary" placeholder="Retype password"/>
                     <?php
                     if(isset($field_errors['confirm_password'])){
-                        echo '<div class="signup-field-error signup-field-error-cpassword">'.$field_errors['confirm_password'].'</div>';
+                        echo '<div class="invalid-feedback">'.$field_errors['confirm_password'].'</div>';
                     }
                     ?>
                 </div>
@@ -179,6 +180,11 @@ if ( isset( $_POST['submit'] ) ) {
                     <input  type="checkbox" class="form-check-input border border-black" name="agree_terms"
                            id="agree_terms"/>
                     <label id="check-label-id" class="form-check-label" for="agree_terms">Agree to our terms & conditions</label>
+                    <?php
+                    if(isset($field_errors['agree_terms'])){
+                        echo '<div class="invalid-feedback">'.$field_errors['agree_terms'].'</div>';
+                    }
+                    ?>
                 </div>
                 <button type="submit" name="submit" value="register" class="btn btn-primary form-control">Register
                 </button>

@@ -11,6 +11,13 @@ $success_msg:#198754;
 input::placeholder{
   font-size:$placeholder_font_size;
 }
+.invalid-feedback{
+  display:block;
+}
+.valid-feedback{
+  display:block;
+}
+
 
 
 

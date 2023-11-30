@@ -101,6 +101,14 @@ input::placeholder {
   font-size: 14px;
 }
 
+.invalid-feedback {
+  display: block;
+}
+
+.valid-feedback {
+  display: block;
+}
+
 #home-pagination {
   text-align: center;
 }
