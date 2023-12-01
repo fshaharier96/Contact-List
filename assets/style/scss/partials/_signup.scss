@@ -1,20 +1,5 @@
 
-$error_msg:#DC3545;
-$error_font_size:13px;
-$placeholder_font_size:14px;
-$success_msg:#198754;
-
-.signup-field-error{
-  color:$error_msg;
-  font-size:$error_font_size;
-}
-input::placeholder{
-  font-size:$placeholder_font_size;
-}
 .invalid-feedback{
-  display:block;
-}
-.valid-feedback{
   display:block;
 }
 

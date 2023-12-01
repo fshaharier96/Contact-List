@@ -36,6 +36,7 @@ if ( isset( $_POST['submit'] ) ) {
         $session->set( "error", "Invalid username or password" );
         $session->set( "field_errors", $errors );
     } else {
+
         $email          = $_POST['email'];
         $username       = $_POST['username'];
         $password       = $_POST['password'];
