@@ -2,25 +2,21 @@
     'use strict';
 
 
-
-    // console.log("I am ready: before");
-
     $(document).ready(function () {
 
-        // console.log("I am ready");
 
-       var validator = $("#signupForm").validate({
+        var validator = $("#signupForm").validate({
 
             rules: {
 
-                email:{
-                    required:true,
-                    email:true,
+                email: {
+                    required: true,
+                    email: true,
                 },
                 username: {
                     required: true,
-                    maxlength:15,
-                    minlength:5
+                    maxlength: 15,
+                    minlength: 5
                 },
 
                 password: {
@@ -28,21 +24,21 @@
                     minlength: 6,
                     maxlength: 12
                 },
-                confirm_password:{
+                confirm_password: {
                     required: true,
                     minlength: 6,
                     maxlength: 12
                 },
-                agree_terms:{
+                agree_terms: {
                     required: true
                 }
 
             },
             messages: {
 
-                email:{
-                    required:"Please enter your email",
-                    email:"please enter a valid email address"
+                email: {
+                    required: "Please enter your email",
+                    email: "please enter a valid email address"
                 },
                 username: {
                     required: "Please enter a username",
@@ -62,35 +58,24 @@
                     minlength: "Too few character"
                 },
 
-                agree_terms:{
-                    required:"Please check the box to agree to the terms and conditions"
+                agree_terms: {
+                    required: "Please check the box to agree to the terms and conditions"
                 }
             },
 
-           errorPlacement: function(error, element) {
-               // if (element.attr('name') === 'agree_terms') {
-               //     error.insertAfter('#check-label-id');
-               //
-               // }
-               error.addClass("invalid-feedback");
-               error.appendTo(element.parent()); // Place error message after the input element
-           },
-
-           errorClass: "is-invalid", // Apply Bootstrap class for invalid fields
-           validClass: "is-valid", // Apply Bootstrap class for valid fields
-
-           highlight: function(element, errorClass, validClass,error) {
-               $(element).addClass(errorClass).removeClass(validClass)
-           },
-
-           unhighlight: function(element, errorClass, validClass) {
-               $(element).removeClass(errorClass).addClass(validClass);
-
-           },
-           submitHandler: function(form) {
-               form.submit(); // Example: submit the form
-           }
-
+            errorPlacement: function (error, element) {
+                // if (element.attr('name') === 'agree_terms') {
+                //     error.insertAfter('#check-label-id');
+                //
+                // }
+                error.addClass("invalid-feedback");
+                error.appendTo(element.parent()); // Place error message after the input element
+            },
+            success: function (label, element) {
+                // Add a success message for each valid field
+                $(element).addClass('valid');
+                $(element).next('span').text('Looks good !').addClass('valid').css("color", "#198754");
+            }
 
 
             //errorClass: "invalid-feedback",

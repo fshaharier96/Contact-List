@@ -114,7 +114,7 @@ if ( isset( $_POST['submit'] ) ) {
         <div class="mb-2 mt-5 col-3">
             <h3 class="text-center">Registration</h3>
         </div>
-        <div class="col-3 custom-col-height px-4 py-3 mb-5 shadow background">
+        <div class="col-4 custom-col-height px-4 py-3 mb-5 shadow background">
           <div>
               <?php
               if(isset($msg)){
@@ -145,7 +145,7 @@ if ( isset( $_POST['submit'] ) ) {
                         echo '<div class="invalid-feedback">'.$field_errors['email'].'</div>';
                     }
                     ?>
-
+                    <span></span>
                 </div>
                 <div class="form-group mb-3">
                     <label for="username_field" class="form-label">Username</label>
@@ -156,7 +156,9 @@ if ( isset( $_POST['submit'] ) ) {
                         echo '<div class="invalid-feedback">'.$field_errors['username'].'</div>';
                     }
                     ?>
+                    <span></span>
                 </div>
+
                 <div class="form-group mb-3">
                     <label for="password_field" class="form-label">Password</label>
                     <input  id="password_field" type="password" name="password"
@@ -166,7 +168,9 @@ if ( isset( $_POST['submit'] ) ) {
                         echo '<div class="invalid-feedback">'.$field_errors['password'].'</div>';
                     }
                     ?>
+                    <span></span>
                 </div>
+
                 <div class="form-group mb-3">
                     <label for="c_password_field" class="form-label">Password</label>
                     <input  id="c_password_field" type="password" name="confirm_password"
@@ -176,6 +180,7 @@ if ( isset( $_POST['submit'] ) ) {
                         echo '<div class="invalid-feedback">'.$field_errors['confirm_password'].'</div>';
                     }
                     ?>
+                    <span></span>
                 </div>
                 <div class="form-group mb-3">
                     <input  type="checkbox" class="form-check-input border border-black" name="agree_terms"
@@ -186,6 +191,7 @@ if ( isset( $_POST['submit'] ) ) {
                         echo '<div class="invalid-feedback">'.$field_errors['agree_terms'].'</div>';
                     }
                     ?>
+                    <span></span>
                 </div>
                 <button type="submit" name="submit" value="register" class="btn btn-primary form-control">Register
                 </button>
