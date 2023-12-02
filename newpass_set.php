@@ -1,15 +1,37 @@
-<?php 
- include_once "classes/database.php";
-if(isset($_POST['submit'])){
+<?php
+use Rakit\Validation\Validator;
+
+require 'vendor/autoload.php';
+include_once "classes/database.php";
+include_once "classes/SessionManager.php";
+
+//session instance
+$session = new SessionManager();
+if(isset($_GET['id'])){
     $user_id=$_GET['id'];
-   
-    if(isset($_POST['password']) && isset($_POST['confirm_password'])){
+}
+
+if(isset($_POST['submit'])){
+
+    $validator = new Validator();
+    $validation = $validator->validate($_POST, [
+        'password' => 'required|between:6,12',
+        'confirm_password'=>'required|same:password'
+    ]);
+
+    if ($validation->fails()) {
+        $validation_errors = $validation->errors();
+        $errors = $validation_errors->firstOfAll();
+
+        $session->set("field_errors", $errors);
+
+    }else{
         $password=$_POST['password'];
-        $confirm_password=$_POST['confirm_password'];
-        $hashedPass=hash('sha256',$password);
-        $hashedConfirmPass=hash('sha256',$confirm_password);
-        if($hashedPass==$hashedConfirmPass)
-        {
+//        $confirm_password=$_POST['confirm_password'];
+//        $hashedPass=hash('sha256',$password);
+//        $hashedConfirmPass=hash('sha256',$confirm_password);
+//        if($hashedPass==$hashedConfirmPass)
+
                 $db_connect=new Database();
                 $conn=$db_connect->conn;
                 $sql="UPDATE login_table SET password='{$hashedPass}' WHERE id={$user_id}";
@@ -17,19 +39,24 @@ if(isset($_POST['submit'])){
                 $result=mysqli_query($conn,$sql) or die("query unsuccessful");
 
                 if($result){
-                    header("Location:{$host}");
+                    header("Location:{$host}login.php");
                  }
                  else{
                     echo "Password change failed,try again!";
-                    }
-
-        }else{
-            echo "password does not matched";
-        }
+                 }
 
     }
   
 }
+if (isset($_SESSION['field_errors'])) {
+    $field_errors = $_SESSION['field_errors'];
+    unset($_SESSION['field_errors']);
+
+//                echo '<pre>';
+//                print_r( $field_errors );
+//                echo '</pre>';
+}
+
 
 ?>
 
@@ -55,10 +82,20 @@ if(isset($_POST['submit'])){
                 <div class="mb-4 text-center">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <input type="password" name="password" class="form-control border border-secondary"/>
+                    <?php
+                    if (isset($field_errors['password'])) {
+                        echo '<div class="invalid-feedback text-start">' . $field_errors['password'] . '</div>';
+                    }
+                    ?>
                 </div>
                 <div class="mb-4 text-center">
                   <label for="exampleInputPassword1" class="form-label">Confirm password</label>
                   <input type="password" name="confirm_password" class="form-control border border-secondary"/>
+                    <?php
+                    if (isset($field_errors['confirm_password'])) {
+                        echo '<div class="invalid-feedback text-start">' . $field_errors['confirm_password'] . '</div>';
+                    }
+                    ?>
                 </div>
                 <button class="btn btn-primary form-control" type="submit" name="submit">Change password</button>
 
@@ -68,6 +105,10 @@ if(isset($_POST['submit'])){
         </div>
 
     </div>
-    
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </body>
 </html>

@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="01cd6ee2-4eea-4817-9818-2a3713e20ad6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forget_pass.php" beforeDir="false" afterPath="$PROJECT_DIR$/forget_pass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newpass.php" beforeDir="false" afterPath="$PROJECT_DIR$/newpass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newpass_set.php" beforeDir="false" afterPath="$PROJECT_DIR$/newpass_set.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reset_verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/reset_verification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,12 +90,23 @@
       <workItem from="1701354609651" duration="603000" />
       <workItem from="1701412283293" duration="852000" />
       <workItem from="1701445943908" duration="8636000" />
-      <workItem from="1701494531834" duration="13475000" />
+      <workItem from="1701494531834" duration="14967000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/reset_verification.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
