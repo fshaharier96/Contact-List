@@ -197,7 +197,7 @@ if ( isset( $_POST['submit'] ) ) {
                 </button>
             </form>
         </div>
-        <div class="col-3 mt-3 border border-secondary rounded-2  p-2 background1">
+        <div class="col-4 mt-2 border border-secondary rounded-2  p-2 background1">
             <h6 class="text-center fw-semibold text-primary">
                 Sign in with key pass
             </h6>
