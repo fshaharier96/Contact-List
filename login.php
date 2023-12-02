@@ -45,13 +45,16 @@
                 <div class="mb-3 mt-3">
                     <label for="email_id" class="form-label">Email</label>
                     <input id="email_id" type="email" name="email" class="form-control border border-secondary" placeholder="Enter email"/>
+                    <span></span>
                 </div>
                 <div class="mb-3">
                     <label for="password_id" class="form-label">Password</label>
                     <input id="password_id" type="password" name="password" class="form-control border border-secondary" placeholder="Enter password"/>
+                    <span></span>
                     <div class="mt-2">
                         <a class="text-decoration-none fw-semibold" href="forget_pass.php">Forget Password ?</a>
                     </div>
+
                 </div>
                 <div class="mb-3 form-check">
                     <input id="checkbox_id" type="checkbox" class="form-check-input border border-black"/>
@@ -89,7 +92,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/index.js"></script>
+<script src="assets/js/login.js"></script>
 
 
 </body>

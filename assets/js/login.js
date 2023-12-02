@@ -26,7 +26,7 @@
 
                 password: {
                     required: true,
-                     minlength: 6
+                     minlength: 6,
                 }
             },
             messages: {
@@ -37,9 +37,23 @@
 
                 password: {
                     required: "Please enter a password",
-                     minlength: "Password must be at least 6 characters long"
+                     minlength: "Password must be at least 6 characters long",
                 }
             },
+            errorPlacement: function (error, element) {
+                // if (element.attr('name') === 'agree_terms') {
+                //     error.insertAfter('#check-label-id');
+                //
+                // }
+                error.addClass("invalid-feedback");
+                error.appendTo(element.parent()); // Place error message after the input element
+            },
+            success: function (label, element) {
+                // Add a success message for each valid field
+                $(element).addClass('valid');
+                $(element).next('span').text('Looks good !').addClass('valid').css("color", "#198754");
+            },
+
             submitHandler:function(form){
                 $.ajax({
                     url: 'login_data.php', // Your PHP login script
