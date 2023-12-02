@@ -1,67 +1,56 @@
-<?php 
-  use PHPMailer\PHPMailer\PHPMailer;
-  use PHPMailer\PHPMailer\SMTP;
-  use PHPMailer\PHPMailer\Exception;
-  require 'vendor/autoload.php';
-  include_once "classes/database.php";
-  
-  if(isset($_POST['submit'])){
-      if(!empty($_POST['email']))
-      {
-          $email=$_POST['email'];
-          $reset_code=random_int(100000,999999);
-          
-  
-  
-  //Create an instance; passing `true` enables exceptions
-  $mail = new PHPMailer(true);
-  
-  try {
-      $mail->isSMTP();  
-      $m_host=MAIL_HOST;
-      $m_port=MAIL_PORT;                                          
-      $mail->Host       = $m_host;                   
-      $mail->Port       = $m_port;                                   
-  
-     
-      $mail->setFrom('sender@example.com', 'Contact-list Mailer');
-      $mail->addAddress($email);     
-   
-      $mail->isHTML(true);                                
-      $mail->Subject ="Account Verification";
-      $templateFile='./email/email_template.html';
-      $htmlContent=file_get_contents($templateFile);
-      $htmlContent=str_replace("{{CODE}}",$reset_code,$htmlContent);
-      $mail->Body =$htmlContent;
+<?php
 
-    //   $mail->Body    = $reset_code;
-    //   $mail->AltBody = 'Use this six digit code to verify your account';
-  
-      $mail->send();
-      echo 'Message has been sent';
-      $db_connect=new Database();
-      $conn=$db_connect->conn;
-      $sql="SELECT * FROM login_table WHERE email='{$email}'";
-      $result=mysqli_query($conn,$sql) or die("query unsuccessful");
-      if(mysqli_num_rows($result)>0){
-          $row=mysqli_fetch_assoc($result);
-          $user_id=$row['id'];
-          $sql2="UPDATE login_table SET reset_code={$reset_code} WHERE id={$user_id}";
-          $result2=mysqli_query($conn,$sql2) or die("query unsuccessful");
-      
-      }
-      else{
-          echo "this email address is not registered";
-      }
-  
-  
-    
-  } catch (Exception $e) {
-      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-  }
-  
-      }
-  }
+use Rakit\Validation\Validator;
+
+require 'vendor/autoload.php';
+include_once "classes/database.php";
+include_once "classes/SessionManager.php";
+
+//session instance
+$session = new SessionManager();
+if(isset($_GET['id'])){
+    $user_id=$_GET['id'];
+}
+
+if (isset($_POST['submit'])) {
+
+    $validator = new Validator();
+    $validation = $validator->validate($_POST, [
+        'reset_code' => 'required|numeric',
+    ]);
+
+    if ($validation->fails()) {
+        $validation_errors = $validation->errors();
+        $errors = $validation_errors->firstOfAll();
+
+        $session->set("field_errors", $errors);
+
+    } else {
+        $reset_code = $_POST['reset_code'];
+        $db_connect=new Database();
+        $conn=$db_connect->conn;
+        $sql="SELECT * FROM login_table WHERE id={$user_id} AND reset_code={$reset_code}";
+        $result=mysqli_query($conn,$sql) or die("query unsuccessful");
+        if(mysqli_num_rows($result)>0){
+
+            header("Location:{$host}/newpass_set.php?id={$user_id}");
+        }
+        else{
+            echo "verification code is wrong";
+        }
+    }
+}
+
+if (isset($_SESSION['field_errors'])) {
+    $field_errors = $_SESSION['field_errors'];
+    unset($_SESSION['field_errors']);
+
+//                echo '<pre>';
+//                print_r( $field_errors );
+//                echo '</pre>';
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,10 +68,15 @@
     <div class="container-fluid  h-100">
         <div class="row  d-flex justify-content-center align-items-center h-100">
             <div class="col-4 h-50 shadow bg-info-subtle d-flex align-items-center justify-content-center">
-                <form class="form-control p-3" action="newpass.php?id=<?php echo $user_id?>" method="post">
+                <form class="form-control p-3" action="" method="post">
                 <div class="mb-4 text-center">
                   <label for="exampleInputPassword1" class="form-label fs-5 text-center">Enter verification code</label>
                   <input type="number" name="reset_code" class="form-control border border-secondary">
+                    <?php
+                    if (isset($field_errors['reset_code'])) {
+                    echo '<div class="invalid-feedback text-start">' . $field_errors['reset_code'] . '</div>';
+                    }
+                    ?>
                 </div>
                 <button class="btn btn-primary form-control" type="submit" name="submit">Continue</button>
 

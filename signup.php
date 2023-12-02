@@ -40,7 +40,6 @@ if ( isset( $_POST['submit'] ) ) {
         $email          = $_POST['email'];
         $username       = $_POST['username'];
         $password       = $_POST['password'];
-//        $c_password     = $_POST['confirm_password'];
         $hashedPassword = hash( 'sha256', $password );
 
         $sql  = "SELECT * FROM login_table WHERE email='{$email}'";
@@ -117,9 +116,10 @@ if ( isset( $_POST['submit'] ) ) {
         <div class="col-4 custom-col-height px-4 py-3 mb-5 shadow background">
           <div>
               <?php
-              if(isset($msg)){
-                  echo $msg;
-              }?>
+                  if(isset($msg)){
+                      echo $msg;
+                  }
+              ?>
           </div>
 
             <?php

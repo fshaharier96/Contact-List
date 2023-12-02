@@ -1,4 +1,4 @@
-<?php 
+ <?php
  include_once "classes/database.php";
 if(isset($_GET['id'])){
     $user_id=$_GET['id'];
