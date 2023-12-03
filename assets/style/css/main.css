@@ -92,20 +92,7 @@
   color: red;
 }
 
-.signup-field-error {
-  color: #DC3545;
-  font-size: 13px;
-}
-
-input::placeholder {
-  font-size: 14px;
-}
-
 .invalid-feedback {
-  display: block;
-}
-
-.valid-feedback {
   display: block;
 }
 
@@ -287,10 +274,15 @@ input::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 10px;
 }
 
 .create-img-upload i {
   font-size: 30px;
+}
+
+.create-input-width {
+  width: 97%;
 }
 
 .create-img-upload img {

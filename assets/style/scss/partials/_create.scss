@@ -21,12 +21,16 @@
     display:flex;
     justify-content: center;
     align-items:center;
-  
+    margin-right:10px;
 }
 .create-img-upload i{
     font-size:30px;
     
 }
+.create-input-width{
+    width:97%;
+}
+
 .create-img-upload img{
     width:150px;
     height:150px;

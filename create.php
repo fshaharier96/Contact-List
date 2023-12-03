@@ -15,16 +15,16 @@ $session = new SessionManager();
 
 if(isset($_POST['submit'])){
     $validator  = new Validator();
-    $validation = $validator->validate( $_POST, [
-//            'uploadfile'=>'png,jpeg',
+    $validation = $validator->validate( $_POST+$_FILES, [
+            'uploadfile'=>'uploaded_file:0,500K,png,jpeg',
             'fname'=>'required|min:3',
             'lname'=>'required|min:3',
-            'company'=>'alpha_num',
-            'job_title'=>'alpha',
-            'department'=>'alpha',
+            'company'=>'alpha_spaces',
+            'job_title'=>'alpha_spaces',
+            'department'=>'alpha_spaces',
             'email'=>'required|email',
             'phone'=>'required',
-            'city'=>'alpha',
+            'city'=>'alpha_spaces',
             'postal_code'=>'numeric'
 
     ] );
@@ -160,20 +160,20 @@ unset( $_SESSION['failed_msg'] );
           <!--upper container starts-->
 
         <div class="create-upper-container  col-12 d-flex pt-4 pb-2 pb-4 border-bottom border-secondary">
-            <div class="create-img-box  col-6">
-                <label for="create-file-id" class="create-img-upload">
+            <div class="create-img-box   col-7">
+                <label for="create-file-id" class="create-img-upload col-5">
                     <div class="create-img-icon"><i class="fa-regular fa-image"></i></div>
                     <img src="uploads/pic.jpg" width="90" id="create-image-id">
                 </label>
                 <input hidden type='file' name='uploadfile'  id='create-file-id'/>
                 <?php
                 if(isset($field_errors['uploadfile'])){
-                    echo '<div class="invalid-feedback">'.$field_errors['uploadfile'].'</div>';
+                    echo '<div class="invalid-feedback col-6">'.$field_errors['uploadfile'].'</div>';
                 }
                 ?>
 
             </div>
-            <div class="create-btn-box d-flex align-items-end col-6">
+            <div class="create-btn-box d-flex align-items-end col-5">
                   <div class="create-btn">
                     <input class="custom-btn" type="submit" name="submit" value="save"/>
                  </div>
@@ -185,14 +185,16 @@ unset( $_SESSION['failed_msg'] );
 
         <!--lower container starts-->
         
-        <div class="create-lower-container">
+        <div class="create-lower-container border border-black">
 
-            <div class="form-group d-flex mb-3">
+            <div class="form-group d-flex flex-column mb-3">
+                <div class="d-flex">
                 <label>
                     <i class="fa-regular fa-user"></i>
                 </label>
                 <input class="form-control border border-secondary ms-1" type="text"  name="fname" placeholder="First name"/>
-                <?php
+                </div>
+                    <?php
                 if(isset($field_errors['fname'])){
                     echo '<div class="invalid-feedback">'.$field_errors['fname'].'</div>';
                 }
@@ -200,8 +202,8 @@ unset( $_SESSION['failed_msg'] );
             </div>
             <span id="error-fname"></span>
                
-            <div class="form-group d-flex mb-3">
-                <input class="form-control border border-secondary ms-3" type="text" name="lname" placeholder="Last name"/>
+            <div class="form-group d-flex flex-column mb-3">
+                <input class="form-control border border-secondary ms-3 create-input-width" type="text" name="lname" placeholder="Last name"/>
                 <?php
                 if(isset($field_errors['lname'])){
                     echo '<div class="invalid-feedback">'.$field_errors['lname'].'</div>';
@@ -211,11 +213,13 @@ unset( $_SESSION['failed_msg'] );
             <span id="error-lname"></span>
 
             <div class="form-group d-flex mb-3">
+                <div class="d-flex w-100">
                  <label>
                     <i class="fa-solid fa-building"></i>
                 </label>
-                 <input class="form-control border border-secondary ms-1" type="text"  class="icon-input" name="company" placeholder="Company"/>
-                <?php
+                 <input class="form-control border border-secondary  ms-1" type="text"  class="icon-input" name="company" placeholder="Company"/>
+                </div>
+                    <?php
                 if(isset($field_errors['company'])){
                     echo '<div class="invalid-feedback">'.$field_errors['company'].'</div>';
                 }
@@ -223,7 +227,7 @@ unset( $_SESSION['failed_msg'] );
             </div>
             
             <div class="form-group d-flex mb-3">
-                 <input class="form-control border border-secondary ms-3" type="text" name="job_title" placeholder="Job title"/>
+                 <input class="form-control border border-secondary create-input-width ms-3" type="text" name="job_title" placeholder="Job title"/>
                 <?php
                 if(isset($field_errors['job_title'])){
                     echo '<div class="invalid-feedback">'.$field_errors['job_title'].'</div>';
@@ -240,14 +244,16 @@ unset( $_SESSION['failed_msg'] );
                 ?>
             </div>
 
-            <div class="form-group d-flex mb-3">
+            <div class="form-group d-flex flex-column mb-3">
+                <div class="d-flex w-100">
                 <label>
                     <i class="fa-regular fa-envelope"></i>
                 </label>
-                <input  class="form-control border border-secondary ms-1" type="email"  class="icon-input" name="email" placeholder="Email"/>
-                <?php
+                <input  class="form-control  border border-secondary ms-1" type="email"  class="icon-input" name="email" placeholder="Email"/>
+                </div>
+                    <?php
                 if(isset($field_errors['email'])){
-                    echo '<div class="invalid-feedback">'.$field_errors['email'].'</div>';
+                    echo '<div class="invalid-feedback w-100">'.$field_errors['email'].'</div>';
                 }
                 ?>
             </div>
@@ -260,12 +266,14 @@ unset( $_SESSION['failed_msg'] );
 
             <span id="error-email"></span>
 
-            <div class="form-group d-flex mb-3 create-tel">
+            <div class="form-group d-flex flex-column mb-3 create-tel">
+                <div class="d-flex">
                 <label>
                     <i class="fa-solid fa-phone"></i>
                 </label>
                 <input id="phone" type="tel" class="form-control border border-secondary pe-0 ms-1" name="phone"/>
                 <input hidden id="countryCode" name="countryCode"/>
+                </div>
                 <?php
                 if(isset($field_errors['phone'])){
                     echo '<div class="invalid-feedback">'.$field_errors['phone'].'</div>';
