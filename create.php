@@ -185,7 +185,7 @@ unset( $_SESSION['failed_msg'] );
 
         <!--lower container starts-->
         
-        <div class="create-lower-container border border-black">
+        <div class="create-lower-container">
 
             <div class="form-group d-flex flex-column mb-3">
                 <div class="d-flex">
