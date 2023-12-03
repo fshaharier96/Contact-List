@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
     }else{
         $password=$_POST['password'];
 //        $confirm_password=$_POST['confirm_password'];
-//        $hashedPass=hash('sha256',$password);
+        $hashedPass=hash('sha256',$password);
 //        $hashedConfirmPass=hash('sha256',$confirm_password);
 //        if($hashedPass==$hashedConfirmPass)
 

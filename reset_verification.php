@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
         $result=mysqli_query($conn,$sql) or die("query unsuccessful");
         if(mysqli_num_rows($result)>0){
 
-            header("Location:{$host}/newpass_set.php?id={$user_id}");
+            header("Location:{$host}newpass_set.php?id={$user_id}");
         }
         else{
             echo "verification code is wrong";
