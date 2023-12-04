@@ -33,8 +33,8 @@
       <div class="col-6 h-50 d-flex justify-content-center align-items-center flex-column bg-info-subtle shadow">
            <h1 class="mb-3">Welcome to contact hub</h1>
           <div>
-              <button class="btn btn-primary"><a class="text-decoration-none text-white" href="login.php">Log in</a></button>
-              <button class="btn btn-primary"><a class="text-decoration-none text-white" href="">Explore</a></button>
+              <a class="text-decoration-none text-white btn btn-primary" href="login.php">Log in</a>
+              <a class="text-decoration-none text-white btn btn-primary" href="">Explore</a>
           </div>
       </div>
 

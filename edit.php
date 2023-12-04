@@ -56,6 +56,8 @@ include_once 'header.php';
 
         <?php
         while ($row = mysqli_fetch_assoc($result)) {
+
+
             if (!isset($updation_errors['fname'])) {
                 $first_name = $row['first_name'];
             }
@@ -115,7 +117,14 @@ include_once 'header.php';
                         $str = substr($img_file, $pos);
 
                         ?>
+
                         <input hidden type='file' name='uploadfile' id='edit-file-id'>
+                        <?php
+                        if(isset( $_SESSION['updation_errors']['uploadfile'])) {
+                            echo '<div class="invalid-feedback w-100">' . $_SESSION['updation_errors']['uploadfile'] . '</div>';
+                            unset($_SESSION['updation_errors']['uploadfile']);
+                        }
+                        ?>
 
                     </div>
                     <div class="edit-btn-box col-6 d-flex justify-content-center align-items-end">

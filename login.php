@@ -60,7 +60,7 @@
                     <input id="checkbox_id" type="checkbox" class="form-check-input border border-black"/>
                     <label for="checkbox_id" class="form-check-label">Remember me</label>
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary form-control">Login</button>
+                <button type="submit" name="submit" class="btn btn-primary w-100">Login</button>
             </form>
         </div>
         <div class="col-3 mt-3 border border-secondary rounded-2  p-2 background1">
