@@ -378,6 +378,10 @@
   color: rgb(17, 43, 62);
 }
 
+.edit-input-width {
+  width: 97%;
+}
+
 .edit-tel input {
   width: 450px !important;
 }

@@ -47,7 +47,7 @@ $(document).on('click','tr td button',function(){
     if(id=='edit')
     {
     
-      window.location=`edit.php?page=${data_id}`;
+      window.location=`edit.php?id=${data_id}`;
     }
     if(id=='delete')
     { 
