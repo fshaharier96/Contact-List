@@ -1,3 +1,10 @@
+
+
+(function ($) {
+    'use strict';
+
+    $(document).ready(function () {
+
 let file=$('#edit-file-id');
 file.on("change",function(event){
     var x = URL.createObjectURL(event.target.files[0]);
@@ -117,15 +124,9 @@ let countryList= $('#countryList');
 const allCountries = window.intlTelInputGlobals.getCountryData();
 
 allCountries.forEach(function(country) {
-// let select="";
-// if(country.iso2=="bd"){
-// select="selected";
-// }else{
-// select="";
-// }
 countryList.append(`<option value="${country.name}">${country.name}</option>`);
 
-     });
+});
 
 
 // const phoneInputField = document.querySelector("#phone");
@@ -146,3 +147,8 @@ countryList.append(`<option value="${country.name}">${country.name}</option>`);
 //     $('#countryCode').val(code_val);
 //     console.log()
 // });
+
+
+    });
+
+}(jQuery));
