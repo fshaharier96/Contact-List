@@ -54,7 +54,7 @@
                            placeholder="Enter password"/>
                     <span></span>
                     <div class="mt-2">
-                        <a class="text-decoration-none fw-semibold" href="forget_pass.php">Forget Password ?</a>
+                        <a class="text-decoration-none fw-semibold" href="/forget-password">Forget Password ?</a>
                     </div>
 
                 </div>
@@ -69,7 +69,7 @@
             <h6 class="text-center fw-semibold text-primary">
                 Sign in with key pass
             </h6>
-            <p class="text-center"><span>New to Contact Hub?</span><a href="signup.php">Create an account</a></p>
+            <p class="text-center"><span>New to Contact Hub?</span><a href="/signup">Create an account</a></p>
 
         </div>
     </div>

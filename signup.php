@@ -199,7 +199,7 @@ if ( isset( $_POST['submit'] ) ) {
             <h6 class="text-center fw-semibold text-primary">
                 Sign in with key pass
             </h6>
-            <p class="text-center"><span>Have already registered?</span><a href="login.php">Log into account</a></p>
+            <p class="text-center"><span>Have already registered?</span><a href="/login">Log into account</a></p>
         </div>
     </div>
 </div>
