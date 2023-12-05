@@ -40,16 +40,18 @@
 
         <div class="col-md-3 custom-col-height px-4 py-3 shadow background">
 
-            <form id="loginForm"  method="post">
+            <form id="loginForm" method="post">
                 <div id="error"></div>
                 <div class="mb-3 mt-3">
                     <label for="email_id" class="form-label">Email</label>
-                    <input id="email_id" type="email" name="email" class="form-control border border-secondary" placeholder="Enter email"/>
+                    <input id="email_id" type="email" name="email" class="form-control border border-secondary"
+                           placeholder="Enter email"/>
                     <span></span>
                 </div>
                 <div class="mb-3">
                     <label for="password_id" class="form-label">Password</label>
-                    <input id="password_id" type="password" name="password" class="form-control border border-secondary" placeholder="Enter password"/>
+                    <input id="password_id" type="password" name="password" class="form-control border border-secondary"
+                           placeholder="Enter password"/>
                     <span></span>
                     <div class="mt-2">
                         <a class="text-decoration-none fw-semibold" href="forget_pass.php">Forget Password ?</a>
@@ -77,7 +79,6 @@
 <!--bootstrap code ends-->
 
 <!--php validation logic starts-->
-
 
 
 <script>

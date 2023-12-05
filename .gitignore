@@ -6,3 +6,4 @@
 .env
 # Ignore vendor folder
 vendor/
+

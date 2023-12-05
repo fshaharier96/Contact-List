@@ -105,7 +105,7 @@ include_once 'header.php';
 
                                 ?>
 
-                                <img src="<?php echo $row['contact_image'] ?>" width="90" id="edit-image-id">
+                                <img src="<?php echo $row['contact_image'] ?>" width="90" id="edit-image-id"/>
 
                                 <?php
                             }
@@ -118,9 +118,9 @@ include_once 'header.php';
 
                         ?>
 
-                        <input hidden type='file' name='uploadfile' id='edit-file-id'>
+                        <input hidden type='file' name='uploadfile' id='edit-file-id'/>
                         <?php
-                        if(isset( $_SESSION['updation_errors']['uploadfile'])) {
+                        if (isset($_SESSION['updation_errors']['uploadfile'])) {
                             echo '<div class="invalid-feedback w-100">' . $_SESSION['updation_errors']['uploadfile'] . '</div>';
                             unset($_SESSION['updation_errors']['uploadfile']);
                         }
@@ -129,7 +129,7 @@ include_once 'header.php';
                     </div>
                     <div class="edit-btn-box col-6 d-flex justify-content-center align-items-end">
                         <div class="edit-btn">
-                            <input type="submit" name="submit" class="custom-btn" value="save">
+                            <input type="submit" name="submit" class="custom-btn" value="save"/>
                         </div>
                     </div>
 
@@ -176,14 +176,15 @@ include_once 'header.php';
                     <span id="error-fname"></span>
 
                     <div class="d-flex flex-column mb-3">
-                     <div class="mb-3">
-                        <?php
-                        if(!isset($last_name)){
+                        <div class="mb-3">
+                            <?php
+                            if (!isset($last_name)){
 
-                        ?>
-                        <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="lname"
-                               placeholder="Last name" value=""/>
-                            </div>
+                            ?>
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="lname"
+                                   placeholder="Last name" value=""/>
+                        </div>
                         <?php
                         echo '<div class="invalid-feedback w-100">' . $_SESSION['updation_errors']['lname'] . '</div>';
                         unset($_SESSION['updation_errors']['lname']);
@@ -191,8 +192,9 @@ include_once 'header.php';
 
                             ?>
 
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="lname"
-                                   placeholder="Last name" value="<?php echo $last_name?>"/>
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="lname"
+                                   placeholder="Last name" value="<?php echo $last_name ?>"/>
                             <?php
 
                         }
@@ -207,7 +209,8 @@ include_once 'header.php';
                             <?php
                             if (!isset($company)){
                             ?>
-                            <input class="form-control border border-secondary edit-input-width ms-1" type="text" name="company"
+                            <input class="form-control border border-secondary edit-input-width ms-1" type="text"
+                                   name="company"
                                    placeholder="Company" value=""/>
                         </div>
                         <?php
@@ -217,7 +220,8 @@ include_once 'header.php';
 
                             ?>
 
-                            <input class="form-control border border-secondary edit-input-width ms-1" type="text" name="company"
+                            <input class="form-control border border-secondary edit-input-width ms-1" type="text"
+                                   name="company"
                                    placeholder="Company" value="<?php echo $company ?>"/>
                             <?php
 
@@ -228,10 +232,11 @@ include_once 'header.php';
                     <div class="d-flex flex-column mb-3">
                         <div class="mb-3">
                             <?php
-                            if(!isset($job_title)){
+                            if (!isset($job_title)){
 
                             ?>
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="job_title"
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="job_title"
                                    placeholder="Job title" value=""/>
                         </div>
                         <?php
@@ -241,7 +246,8 @@ include_once 'header.php';
 
                             ?>
 
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="job_title"
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="job_title"
                                    placeholder="Job title" value="<?php echo $job_title ?>"/>
                             <?php
 
@@ -252,10 +258,11 @@ include_once 'header.php';
                     <div class="d-flex flex-column mb-3">
                         <div class="mb-3">
                             <?php
-                            if(!isset($department)){
+                            if (!isset($department)){
 
                             ?>
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="department"
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="department"
                                    placeholder="Department" value=""/>
                         </div>
                         <?php
@@ -265,7 +272,8 @@ include_once 'header.php';
 
                             ?>
 
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="department"
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="department"
                                    placeholder="Department" value="<?php echo $department ?>"/>
                             <?php
 
@@ -319,7 +327,7 @@ include_once 'header.php';
                             ?>
 
                             <input id="phone" class="form-control w-100 border border-secondary ms-1" type="tel"
-                                   name="phone[full]" value="<?php echo $phone  ?>"/>
+                                   name="phone[full]" value="<?php echo $phone ?>"/>
                             <?php
 
                         }
@@ -344,10 +352,11 @@ include_once 'header.php';
                     <div class="d-flex flex-column mb-3">
                         <div class="mb-3">
                             <?php
-                            if(!isset($city)){
+                            if (!isset($city)){
 
                             ?>
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="city"
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="city"
                                    placeholder="City" value=""/>
                         </div>
                         <?php
@@ -357,7 +366,8 @@ include_once 'header.php';
 
                             ?>
 
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="city"
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="city"
                                    placeholder="City" value="<?php echo $city ?>"/>
                             <?php
 
@@ -366,14 +376,14 @@ include_once 'header.php';
                     </div>
 
 
-
                     <div class="d-flex flex-column mb-3">
                         <div class="mb-3">
                             <?php
-                            if(!isset($postal_code)){
+                            if (!isset($postal_code)){
 
                             ?>
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="postal_code"
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="postal_code"
                                    placeholder="Postal code" value=""/>
                         </div>
                         <?php
@@ -383,7 +393,8 @@ include_once 'header.php';
 
                             ?>
 
-                            <input class="form-control border border-secondary edit-input-width ms-3" type="text" name="postal_code"
+                            <input class="form-control border border-secondary edit-input-width ms-3" type="text"
+                                   name="postal_code"
                                    placeholder="Postal code" value="<?php echo $postal_code ?>"/>
                             <?php
 
