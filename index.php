@@ -34,7 +34,8 @@ include_once "./routes/web.php";
            <h1 class="mb-3">Welcome to contact hub</h1>
           <div>
               <a class="text-decoration-none text-white btn btn-primary" href="/login">Log in</a>
-              <a class="text-decoration-none text-white btn btn-primary" href="">Explore</a>
+              <a class="text-decoration-none text-white btn btn-primary" href="/signup">Sign up</a>
+
           </div>
       </div>
 

@@ -10,7 +10,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
     <!--styling file-->
-    <link rel="stylesheet" href="assets/style/css/main.css">
+    <link rel="stylesheet" href="../../assets/style/css/main.css">
     <title>enter email</title>
 </head>
 <body class="h-100">

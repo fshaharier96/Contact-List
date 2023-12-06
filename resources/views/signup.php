@@ -1,83 +1,3 @@
-<?php
-require( 'vendor/autoload.php' );
-
-use Rakit\Validation\Validator;
-
-include_once "classes/database.php";
-include_once "classes/SessionManager.php";
-
-//database connection
-$db_connect = new Database();
-$conn       = $db_connect->conn;
-
-//session instance
-$session = new SessionManager();
-
-
-if ( isset( $_POST['submit'] ) ) {
-	$validator  = new Validator();
-	$validation = $validator->validate( $_POST, [
-		'email'            => 'required|email',
-		'username'         => 'required',
-		'password'         => 'required|min:6',
-		'confirm_password' => 'required|same:password',
-		'agree_terms'      => 'required'
-
-	] );
-
-	if ( $validation->fails() ) {
-		$validation_errors = $validation->errors();
-		$errors            = $validation_errors->firstOfAll();
-
-		/* echo '<pre>';
-		 print_r($errors);
-		 echo '</pre>';*/
-
-		$session->set( "error", "Invalid username or password" );
-		$session->set( "field_errors", $errors );
-	} else {
-
-		$email          = $_POST['email'];
-		$username       = $_POST['username'];
-		$password       = $_POST['password'];
-		$hashedPassword = hash( 'sha256', $password );
-
-		$sql  = "SELECT * FROM login_table WHERE email='{$email}'";
-		$sql1 = "INSERT INTO login_table(email,username,password) VALUES('{$email}','{$username}','{$hashedPassword}')";
-		$result = mysqli_query( $conn, $sql ) or die( "query unsuccesful" );
-
-		if ( $result ) {
-
-			if ( mysqli_num_rows( $result ) == 0 ) {
-				if ( mysqli_query( $conn, $sql1 ) ) {
-
-					$session->set( "success", "Registration successful! " );
-
-				} else {
-
-					$session->set( "error", "Registration failed" );
-				}
-			} else {
-
-				$session->set( "error", "This email has been taken already" );
-			}
-
-		}
-	}
-
-	if ( ! empty( $session->get( 'error' ) ) ) {
-		$msg = "<div class='alert alert-danger text-center'>" . $session->get( 'error' ) . "</div>";
-		unset( $_SESSION['error'] );
-	}
-
-	if ( isset( $_SESSION['success'] ) ) {
-		$msg = "<div class='alert alert-success text-center'>" . $session->get( 'success' ) . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
-		unset( $_SESSION['success'] );
-	}
-}
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +5,7 @@ if ( isset( $_POST['submit'] ) ) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--fav icon -->
-    <link rel="icon" href="assets/images/fav_icon.png" type="image/x-icon">
+    <link rel="icon" href="../../assets/images/fav_icon.png" type="image/x-icon">
 
     <!--fontawsome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -95,7 +15,7 @@ if ( isset( $_POST['submit'] ) ) {
 
 
     <!--styling file-->
-    <link rel="stylesheet" href="assets/style/css/main.css">
+    <link rel="stylesheet" href="../../assets/style/css/main.css">
 
     <title>CRM - Signup</title>
 </head>
@@ -209,10 +129,10 @@ if ( isset( $_POST['submit'] ) ) {
 
 
 <!-- Javacript files-->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
+<script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/signup.js"></script>
+<script src="../../assets/js/signup.js"></script>
 <script>
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--fav icon -->
-    <link rel="icon" href="assets/images/fav_icon.png" type="image/x-icon">
+    <link rel="icon" href="../../assets/images/fav_icon.png" type="image/x-icon">
 
     <!--fontawsome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
     <!--styling file-->
-    <link rel="stylesheet" href="assets/style/css/main.css">
+    <link rel="stylesheet" href="../../assets/style/css/main.css">
 
     <title>Welcome to contact-list</title>
 </head>
@@ -89,11 +89,11 @@
 
 
 <!-- Javacript files-->
-<script src="assets/js/jquery.js"></script>
+<script src="../../assets/js/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
+<script src="../../assets/vendors/jquery-form-validation/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/login.js"></script>
+<script src="../../assets/js/login.js"></script>
 
 
 </body>
