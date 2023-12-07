@@ -48,6 +48,12 @@ $router->post('/signup-data', function () {
 
 });
 
+$router->get('/forget-pass', function () use ($view) {
+   $view->includeView("forget_pass.php");
+   exit;
+
+});
+
 $router->post('/forget-pass-data', function () {
     require "forget_pass_data.php";
     exit;

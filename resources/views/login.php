@@ -54,7 +54,7 @@
                            placeholder="Enter password"/>
                     <span></span>
                     <div class="mt-2">
-                        <a class="text-decoration-none fw-semibold" href="/forget-password">Forget Password ?</a>
+                        <a class="text-decoration-none fw-semibold" href="/forget-pass">Forget Password ?</a>
                     </div>
 
                 </div>
