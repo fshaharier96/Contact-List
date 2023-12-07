@@ -21,6 +21,8 @@ class User{
 
     public function signup($post){
 
+        print_r($post);
+        echo "this sign up function";
 
 //database connection
         $db_connect = new Database();
@@ -31,7 +33,7 @@ class User{
 
 
             $validator = new Validator();
-            $validation = $validator->validate($_POST, [
+            $validation = $validator->validate($post, [
                 'email' => 'required|email',
                 'username' => 'required',
                 'password' => 'required|min:6',
@@ -52,9 +54,9 @@ class User{
                 $session->set("field_errors", $errors);
             } else {
 
-                $email = $_POST['email'];
-                $username = $_POST['username'];
-                $password = $_POST['password'];
+                $email = $post['email'];
+                $username = $post['username'];
+                $password = $post['password'];
                 $hashedPassword = hash('sha256', $password);
 
                 $sql = "SELECT * FROM login_table WHERE email='{$email}'";
@@ -81,17 +83,26 @@ class User{
                 }
             }
 
-            if (!empty($session->get('error'))) {
+            if (isset($_SESSION['error'])) {
                 $msg = "<div class='alert alert-danger text-center'>" . $session->get('error') . "</div>";
-                unset($_SESSION['error']);
+                header("Location:/signup");
+
             }
 
             if (isset($_SESSION['success'])) {
                 $msg = "<div class='alert alert-success text-center'>" . $session->get('success') . "<a class='text-dark ms-1 text-decoration-none' href='{$host}'><strong>Log in</strong></a></div>";
-                unset($_SESSION['success']);
+                header("Location:/signup");
             }
 
 
+        if ( isset( $_SESSION['field_errors'] ) ) {
+           header("Location:/signup");
+
+
+//                echo '<pre>';
+//                print_r( $field_errors );
+//                echo '</pre>';
+        }
 
     }
 

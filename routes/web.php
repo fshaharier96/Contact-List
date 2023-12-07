@@ -31,14 +31,20 @@ $router->get('/login', function () use ($view) {
 
 $router->get('/signup', function () use ($view) {
     $view->includeView('signup.php');
+    exit;
 
 });
 
-$router->post('/signup-data', function () use ($user){
-    if(isset($_POST['submit'])){
-        $user->signup($_POST);
-    }
-    exit;
+$router->post('/signup-data', function () {
+
+//    print_r($_POST);
+//    echo "this is route fucntion";
+    $post=$_POST;
+    $user=new User();
+     $user->signup($post);
+     exit;
+
+
 
 });
 

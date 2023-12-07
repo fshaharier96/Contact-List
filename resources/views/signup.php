@@ -1,4 +1,7 @@
+<?php
 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,33 +37,32 @@
         <div class="col-4 custom-col-height px-4 py-3 mb-5 shadow background">
             <div id="error-success-messages">
 				<?php
-				if ( isset( $msg ) ) {
-					echo $msg;
+				if ( isset($_SESSION['success'] ) ) {
+					echo "<div class='alert alert-success text-center'>" .  $_SESSION['success'] . "<a class='text-dark ms-1 text-decoration-none' href='/login'><strong>Log in</strong></a></div>";
+                    unset($_SESSION['success']);
 				}
+                if ( isset($_SESSION['error'] ) ) {
+                    echo "<div class='alert alert-danger text-center'>" . $_SESSION['error'] . "</div>";
+                    unset($_SESSION['error']);
+                }
 				?>
             </div>
 
 			<?php
 
 
-			if ( isset( $_SESSION['field_errors'] ) ) {
-				$field_errors = $_SESSION['field_errors'];
-				unset( $_SESSION['field_errors'] );
 
-//                echo '<pre>';
-//                print_r( $field_errors );
-//                echo '</pre>';
-			}
 			?>
-            <form id="signupForm" action="" method="post">
+            <form id="signupForm" action="/signup-data" method="post">
                 <div class="form-group mb-3">
                     <label for="email_field" class="form-label">Email</label>
                     <input id="email_field" type="email" name="email" class="form-control border border-secondary"
                            placeholder="Enter valid email"/>
 
 					<?php
-					if ( isset( $field_errors['email'] ) ) {
-						echo '<div class="invalid-feedback">' . $field_errors['email'] . '</div>';
+					if ( isset( $_SESSION['field_errors'] ) ) {
+						echo '<div class="invalid-feedback">' .  $_SESSION['field_errors']['email'] . '</div>';
+                        unset($_SESSION['field_errors']['email']);
 					}
 					?>
                     <span></span>
@@ -70,8 +72,10 @@
                     <input id="username_field" type="text" name="username"
                            class="form-control border border-secondary" placeholder="Enter username"/>
 					<?php
-					if ( isset( $field_errors['username'] ) ) {
-						echo '<div class="invalid-feedback">' . $field_errors['username'] . '</div>';
+					if ( isset( $_SESSION['field_errors']) ) {
+						echo '<div class="invalid-feedback">' . $_SESSION['field_errors']['username'] . '</div>';
+                        unset($_SESSION['field_errors']['username']);
+
 					}
 					?>
                     <span></span>
@@ -82,8 +86,9 @@
                     <input id="password_field" type="password" name="password"
                            class="form-control border border-secondary" placeholder="Enter password"/>
 					<?php
-					if ( isset( $field_errors['password'] ) ) {
-						echo '<div class="invalid-feedback">' . $field_errors['password'] . '</div>';
+					if ( isset( $_SESSION['field_errors']) ) {
+						echo '<div class="invalid-feedback">' . $_SESSION['field_errors']['password']. '</div>';
+                        unset($_SESSION['field_errors']['password']);
 					}
 					?>
                     <span></span>
@@ -94,9 +99,11 @@
                     <input id="c_password_field" type="password" name="confirm_password"
                            class="form-control border border-secondary" placeholder="Retype password"/>
 					<?php
-					if ( isset( $field_errors['confirm_password'] ) ) {
-						echo '<div class="invalid-feedback">' . $field_errors['confirm_password'] . '</div>';
-					}
+					if ( isset( $_SESSION['field_errors']) ) {
+						echo '<div class="invalid-feedback">' .  $_SESSION['field_errors']['confirm_password'] . '</div>';
+                        unset($_SESSION['field_errors']['confirm_password']);
+
+                    }
 					?>
                     <span></span>
                 </div>
@@ -105,8 +112,9 @@
                            id="agree_terms"/>
                     <label id="check-label-id" class="form-check-label" for="agree_terms">Agree to our terms & conditions</label>
 					<?php
-					if ( isset( $field_errors['agree_terms'] ) ) {
-						echo '<div class="invalid-feedback">' . $field_errors['agree_terms'] . '</div>';
+					if ( isset($_SESSION['field_errors'] ) ) {
+						echo '<div class="invalid-feedback">' . $_SESSION['field_errors']['agree_terms'] . '</div>';
+                        unset($_SESSION['field_errors']);
 					}
 					?>
                     <span></span>
