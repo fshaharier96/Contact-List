@@ -1,6 +1,6 @@
 <?php
 session_start();
-$user_id=$id1;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ $user_id=$id1;
 <div class="container-fluid  h-100">
     <div class="row  d-flex justify-content-center align-items-center h-100">
         <div class="col-4 h-50 shadow bg-info-subtle d-flex align-items-center justify-content-center">
-            <form class="form-control p-3" action="/reset-verification-data/<?php echo $user_id ?>" method="post">
+            <form class="form-control p-3" action="/reset-verification-data/<?php echo $id1?>" method="post">
                 <div class="mb-4 text-center">
                     <label for="exampleInputPassword1" class="form-label fs-5 text-center">Enter verification code</label>
                     <input type="number" name="reset_code" class="form-control border border-secondary">
