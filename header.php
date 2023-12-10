@@ -7,11 +7,11 @@
        <div class="col-3  d-flex justify-content-start align-items-center w-25 h-75">
         <div id="header-toggle-button" class="me-4"><i class="fa-solid fa-bars fs-4"></i></div>
         <span class="me-3">
-            <a  href="home.php"><i class="fa-solid fa-address-book fs-3 text-primary"></i>
+            <a  href="resources/views/home.php"><i class="fa-solid fa-address-book fs-3 text-primary"></i>
            </a>
         </span>
         <span class="fs-4 text-secondary">
-            <a class="text-decoration-none text-secondary" href="home.php">Contacts Manage</a>
+            <a class="text-decoration-none text-secondary" href="resources/views/home.php">Contacts Manage</a>
         </span>
      </div>
 

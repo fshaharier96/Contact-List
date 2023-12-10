@@ -40,7 +40,7 @@
 
         <div class="col-md-3 custom-col-height px-4 py-3 shadow background">
 
-            <form id="loginForm" method="post">
+            <form id="loginForm" action="/login-data" method="post">
                 <div id="error"></div>
                 <div class="mb-3 mt-3">
                     <label for="email_id" class="form-label">Email</label>

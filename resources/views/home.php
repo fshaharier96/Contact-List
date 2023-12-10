@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="assets/images/fav_icon.png" type="image/x-icon">
+    <link rel="icon" href="../../assets/images/fav_icon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -19,11 +19,11 @@
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
      <!--awsome notification files-->
-     <link rel="stylesheet" href="assets/vendors/awsome-notification/style.css"></link>
-     <script src="assets/vendors/awsome-notification/index.var.js"></script>
+     <link rel="stylesheet" href="../../assets/vendors/awsome-notification/style.css"></link>
+     <script src="../../assets/vendors/awsome-notification/index.var.js"></script>
 
 
-    <link rel="stylesheet" href="assets/style/css/main.css">
+    <link rel="stylesheet" href="../../assets/style/css/main.css">
     <title>Document</title>
 </head>
 <body>
@@ -85,7 +85,7 @@
                 <!--modal starts -->
                 <div class="container-fluid w-100 h-100 shadow position-absolute  p-4 bg-dark bg-opacity-25 top-0 start-0  d-flex justify-content-center align-items-center d-none home-modal">
 
-                    <form action="import.php" method="post" class=" bg-white bg-opacity-100 p-4 col-2" enctype="multipart/form-data">
+                    <form action="../../import.php" method="post" class=" bg-white bg-opacity-100 p-4 col-2" enctype="multipart/form-data">
 
                     <h5 class="mb-3">Import contacts</h5>
                     <label id="modalLabelId" for="fileInput" class="btn btn-sm btn-primary">select file</label>
@@ -135,10 +135,10 @@
    </div>
 
    
-   <script src="assets/js/jquery.js"></script>
+   <script src="../../assets/js/jquery.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="assets/js/header.js"></script>
-   <script src="assets/js/home.js"></script>
+   <script src="../../assets/js/header.js"></script>
+   <script src="../../assets/js/home.js"></script>
     
 </body>
 </html>

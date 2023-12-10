@@ -14,17 +14,55 @@ include_once "classes/SessionManager.php";
 class User
 {
 
-    public function login()
+    public function login($post)
     {
+        $db_connect = new Database();
+        $conn = $db_connect->conn;
+        session_start();
+
+
+            $validator = new Validator();
+            $validation = $validator->validate($post, [
+                'email' => 'required|email',
+                'password' => 'required|min:6'
+            ]);
+
+
+            if ($validation->fails()) {
+                echo "Invalid username or password entered";
+
+            } else {
+
+                $email = $post['email'];
+                $password = $post['password'];
+                $hashedPassword = hash('sha256', $password);
+                $sql = "SELECT * FROM login_table WHERE email='{$email}' AND password='{$hashedPassword}'";
+                $result = mysqli_query($conn, $sql) or die("query unsuccessful : " . mysqli_error($conn));
+                if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['user'] = $row['username'];
+//
+                    header("Location:/home");
+
+                    // echo "data is correct";
+//            header("Location:{$host}home.php");
+                } else {
+                    echo "Incorrect username or  password from php file";
+
+                }
+
+
+            }
 
 
     }
 
-    public function logout()
-    {
-
-
-    }
+//    public function logout()
+//    {
+//
+//
+//    }
 
     public function signup($post)
     {

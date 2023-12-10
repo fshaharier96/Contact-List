@@ -29,6 +29,13 @@ $router->get('/login', function () use ($view) {
     exit;
 });
 
+$router->post('/login-data', function () {
+    $post = $_POST;
+    $user = new User();
+    $user->login($post);
+    exit;
+});
+
 $router->get('/signup', function () use ($view) {
     $view->includeView('signup.php');
     exit;
@@ -43,7 +50,6 @@ $router->post('/signup-data', function () {
     $user = new User();
     $user->signup($post);
     exit;
-
 
 });
 
@@ -94,6 +100,12 @@ $router->post('/newpass-set-data/(\d+)', function ($id4) {
     exit;
 
 });
+
+$router->get('/home', function () use ($view) {
+    $view->includeView('home.php');
+    exit;
+});
+
 
 // Run the router
 $router->run();
