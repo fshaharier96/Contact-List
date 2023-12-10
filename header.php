@@ -51,7 +51,7 @@
                     <i class="fa-solid fa-question custom-header-icon"></i>
                 </div>
                 <div class="header-logout-btn ">
-                <a href="logout.php"><i title="Log out" class="fa-solid fa-right-from-bracket fs-4 custom-header-icon"></i></a>
+                <a href="/logout"><i title="Log out" class="fa-solid fa-right-from-bracket fs-4 custom-header-icon"></i></a>
                 </div>
         </div>
 

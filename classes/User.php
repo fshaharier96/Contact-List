@@ -16,9 +16,12 @@ class User
 
     public function login($post)
     {
+        // database instance
         $db_connect = new Database();
         $conn = $db_connect->conn;
-        session_start();
+
+        //session instance
+        $session = new SessionManager();
 
 
             $validator = new Validator();
@@ -29,7 +32,17 @@ class User
 
 
             if ($validation->fails()) {
-                echo "Invalid username or password entered";
+                $validation_errors = $validation->errors();
+                $errors = $validation_errors->firstOfAll();
+
+                /* echo '<pre>';
+                 print_r($errors);
+                 echo '</pre>';*/
+
+                $session->set("login_error", "Invalid username or password");
+                $session->set("login_field_errors", $errors);
+                header('Location:/');
+                exit;
 
             } else {
 
@@ -42,13 +55,15 @@ class User
                     $row = mysqli_fetch_assoc($result);
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['user'] = $row['username'];
-//
-                    header("Location:/home");
 
-                    // echo "data is correct";
-//            header("Location:{$host}home.php");
+                    header("Location:/home");
+                    exit;
+
+
                 } else {
-                    echo "Incorrect username or  password from php file";
+                    $session->set("login_error", "Incorrect username or password");
+                    header('Location:/');
+                    exit;
 
                 }
 
@@ -58,11 +73,18 @@ class User
 
     }
 
-//    public function logout()
-//    {
-//
-//
-//    }
+    public function logout()
+    {
+        session_start();
+        if(isset($_SESSION['user'])){
+            session_unset();
+            session_destroy();
+            header("Location:/login");
+        }else{
+            echo "you are already  logged out";
+        }
+
+    }
 
     public function signup($post)
     {

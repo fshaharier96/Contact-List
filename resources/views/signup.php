@@ -48,11 +48,6 @@ session_start();
 				?>
             </div>
 
-			<?php
-
-
-
-			?>
             <form id="signupForm" action="/signup-data" method="post">
                 <div class="form-group mb-3">
                     <label for="email_field" class="form-label">Email</label>

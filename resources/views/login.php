@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -39,19 +39,38 @@
         </div>
 
         <div class="col-md-3 custom-col-height px-4 py-3 shadow background">
-
+            <div id="error-messages">
+                <?php
+                if ( isset($_SESSION['login_error'] ) ) {
+                    echo "<div class='alert alert-danger text-center'>" . $_SESSION['login_error'] . "</div>";
+                    unset($_SESSION['login_error']);
+                }
+                ?>
+            </div>
             <form id="loginForm" action="/login-data" method="post">
                 <div id="error"></div>
                 <div class="mb-3 mt-3">
                     <label for="email_id" class="form-label">Email</label>
                     <input id="email_id" type="email" name="email" class="form-control border border-secondary"
                            placeholder="Enter email"/>
+                    <?php
+                    if ( isset( $_SESSION['login_field_errors']['email'] ) ) {
+                        echo '<div class="invalid-feedback">' . $_SESSION['login_field_errors']['email']. '</div>';
+                        unset($_SESSION['login_field_errors']['email']);
+                    }
+                    ?>
                     <span></span>
                 </div>
                 <div class="mb-3">
                     <label for="password_id" class="form-label">Password</label>
                     <input id="password_id" type="password" name="password" class="form-control border border-secondary"
                            placeholder="Enter password"/>
+                    <?php
+                    if ( isset( $_SESSION['login_field_errors']['password'] ) ) {
+                        echo '<div class="invalid-feedback">' . $_SESSION['login_field_errors']['password']. '</div>';
+                        unset($_SESSION['login_field_errors']['password']);
+                    }
+                    ?>
                     <span></span>
                     <div class="mt-2">
                         <a class="text-decoration-none fw-semibold" href="/forget-pass">Forget Password ?</a>

@@ -106,6 +106,12 @@ $router->get('/home', function () use ($view) {
     exit;
 });
 
+$router->get('/logout', function () {
+    $user = new User();
+    $user->logout();
+    exit;
+});
+
 
 // Run the router
 $router->run();
