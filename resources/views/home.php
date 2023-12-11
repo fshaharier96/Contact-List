@@ -1,5 +1,6 @@
 <?php
-   include_once "classes/database.php";
+   $dir=dirname(dirname(__DIR__));
+   include_once $dir."/classes/database.php";
    $db_connect=new Database();
    $conn=$db_connect->conn;
 
@@ -28,7 +29,7 @@
 </head>
 <body>
 <?php
- include_once "header.php";
+ include_once $dir."/header.php";
 ?>
   
     <div class="container shadow p-4">
