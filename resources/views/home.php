@@ -24,6 +24,7 @@
      <script src="../../assets/vendors/awsome-notification/index.var.js"></script>
 
 
+
     <link rel="stylesheet" href="../../assets/style/css/main.css">
     <title>Document</title>
 </head>
@@ -135,11 +136,12 @@
 
    </div>
 
-   
-   <script src="../../assets/js/jquery.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="../../assets/js/header.js"></script>
-   <script src="../../assets/js/home.js"></script>
+
+<script src="../../assets/js/jquery.js"></script>
+<!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>-->
+<!--   <script src="../../assets/js/header.js"></script>-->
+<!--   <script src="../../assets/js/home.js"></script>-->
+<script src="../../dist/main-output.js"></script>
     
 </body>
 </html>
