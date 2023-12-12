@@ -1,3 +1,5 @@
+import '../style/css/main.css';
+
 import './app.js';
 import './create.js';
 import './details.js';
