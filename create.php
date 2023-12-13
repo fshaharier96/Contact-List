@@ -3,7 +3,7 @@ require('vendor/autoload.php');
 
 use Rakit\Validation\Validator;
 
-include_once "classes/database.php";
+include_once "classes/Database.php";
 include_once "classes/SessionManager.php";
 
 //database connection

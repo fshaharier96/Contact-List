@@ -1,6 +1,6 @@
 <?php
 $dir=dirname(__DIR__);
-include_once $dir."/classes/config.php";
+include_once $dir."/classes/Config.php";
 
 /**
  * Database create connection with  database

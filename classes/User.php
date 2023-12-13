@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 use Rakit\Validation\Validator;
 
 require 'vendor/autoload.php';
-include_once "classes/database.php";
+include_once "classes/Database.php";
 include_once "classes/SessionManager.php";
 
 

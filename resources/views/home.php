@@ -1,6 +1,6 @@
 <?php
    $dir=dirname(dirname(__DIR__));
-   include_once $dir."/classes/database.php";
+   include_once $dir . "/classes/Database.php";
    $db_connect=new Database();
    $conn=$db_connect->conn;
 
@@ -87,7 +87,7 @@
                 <!--modal starts -->
                 <div class="container-fluid w-100 h-100 shadow position-absolute  p-4 bg-dark bg-opacity-25 top-0 start-0  d-flex justify-content-center align-items-center d-none home-modal">
 
-                    <form action="../../import.php" method="post" class=" bg-white bg-opacity-100 p-4 col-2" enctype="multipart/form-data">
+                    <form action="/import" method="post" class=" bg-white bg-opacity-100 p-4 col-2" enctype="multipart/form-data">
 
                     <h5 class="mb-3">Import contacts</h5>
                     <label id="modalLabelId" for="fileInput" class="btn btn-sm btn-primary">select file</label>

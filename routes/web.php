@@ -3,6 +3,7 @@ $dir = dirname(__DIR__);
 require_once $dir . '/vendor/autoload.php'; // Include the Composer autoloader
 require_once $dir . '/classes/View.php';
 require_once $dir . '/classes/User.php';
+require_once $dir . '/classes/ImportExport.php';
 
 use Bramus\Router\Router;
 
@@ -12,6 +13,12 @@ $view = new View();
 //Initialize user class
 
 $user = new User();
+
+//Initialize user class
+
+$importExport = new ImportExport();
+
+
 
 
 // Initialize the router
@@ -105,6 +112,25 @@ $router->get('/home', function () use ($view) {
     $view->includeView('home.php');
     exit;
 });
+
+$router->post('/import', function () {
+
+    $post = $_POST;
+    global $importExport;
+    $importExport->import($post);
+    exit;
+
+});
+
+$router->post('/export', function () {
+
+    $post = $_POST;
+    global $importExport;
+    $importExport->export();
+    exit;
+
+});
+
 
 $router->get('/logout', function () {
     $user = new User();

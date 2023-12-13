@@ -37,11 +37,12 @@
         </div>
 
         <div class="col-3 w-25 header-setting-container d-flex justify-content-end">
-        <i class=""></i>
-               <div title="settings menu" class="header-setting-btn">
-                    <button>
-                        <i class="fa-solid fa-download fs-4 custom-header-icon"></i>
+               <div title="Export Contact" class="header-setting-btn d-flex align-items-center">
+                   <form action="/export" method="post">
+                    <button type="submit" name="submit" class="border border-0 bg-transparent">
+                        <i class="fa-solid fa-file-export text-secondary fs-5"></i>
                     </button>
+                   </form>
                 </div>
 
                 <div title="settings menu" class="header-setting-btn">
@@ -50,7 +51,7 @@
                 <div title="help menu" class="header-help-btn">
                     <i class="fa-solid fa-question custom-header-icon"></i>
                 </div>
-                <div class="header-logout-btn ">
+                <div class="header-logout-btn">
                 <a href="/logout"><i title="Log out" class="fa-solid fa-right-from-bracket fs-4 custom-header-icon"></i></a>
                 </div>
         </div>
