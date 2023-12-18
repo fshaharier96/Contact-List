@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0abc0326d3599ad24d1fee4742c22907",
+    "content-hash": "f3f95749507548fedfbeaeba78e76802",
     "packages": [
         {
             "name": "bramus/router",
@@ -1526,7 +1526,60 @@
             "time": "2023-11-12T22:43:29+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "schuhwerk/php-error-log-viewer",
+            "version": "v0.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schuhwerk/php-error-log-viewer.git",
+                "reference": "d3f394880a7117dde027618001b269d8ab0547f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schuhwerk/php-error-log-viewer/zipball/d3f394880a7117dde027618001b269d8ab0547f1",
+                "reference": "d3f394880a7117dde027618001b269d8ab0547f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7 || ^8"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+                "phpunit/phpunit": "^9",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "type": "development-tool",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "schuhwerk",
+                    "email": "vitus.schuhwerk@gmail.com"
+                }
+            ],
+            "description": "A single-file GUI for your php log files which groups similar errors. Written in PHP and Vue.js.",
+            "homepage": "https://github.com/schuhwerk/php-error-log-viewer",
+            "keywords": [
+                "dev",
+                "error",
+                "errors",
+                "gui",
+                "helper",
+                "log",
+                "logs",
+                "single-file",
+                "vue"
+            ],
+            "support": {
+                "issues": "https://github.com/schuhwerk/php-error-log-viewer/issues",
+                "source": "https://github.com/schuhwerk/php-error-log-viewer"
+            },
+            "time": "2022-01-29T18:01:12+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
@@ -1534,5 +1587,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

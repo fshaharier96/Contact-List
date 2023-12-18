@@ -20,6 +20,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/rakit/validation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/schuhwerk/php-error-log-viewer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/setono/php-templates" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />

@@ -1,9 +1,11 @@
 <?php
 $dir = dirname(__DIR__);
+
 require_once $dir . '/vendor/autoload.php'; // Include the Composer autoloader
 require_once $dir . '/classes/View.php';
 require_once $dir . '/classes/User.php';
 require_once $dir . '/classes/ImportExport.php';
+require_once $dir . '/classes/Misc.php';
 
 use Bramus\Router\Router;
 
@@ -25,6 +27,18 @@ $importExport = new ImportExport();
 $router = new Router();
 $router->setBasePath('/');
 // Define routes
+
+$router->get('/error-log/(\w+)', function ($name) {
+	new Misc($name);
+	exit;
+});
+
+$router->get('/error-logs', function () {
+	global  $dir;
+	require $dir . "/resources/views/log_view.php";
+	exit;
+});
+
 $router->get('/', function () {
     require "index.php";
     exit;
@@ -114,6 +128,9 @@ $router->get('/home', function () use ($view) {
 });
 
 $router->post('/import', function () {
+
+	echo 'hi there';
+	exit();
 
     $post = $_POST;
     $file= $_FILES;

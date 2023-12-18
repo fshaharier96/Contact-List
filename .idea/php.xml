@@ -35,9 +35,10 @@
       <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/schuhwerk/php-error-log-viewer" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.1">
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.2">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpStanOptionsConfiguration">

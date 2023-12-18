@@ -87,3 +87,4 @@ vendor/
 # Ignore .idea folder
 
 node_modules
+logs
