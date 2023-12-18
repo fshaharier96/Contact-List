@@ -116,8 +116,9 @@ $router->get('/home', function () use ($view) {
 $router->post('/import', function () {
 
     $post = $_POST;
+    $file= $_FILES;
     global $importExport;
-    $importExport->import($post);
+    $importExport->import();
     exit;
 
 });
