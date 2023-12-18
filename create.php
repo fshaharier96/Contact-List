@@ -2,6 +2,10 @@
 require('vendor/autoload.php');
 
 use Rakit\Validation\Validator;
+use Intervention\Image\ImageManager;
+$manager = new ImageManager(
+    new Intervention\Image\Drivers\Gd\Driver()
+);
 
 include_once "classes/Database.php";
 include_once "classes/SessionManager.php";
@@ -79,10 +83,15 @@ if (isset($_POST['submit'])) {
             $fileNameWithId = $last_id . "-" . $fileName;
             $folder = "uploads/" . $fileNameWithId;
             move_uploaded_file($fileTempName, $folder);
+            $image = $manager->read($folder);
+            $image->resize(height: 300);
+
             $sql2 = "UPDATE contact_info_table SET contact_image='{$folder}' WHERE id={$last_id}";
             $result = mysqli_query($conn, $sql2) or die("query unsuccessful");
 
+
             header("Location:{$host}home.php");
+            exit;
 
         } else {
             $_SESSION['failed_msg'] = "data submission failed";
