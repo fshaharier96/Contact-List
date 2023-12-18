@@ -23,6 +23,7 @@ class ImportExport
         // load the spreasheet file
         $spreadsheet = IOFactory::load($inputFileName);
 
+        // get active sheet
 
         $sheet = $spreadsheet->getActiveSheet();
 
@@ -30,6 +31,14 @@ class ImportExport
         $highestRow = $sheet->getHighestRow();
         $highestColumn = $sheet->getHighestColumn();
 
+        $sql="SELECT phone,email FROM contact_info_table";
+        $result=mysqli_query($conn,$sql) or die("connention failed");
+        if(mysqli_num_rows($result)){
+            while($dbrow=mysqli_fetch_assoc($result)){
+                $dbValues=array();
+                array_push()
+            }
+        }
 
         for ($row = 1; $row <= $highestRow; ++$row) {
             $rowData = [];
@@ -38,44 +47,28 @@ class ImportExport
                 // Store cell values in an array
                 $rowData[] = $cellValue;
 
-
             }
 
+         $sql1 = "INSERT INTO contact_info_table(user_id,contact_image,first_name,last_name,company,job_title,department,email,phone,country,street_address,city,postal_code,birth_date,favourite,trash_id)
+                 VALUES ('".$rowData[0]."','".$rowData[1]."','".$rowData[2]."','".$rowData[3]."','".$rowData[4]."','".$rowData[5]."','".$rowData[6]."','".$rowData[7]."','".$rowData[8]."','".$rowData[9]."',
+                 '".$rowData[10]."','".$rowData[11]."','".$rowData[12]."','".$rowData[13]."','".$rowData[14]."','".$rowData[15]."')";
 
-            // Use your database insert query here, assuming a table named 'excel_data'
+            $result1 = mysqli_query($conn, $sql1) or die("query unsuccessful: ");
 
+                    if(!$result1)
+                    {
+                        echo "<script type=\"text/javascript\">
+              alert(\"Invalid File:Please Upload CSV or Excel File.\");
+              window.location = \"/home\"
+              </script>";
+                    }
+                    else {
+                        header("Location:/home");
+                    }
 
         }
 
 
-//            if($_FILES["file"]["size"] > 0)
-//            {
-//                $file = fopen($filename, "r");
-//                while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
-//                {
-//                    // echo $getData[0]."<br/>";
-//                    // echo $getData[1]."<br/>";
-//                    // echo $getData[2]."<br/>";
-//
-//                    $sql = "INSERT INTO contact_info_table(user_id,contact_image,first_name,last_name,company,job_title,department,email,phone,country,street_address,city,postal_code,birth_date,favourite,trash_id)
-//                   VALUES ('".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."','".$getData[4]."','".$getData[5]."','".$getData[6]."','".$getData[7]."','".$getData[8]."','".$getData[9]."','".$getData[10]."','".$getData[11]."','".$getData[12]."','".$getData[13]."','".$getData[14]."','".$getData[15]."')";
-//
-//                    $result = mysqli_query($conn, $sql) or die("query unsuccessful: ".mysqli_error($conn));
-//                    if(!$result)
-//                    {
-//                        echo "<script type=\"text/javascript\">
-//              alert(\"Invalid File:Please Upload CSV File.\");
-//              window.location = \"/home\"
-//              </script>";
-//                    }
-//                    else {
-//                        header("Location:/home");
-//                    }
-//                }
-//
-//                fclose($file);
-//            }
-    }
 }
 
 public
