@@ -3,6 +3,9 @@
         "vlucas/phpdotenv": "^5.6",
         "rakit/validation": "^1.4",
         "phpmailer/phpmailer": "^6.8",
-        "bramus/router": "~1.6"
+        "bramus/router": "~1.6",
+        "intervention/image": "^3.1",
+        "setono/php-templates": "^1.2",
+        "phpoffice/phpspreadsheet": "^1.29"
     }
 }

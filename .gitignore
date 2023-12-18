@@ -84,3 +84,5 @@ fabric.properties
 .env
 # Ignore vendor folder
 vendor/
+# Ignore .idea folder
+.idea/

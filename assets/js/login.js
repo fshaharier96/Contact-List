@@ -54,31 +54,31 @@
                 $(element).next('span').text('Looks good !').addClass('valid').css("color", "#198754");
             },
 
-            submitHandler:function(form){
-                $.ajax({
-                    url: 'login_data.php', // Your PHP login script
-                    type: 'POST',
-                    data:$(form).serialize(),
-                    success: function (response) {
-                        if (response == 1) {
-                            window.location = 'home.php'; // Redirect to dashboard on successful login
-                        } else {
-                            $('#error').text(response).addClass("alert alert-danger").css("text-align","center"); // Display error message
-                        }
-                    },
-                    error:function(xhr,status,error){
-                        if (xhr.status === 404) {
-                            alert('Resource not found.');
-                        } else if (status === 'timeout') {
-                            alert('The request timed out.');
-                        } else {
-                            alert('An error occurred: ' + error);
-                        }
-                    }
-
-                });
-                return false;
-            }
+            // submitHandler:function(form){
+            //     $.ajax({
+            //         url: 'login_data.php', // Your PHP login script
+            //         type: 'POST',
+            //         data:$(form).serialize(),
+            //         success: function (response) {
+            //             if (response == 1) {
+            //                 window.location = 'home.php'; // Redirect to dashboard on successful login
+            //             } else {
+            //                 $('#error').text(response).addClass("alert alert-danger").css("text-align","center"); // Display error message
+            //             }
+            //         },
+            //         error:function(xhr,status,error){
+            //             if (xhr.status === 404) {
+            //                 alert('Resource not found.');
+            //             } else if (status === 'timeout') {
+            //                 alert('The request timed out.');
+            //             } else {
+            //                 alert('An error occurred: ' + error);
+            //             }
+            //         }
+            //
+            //     });
+            //     return false;
+            // }
 
         });
 

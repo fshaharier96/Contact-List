@@ -1,5 +1,5 @@
 <?php
-  include_once "classes/database.php";
+  include_once "classes/Database.php";
   $db_connect=new Database();
   $conn=$db_connect->conn;
 
