@@ -85,4 +85,5 @@ fabric.properties
 # Ignore vendor folder
 vendor/
 # Ignore .idea folder
-.idea/
+
+node_modules
