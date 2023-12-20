@@ -24,6 +24,8 @@ define( "MAIL_PORT", $_ENV['MAIL_PORT'] );
 define( "SITE_ROOT", $root );
 
 
+
+
 // echo "this is server variable".SERVER;
 
 

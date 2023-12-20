@@ -146,7 +146,9 @@
                 this.rowsDisplay.sort(this.compareEntries());
             },
             getLog(comp) {
+                // axios.get('http://rakib.test/error-log/log').then(response => (comp.setNewData(response)))
                 axios.get('http://rakib.test/error-log/log').then(response => (comp.setNewData(response)))
+
             },
             update(comp) {
                 if (!comp.autoreload | comp.documentHidden) {

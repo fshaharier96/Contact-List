@@ -16,7 +16,7 @@ class ImportExport {
 	 * @return void
 	 */
 	public function import() {
-		/*$db_connect = new Database();
+		$db_connect = new Database();
 		$conn       = $db_connect->conn;
 
 		// inilializing Spreadsheet Class
@@ -39,13 +39,20 @@ class ImportExport {
 
 		$sql = "SELECT phone,email FROM contact_info_table";
 		$result = mysqli_query( $conn, $sql ) or die( "connention failed" );
+        $dbItems=array();
 
 		if ( mysqli_num_rows( $result ) ) {
 			while ( $dbrow = mysqli_fetch_assoc( $result ) ) {
-				$dbValues = [];
-				array_push()
+                $singleDbItem=$dbrow['email']."-".$dbrow['phone'];
+               array_push($dbItems,$singleDbItem);
             }
+//            echo "<pre>";
+//            print_r($dbItems);
+//            echo "</pre>";
+
 		}
+
+
 
 		for ( $row = 1; $row <= $highestRow; ++ $row ) {
 			$rowData = [];
@@ -55,6 +62,30 @@ class ImportExport {
 				$rowData[] = $cellValue;
 
 			}
+
+
+           $combineStr=$rowData[7]."-".$rowData[8];
+
+            for($i=0; $i<count($dbItems); $i++){
+
+                if($combineStr==$dbItems[$i]){
+                    echo "duplicate item found";
+                    echo "<br/>";
+//                    array_pop($rowData);
+
+                    $lastKey = array_keys($rowData)[count($rowData) - 1];
+
+                    $lastItem = $rowData[$lastKey];
+                    unset($rowData[$lastKey]);
+                    echo "<br/>";
+
+                }
+            }
+
+            echo "<pre>";
+            print_r($dbItems);
+            echo "</pre>";
+
 
 			$sql1 = "INSERT INTO contact_info_table(user_id,contact_image,first_name,last_name,company,job_title,department,email,phone,country,street_address,city,postal_code,birth_date,favourite,trash_id)
                  VALUES ('" . $rowData[0] . "','" . $rowData[1] . "','" . $rowData[2] . "','" . $rowData[3] . "','" . $rowData[4] . "','" . $rowData[5] . "','" . $rowData[6] . "','" . $rowData[7] . "','" . $rowData[8] . "','" . $rowData[9] . "',
@@ -70,7 +101,7 @@ class ImportExport {
 			} else {
 				header( "Location:/home" );
 			}
-		}*/
+		}
 
 	}//end method import
 

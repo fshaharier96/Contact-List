@@ -1,5 +1,6 @@
 <?php
 $dir = dirname( __DIR__ );
+
 include_once $dir . "/classes/Config.php";
 
 /**
@@ -14,7 +15,9 @@ class Misc {
 
 
 		$settings = [
-			'file_path' => SITE_ROOT . '/logs/error-rakib.log',
+            'file_path' => SITE_ROOT . '/logs/error_rakib.log',
+
+
 		];
 
 		$log_handler = new Php_Error_Log_Viewer\LogHandler($settings);

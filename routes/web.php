@@ -129,8 +129,6 @@ $router->get('/home', function () use ($view) {
 
 $router->post('/import', function () {
 
-	echo 'hi there';
-	exit();
 
     $post = $_POST;
     $file= $_FILES;
