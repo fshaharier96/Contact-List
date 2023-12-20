@@ -33,12 +33,6 @@ class ImportExport
 
         $sql="SELECT phone,email FROM contact_info_table";
         $result=mysqli_query($conn,$sql) or die("connention failed");
-        if(mysqli_num_rows($result)){
-            while($dbrow=mysqli_fetch_assoc($result)){
-                $dbValues=array();
-                array_push()
-            }
-        }
 
         for ($row = 1; $row <= $highestRow; ++$row) {
             $rowData = [];
