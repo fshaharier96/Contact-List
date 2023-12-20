@@ -7,5 +7,8 @@
         "intervention/image": "^3.1",
         "setono/php-templates": "^1.2",
         "phpoffice/phpspreadsheet": "^1.29"
+    },
+    "require-dev": {
+        "schuhwerk/php-error-log-viewer": "^0.10.0"
     }
 }
